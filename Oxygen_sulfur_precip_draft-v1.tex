@@ -234,14 +234,14 @@ The NSIM and SIM projectile and target processes used are the following:
 where X stands for the projectile, either O or S. $q$ is the charge state and depends on the number of electrons bound to the ion; $q$ runs from 0 to 8 for O and from 0 to 16 for S.
 Some processes are not possible for neutral or singly ionized atoms or, similarly, for fully stripped or O$^{7+}$ and S$^{15+}$ ions (e.g., for neutral O and S, SC and DC are not possible, or for O$^{8+}$ and S$^{16+}$, SS and DS are not considered).
 
-The explicit calculation and implication to the stopping power that going from the NSIM to SIM cross-sections produces can be found in \citet{schultz2018}; but for the model presented, it has shifted the peaks of the charge state equilibrium fractions down to a lower initial ion energy, ultimately requiring less energy to fully strip both oxygen and sulfur ions.
+The explicit calculation and implication of using SIM cross-sections rather than NSIM cross-sections can be found in \citet{schultz2018}; but for the model presented, it has shifted the peaks of the charge state equilibrium fractions down to a lower initial ion energy, ultimately requiring less energy to fully strip both oxygen and sulfur ions.
 
 \subsection{Charge State Equilibrium Fractions}
 
 In a very broad sense, as an ion precipitates through the atmosphere each collision can result in four different outcomes for the projectile.
 The ion can become excited (e.g. SPEX), become further ionized by losing an electron or two (e.g. DS), become less ionized by gaining an electron or two (e.g. DCAI), or nothing can happen to it while the collision solely affects the target (e.g. SI).
-Each type of interaction is governed by the energy of the precipitating ion, a more energetic ion will generally be stripped of more electrons than one precipitating with less energy.
-This can be shown by the charge state equilibrium fractions in figure \ref{fig:CSDoxy} for oxygen and figure \ref{fig:CSDsul} for sulfur.
+Each type of interaction is governed by the energy of the precipitating ion; that is, a more energetic ion will generally be stripped of more electrons than one precipitating with less energy.
+This can be shown by the charge state equilibrium fractions in Figure \ref{fig:CSDoxy} for oxygen and Figure \ref{fig:CSDsul} for sulfur.
 
 \begin{figure}[ht]
 \centering
@@ -257,10 +257,14 @@ This can be shown by the charge state equilibrium fractions in figure \ref{fig:C
 \label{fig:CSDsul}
 \end{figure}
 
-The charge state equilibrium fractions demonstrate at what energy the ion will reach a given charge state regardless of collision processes undergone or the initial ion energy.
+The charge state equilibrium fractions demonstrate at what energy the ion will reach a given charge state regardless of the collision processes undergone or the initial ion energy; the ion history is immediately forgotten.
 From here, one can see, at a glance, what energies are required for an ion to begin producing X-rays.
 For both oxygen and sulfur the sixth charge state must be reached to begin producing X-rays (O$^{6+}$ and S$^{6+}$ with projectile excitation).
-These charge states are sufficiently reached for both species at an energy between 100-200 keV/u (a total energy of ~2.4 MeV and ~4.8 MeV for oxygen and sulfur, respectively).
+These charge states are sufficiently reached for both species at an energy between 200-300 keV/u, where they become the most probable charge state for the given energy (a total energy of ~3.2 MeV and ~6.4 MeV for oxygen and sulfur, respectively).
+These newly developed equilibrium fractions are no longer in agreement with previous models presented by \citet{ozak2010} and \citet{houston2018}, where they showed an O$^{6+}$ peak at nearly 1 MeV/u and an S$^{6+}$ peak at 600 keV/u.
+
+Not only does it now require less energy to produce charge states capable of emitting X-rays, but the ions are not penetrating the atmosphere as deeply as was previously modeled because more energy is being lost in the middle energy range\footnote{See the stopping power discussion given by \citet{schultz2018}}, affecting the depth effects and predicted observations made by earth based telescopes.
+
 
 \subsection{Depth Effects}
 
@@ -279,13 +283,14 @@ If there is a group of wavelengths, the emission is distributed evenly among eac
 $f_{n}$ is the distribution of X-ray production given to each wavelength.
 If N=2, then $f_{1}$=0.85 and $f_{2}$=0.15; for N=3, $f_{1}$=0.80, $f_{2}$=0.15, and $f_{3}$=0.05.
 $E$ is the total photon energy from emission.
+
 If $E>\Delta E$, where $\Delta E$ is the energy loss for a given process, ion energy, and charge state given in \citet{schultz2018}, then the emission given in Equation \ref{eqn:DEemission} is re-normalized to conserve energy,
 
 \begin{equation}
     \sum_{n=1}^{N}\lambda_{n}f_{n}g=E
 \end{equation}
 
-\noindent where $g=E/\Delta E$.
+\noindent where $g=\Delta E/E$.
 If $E<\Delta E$ then we assume the energy difference is due to emission from lower energy photons not considered in the X-ray spectrum and X-ray inefficiencies in emission from the way the electrons cascade through the electron orbitals.
 
 %  Numbered lines in equations:
