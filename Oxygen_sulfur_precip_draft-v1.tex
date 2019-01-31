@@ -122,6 +122,7 @@ Aside from optimization improvements, the main contrast can be summarized as fol
 \end{itemize}
 
 \subsection{Jovian Atmosphere}
+\label{sec:atm}
 
 \citet{houston2018} used a neutral atmosphere originally presented by \citet{maurellis2001} based on Galileo probe data \citep{seiff1996,seiff1997} and remote observations \citep{sada1998}.
 The same atmosphere is used here, only we have extended the depth from 200 km to -88 km, where 0 km is set to where the pressure is equal to 1 bar (Fig. \ref{fig:atm}).
@@ -146,7 +147,7 @@ Atomic hydrogen is ignored in the well-mixed atmosphere because of how chemicall
 \begin{equation}
 O^{q+} + H_{2} \rightarrow \begin{cases}
 O^{q+} + H_{2}^{+} + e & \text{Single Ionization} \\
-O^{q+} + 2H^{+} + 2e & \text{Double Ionization} 
+O^{q+} + 2H^{+} + 2e & \text{Double Ionization}
 \end{cases}
 \label{eqn:ion}
 \end{equation}
@@ -222,8 +223,8 @@ The NSIM and SIM projectile and target processes used are the following:
 \> X$^{q+}$ + H$_2$ $\rightarrow$ X$^{(q-2)+}$ + H$^+$ + H$^+$ \> $\;\;\;\;\;$ \> double electron capture (DC) \\
 \> X$^{q+}$ + H$_2$ $\rightarrow$ X$^{(q-2)+*}$ + H$^+$ + H$^+$ \> $\;\;\;\;\;$ \> DC+SPEX \\
 \> X$^{q+}$ + H$_2$ $\rightarrow$ X$^{(q-2)+**}$ + H$^+$ + H$^+$ \> $\;\;\;\;\;$ \> DC+DPEX \\
-\> X$^{q+}$ + H$_2$ $\rightarrow$ X$^{(q-1)+}$ + H$+$ + H$^+$ + e \> $\;\;\;\;\;$ \> DC+SS \\
-\> X$^{q+}$ + H$_2$ $\rightarrow$ X$^{(q)+}$ + H$+$ + H$^+$ + 2e \> $\;\;\;\;\;$ \> DC+DS \\
+\> X$^{q+}$ + H$_2$ $\rightarrow$ X$^{(q-1)+}$ + H$^+$ + H$^+$ + e \> $\;\;\;\;\;$ \> DC+SS \\
+\> X$^{q+}$ + H$_2$ $\rightarrow$ X$^{(q)+}$ + H$^+$ + H$^+$ + 2e \> $\;\;\;\;\;$ \> DC+DS \\
 \\
 \> X$^{q+}$ + H$_2$ $\rightarrow$ X$^{q+}$ + H$_2^*$  \> \> target excitation (TEX) \\
 \> X$^{q+}$ + H$_2$ $\rightarrow$ X$^{q+*}$ + H$_2^*$  \> \> TEX+SPEX \\
@@ -259,14 +260,52 @@ This can be shown by the charge state equilibrium fractions in Figure \ref{fig:C
 
 The charge state equilibrium fractions demonstrate at what energy the ion will reach a given charge state regardless of the collision processes undergone or the initial ion energy; the ion history is immediately forgotten.
 From here, one can see, at a glance, what energies are required for an ion to begin producing X-rays.
-For both oxygen and sulfur the sixth charge state must be reached to begin producing X-rays (O$^{6+}$ and S$^{6+}$ with projectile excitation).
+For both oxygen and sulfur the sixth charge state must be reached to begin producing X-rays (O$^{6+}$ and S$^{6+}$ with projectile excitation, or O$^{7+}$ and S$^{7+}$ with charge exchange).
 These charge states are sufficiently reached for both species at an energy between 200-300 keV/u, where they become the most probable charge state for the given energy (a total energy of ~3.2 MeV and ~6.4 MeV for oxygen and sulfur, respectively).
 These newly developed equilibrium fractions are no longer in agreement with previous models presented by \citet{ozak2010} and \citet{houston2018}, where they showed an O$^{6+}$ peak at nearly 1 MeV/u and an S$^{6+}$ peak at 600 keV/u.
 
-Not only does it now require less energy to produce charge states capable of emitting X-rays, but the ions are not penetrating the atmosphere as deeply as was previously modeled because more energy is being lost in the middle energy range\footnote{See the stopping power discussion given by \citet{schultz2018}}, affecting the depth effects and predicted observations made by earth based telescopes.
-
+Not only does it now require less energy to produce charge states capable of emitting X-rays, but the ions are not penetrating the atmosphere as deeply as was previously modeled because more energy is being lost in the middle energy range\footnote{See the stopping power discussion given by \citet{schultz2018}}, affecting the depth effects and predicted X-ray spectra.
 
 \subsection{Depth Effects}
+
+The opacity of the Jovian atmosphere is incorporated into the model using the optical depth of outgoing X-ray photons.
+We look at three different path angles, 0$^{\circ}$, 80$^{\circ}$, and 90$^{\circ}$ (where the angle is measured with respect to the axis of rotation), and with two atmospheric profiles; the density profile shown in Figure \ref{fig:atm} and a well-mixed atmosphere as discussed in Section \ref{sec:atm}.
+The optical depth is given by
+
+\begin{equation}
+    \tau(\lambda,z_{0})=Ch(\theta,z_{0})\sum_{j}\sigma_{j}^{abs}(\lambda)\int\displaylimits_{z_{0}}^{\infty}n_{j}(z)dz
+    \label{eqn:tau}
+\end{equation}
+
+\noindent where $\tau(\lambda,z_{0})$ is the optical depth as a function of emitted photon wavelength, $\lambda$, and the altitude at which the emission occurred, $z_{0}$.
+$Ch(\theta,z_{0})$ is the Chapman function, dependent upon the photon path angle, $\theta$, and the altitude.
+$\sigma_j^{abs}(\lambda)$ is the absorption cross-section summed over each species, $j$ (H$_2$, He, and CH$_4$), and is a function of wavelength.
+$n_j(z)$ is the neutral density of each atmospheric constituent as a function of altitude, integrated from the point of emission out through the top of the atmosphere.
+
+The Chapman function has been approximated to $Ch(0^{\circ} \leq \theta \leq 80^{\circ},z_{0}) \approx \mathrm{sec}(\theta)$ for the first two exit angles and
+
+\begin{equation}
+    Ch(\frac{\pi}{2},z_{0})=\sqrt{\frac{R_J}{H(z_0)}\frac{\pi}{2}}
+    \label{eqn:Chap}
+\end{equation}
+
+\noindent for $\theta$=90$^{0}$, where $R_J$ is the Jovian radii of 71,492 km and $H(z_0)$ is the scale height at altitude $z_0$.
+The spectrum intensity, $I(\lambda)$ can then be calculated as
+
+\begin{equation}
+    4\pi I(\lambda)=\int\displaylimits_{z_0}^{\infty}P(\lambda,z)e^{-\tau(\lambda,z_0)}dz
+    \label{eqn:I}
+\end{equation}
+
+\noindent where $P(\lambda,z)$ is the production rate of X-ray emission as a function of wavelength, $\lambda$ and altitude, $z$.
+To determine the production rate as a function of wavelength there are a couple of things to note before building synthetic spectra.
+
+\subsection{Synthetic X-ray Spectra}
+
+An X-ray can be emitted through either the ion gaining an electron (what we refer to as charge transfer or charge exchange collisions) or the excitation of the ion (called direct excitation).
+Both of these scenarios can result with an electron in an excited state where it will emit photons as it cascades down to a more energy favorable state.
+Although we have many charge transfer and projectile excitation processes we only allow three of each type to ultimately result in the emission of a photon, TI, SC, and SC+SS for charge exchange and SI+SPEX, DI+SPEX, and TEX+SPEX for direct excitation.
+Any collision that results in more than one electron being in an excited state at any time, whether it be through charge exchange, projectile excitation, or a combination of the two (i.e. DC or SC+SPEX collisions), we consider it much more likely for the Auger effect to take place than emission of a photon.
 
 After considering X-ray production from charge exchange processes, X-ray producing direct excitation collisions must be evaluated.
 To do this we have applied a simple approximation method using the same synthetic spectra used for charge exchange, generated by Hui et al.
