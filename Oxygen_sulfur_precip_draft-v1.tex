@@ -100,7 +100,18 @@ enter abstract here
 
 \section{Introduction}
 
+The National Aeronautics and Space Administration's (NASA) Juno mission has now been orbiting Jupiter for nearly three years, at the time of this writing.
+Since arrival, Juno has arguably uncovered more questions than it has answered, although its discoveries are nothing short of amazing.
+In its time spent at Jupiter, it has put greater constraints on gravitational field, measured a much more intense magnetic field than predicted, and observed particle species in the magnetosphere that still bring about confusion.
+Most importantly to this paper, Juno has been able to measure heavy ions above the polar caps that indicate they are precipitating into the top of the atmosphere \citep{haggerty2017}.
+
 X-ray production at Jupiter has been of interest to the space physics community from when it was first observed by the Einstein Observatory in April of 1979 \citep{metzger1983}.
+Although \citet{metzger1983} were unable to distinguish a line spectrum from a continuum due to the limitations of the detector, they still proposed that the source of X-rays must be coming from heavy ion precipitation, stating, ``the shape of the response and the observed X-ray power indicate that the source of this auroral emission is not electron bremmstrahlung as on the earth, but is most probably line emission from O and S ions with energies between 0.03 and 4.0 MeV/nucleon...''
+Now, with the Juno spacecraft orbiting Jupiter, oxygen and sulfur ions have been measured above the polar caps with energies up to 400 keV per nucleon (u).
+
+In the past, there have been attempts to reproduce the X-ray emission observed at Jupiter with ion precipitation models \citep{cravens1995,ozak2010,ozak2013}, but they mostly fell short due to the high energy ($\textgreater$1.2 MeV/u) required to strip the ions of their electrons enough to produce X-rays.
+Although the energies proposed even seemed high at the time, this could be overlooked because there were not any in situ measurements of the ion energies above the polar cap.
+However, now with more accurate ion-neutral collision cross-sections from \citet{schultz2018} that include processes never before considered, it has become clear that the necessary ion energy needs to only be about 200 keV/u to begin producing X-rays
 
 Throughout this paper, following historical nomenclature, we will refer to the precipitating particle (either oxygen or sulfur) as an ion and the target particle (molecular hydrogen) as the atom, although the target particles often end up ionized and the precipitating particles can, and will, reach a neutral state.
 
@@ -117,7 +128,7 @@ Aside from optimization improvements, the main contrast can be summarized as fol
 \item The Jovian atmosphere has been extended deeper, down below the 1 bar level.
 \item Oxygen cross-sections previously only included non-simultaneous (NSIM) collisions; we now consider simultaneous (SIM) ion-target interactions.
 \item Sulfur SIM cross-sections have been analyzed and are included in the model.
-\item X-ray opacity effects and efficiencies are presented with both the current atmosphere and an upper limit, fully mixed atmosphere.
+\item X-ray efficiencies and synthetic X-ray spectra that include opacity effects are presented with both the current atmosphere and an upper limit, fully mixed atmosphere.
 \item Juno data (both oxygen and sulfur measurements) are adapted and input into the simulation.
 \end{itemize}
 
@@ -305,32 +316,58 @@ To determine the production rate as a function of wavelength there are a couple 
 An X-ray can be emitted through either the ion gaining an electron (what we refer to as charge transfer or charge exchange collisions) or the excitation of the ion (called direct excitation).
 Both of these scenarios can result with an electron in an excited state where it will emit photons as it cascades down to a more energy favorable state.
 Although we have many charge transfer and projectile excitation processes we only allow three of each type to ultimately result in the emission of a photon, TI, SC, and SC+SS for charge exchange and SI+SPEX, DI+SPEX, and TEX+SPEX for direct excitation.
-Any collision that results in more than one electron being in an excited state at any time, whether it be through charge exchange, projectile excitation, or a combination of the two (i.e. DC or SC+SPEX collisions), we consider it much more likely for the Auger effect to take place than emission of a photon.
+Any collision that results in more than one electron being in an excited state at any time, whether it be through charge exchange, projectile excitation, or a combination of the two (e.g. DC or SC+SPEX collisions), we consider it much more likely for the Auger effect to take place than the emission of a photon.
 
-After considering X-ray production from charge exchange processes, X-ray producing direct excitation collisions must be evaluated.
-To do this we have applied a simple approximation method using the same synthetic spectra used for charge exchange, generated by Hui et al.
-We take the two or three most common emission lines, at lower photon energies, and distribute the direct excitation emission the in the following way:
+\citet{hui2010} created synthetic, charge exchange, X-ray spectra for O$^{6+}$, O$^{7+}$, and S$^{6+}$-S$^{14+}$ that we have integrated into our model.
+They were able to produce spectra vs. number of photons/ion which we have re-normalized for each charge state to total number of photons/charge state.
+We then multiplied the production of each charge state, as a function of altitude, for the three charge exchange collisions that produce $P(\lambda,z)$.
+
+Because charge transfer collisions are pulling an electron into the particle from outside of the ionization potential the electron will cascade from very high energy states until it has energetically relaxed.
+This allows for high energy X-rays to be emitted and also many more cascading possibilities.
+However, direct excitation excites an electron from the highest occupied electronic energy level, likely resulting in a change in principal quantum number of only one or two.
+But once the electron is in a particular energy level it is unaware of whether it has been excited or picked up from outside of the ion; thus, at that point, the cascading probabilities should not differ between charge exchange or excitation.
+It is important to note that electrons relaxing from charge transfer collisions will always be capable of following the same cascade path as an electron excited by direct excitation, but the reverse is not true.
+This is due to direct excitation not starting with the electron at principal quantum number, $n=\infty$, and also forbidden excitation energy states.
+Unfortunately, we do not have any state-selective excitation emission spectra of oxygen and sulfur; instead we need to apply an approximation to the charge exchange emission lines that represents the higher probability of starting at lower principal quantum numbers, rather than coming from principal quantum number, $n=\infty$, but have no approximation for the forbidden excitation transitions without a much more in-depth study of the matter.
+
+We first approximate O$^{7+}$ as H, O$^{^6+}$ and S$^{14+}$ as He, S$^{13+}$ as Li, S$^{12+}$ as Li$^{+}$ or Be, S$^{11+}$ as Be$^{+}$, S$^{10+}$ as Be$^{++}$, and S$^{9+}$ as Be$^{3+}$, and assume the rest of the sulfur charge states will follow the same pattern shown by the higher charge states.
+We then reviewed a number of articles concerning electron-impact excitation of lithium\citep{griffin2001}, beryllium\citep{bartschat1996}, lithium-like\citep{bely1966}, and beryllium-like\citep{bartschat1996} particles to understand the relative cross-sections between electronic energy levels.
+The cross-sections for all of these cases were dominated by a change in principal quantum number of one, i.e. when an electron is excited it will typically ($\sim$80$\%$-85$\%$ of the time) only be excited to the next highest energy level.
+Occasionally, $\sim$15$\%$ of the time, it will be excited to an even higher energy state.
+
+Thus, we take the two or three most common emission lines, at lower photon energies, from the charge exchange synthetic spectra provided by \citet{hui2010} and distribute the direct excitation emission in the following way
 
 \begin{equation}
-    \sum_{n=1}^{N}\lambda_{n}f_{n}=E
+    \sum_{i=1}^{2,3}\lambda_{i}f_{i}=E
     \label{eqn:DEemission}
 \end{equation}
 
-\noindent where N=2 or N=3 depending on the likelihood of each emission line, or group of emission lines, for each X-ray producing charge state considered (O$^{6+}$, O$^{7+}$, and S$^{8+}$ through S$^{14+}$).
-$\lambda_{n}$ is the wavelength of the most likely emission line, or group of emission lines.
-If there is a group of wavelengths, the emission is distributed evenly among each line emission because in this simple approximation forbidden excitation states have not been considered.
-$f_{n}$ is the distribution of X-ray production given to each wavelength.
-If N=2, then $f_{1}$=0.85 and $f_{2}$=0.15; for N=3, $f_{1}$=0.80, $f_{2}$=0.15, and $f_{3}$=0.05.
+\noindent where $\lambda_{i}$ is the wavelength of the most likely emission line, or group of emission lines.
+If there is a group of emission lines with similar wavelengths, the emission is distributed evenly among each wavelength because in this simple approximation we do not know the exact state-selective excitation transitions and forbidden excitation states have not been considered.
+$f_{i}$ is the distribution of X-ray production given to each wavelength.
+If only two lines, or groups of lines, are considered then $f_{1}$=0.85 and $f_{2}$=0.15; for three, $f_{1}$=0.80, $f_{2}$=0.15, and $f_{3}$=0.05.
 $E$ is the total photon energy from emission.
 
-If $E>\Delta E$, where $\Delta E$ is the energy loss for a given process, ion energy, and charge state given in \citet{schultz2018}, then the emission given in Equation \ref{eqn:DEemission} is re-normalized to conserve energy,
+To ensure this approximation is not violating conservation of energy, if $E>\Delta E$, where $\Delta E$ is the energy loss for SPEX at a given ion energy and charge state shown in \citet{schultz2018}, then the emission given in Equation \ref{eqn:DEemission} is re-normalized to conserve energy,
 
 \begin{equation}
-    \sum_{n=1}^{N}\lambda_{n}f_{n}g=E
+    \sum_{n=1}^{2,3}\lambda_{n}f_{n}\epsilon=E
 \end{equation}
 
-\noindent where $g=\Delta E/E$.
+\noindent where $\epsilon=\Delta E/E$.
 If $E<\Delta E$ then we assume the energy difference is due to emission from lower energy photons not considered in the X-ray spectrum and X-ray inefficiencies in emission from the way the electrons cascade through the electron orbitals.
+
+To simulate a more realistic observation than perfect line emission that an X-ray observatory would detect, we apply a normalized Gaussian distribution to each data point to recover a new intensity:
+
+\begin{equation}
+    4\pi I'(\lambda)=\sum_{\lambda_{\mu}}\frac{1}{\sqrt{2\pi\sigma^2}}I(\lambda)e^{-\frac{(\lambda-\lambda_{\mu})^2}{2\sigma^2}}
+\end{equation}
+
+\noindent where $\lambda$ is now the full spectrum (in eV) which we allow to go from 100 eV to 3500 eV. $\lambda_{\mu}$ is the original wavelength data points, $\sigma^2$ is the variance which we have set to 20 eV.
+
+\subsection{Juno Data}
+
+Maybe send to Abi and/or Dennis??
 
 %  Numbered lines in equations:
 %  To add line numbers to lines in equations,
