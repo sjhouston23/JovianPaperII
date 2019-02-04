@@ -107,11 +107,14 @@ Most importantly to this paper, Juno has been able to measure heavy ions above t
 
 X-ray production at Jupiter has been of interest to the space physics community from when it was first observed by the Einstein Observatory in April of 1979 \citep{metzger1983}.
 Although \citet{metzger1983} were unable to distinguish a line spectrum from a continuum due to the limitations of the detector, they still proposed that the source of X-rays must be coming from heavy ion precipitation, stating, ``the shape of the response and the observed X-ray power indicate that the source of this auroral emission is not electron bremmstrahlung as on the earth, but is most probably line emission from O and S ions with energies between 0.03 and 4.0 MeV/nucleon...''
-Now, with the Juno spacecraft orbiting Jupiter, oxygen and sulfur ions have been measured above the polar caps with energies up to 400 keV per nucleon (u).
+Now, with the Juno spacecraft orbiting Jupiter, oxygen and sulfur ions have been measured above the polar caps with energies up to 400 keV per nucleon (u) NEED CITATIONS.
 
 In the past, there have been attempts to reproduce the X-ray emission observed at Jupiter with ion precipitation models \citep{cravens1995,ozak2010,ozak2013}, but they mostly fell short due to the high energy ($\textgreater$1.2 MeV/u) required to strip the ions of their electrons enough to produce X-rays.
 Although the energies proposed even seemed high at the time, this could be overlooked because there were not any in situ measurements of the ion energies above the polar cap.
-However, now with more accurate ion-neutral collision cross-sections from \citet{schultz2018} that include processes never before considered, it has become clear that the necessary ion energy needs to only be about 200 keV/u to begin producing X-rays
+However, now with more accurate ion-neutral collision cross-sections from \citet{schultz2018} that include processes never before considered, we will show that the necessary ion energy needs to only be about 200 keV/u to begin producing X-rays.
+
+We have expanded on the ion precipitation models that have come before \citep{cravens1995,ozak2010,ozak2013,houston2018}, modeling oxygen from 10 keV/u to 25 MeV/u, including the O$^-$ charge state through O$^{8+}$.
+For sulfur we will show results between 10 keV/u and 2 MeV/u for S neutral through S$^{16+}$.
 
 Throughout this paper, following historical nomenclature, we will refer to the precipitating particle (either oxygen or sulfur) as an ion and the target particle (molecular hydrogen) as the atom, although the target particles often end up ionized and the precipitating particles can, and will, reach a neutral state.
 
@@ -153,7 +156,6 @@ Atomic hydrogen is ignored in the well-mixed atmosphere because of how chemicall
 \subsection{Ion-Neutral Impact Processes}
 
 \citet{houston2018} modeled oxygen precipitation using 9 different collision processes that occurred non-simultaneously as the ion precipitated through the atmosphere following the cross-section data presented by \citet{schultz2017} and summarized here:
-
 \begin{subequations}
 \begin{equation}
 O^{q+} + H_{2} \rightarrow \begin{cases}
@@ -163,7 +165,6 @@ O^{q+} + 2H^{+} + 2e & \text{Double Ionization}
 \label{eqn:ion}
 \end{equation}
 \vspace*{-0.5cm}
-
 \begin{equation}
 O^{q+} + H_{2} \rightarrow \begin{cases}
 O^{(q-1)+}
@@ -180,7 +181,6 @@ H^{+} + H^{+} & \text{Double Capture} \\
 \end{cases}
 \label{eqn:cap}
 \end{equation}
-
 \begin{equation}
 O^{q+} + H_{2} \rightarrow \begin{cases}
 O^{(q+1)} + H_{2}^{+} + 2e; H + H^{+} + 2e & \text{Single Stripping} \\
@@ -188,7 +188,6 @@ O^{(q+2)} + H_{2}^{+} + 3e; H + H^{+} + 3e & \text{Double Stripping}
 \end{cases}
 \label{eqn:strip}
 \end{equation}
-
 \begin{equation}
 O^{q+} + H_{2} \rightarrow
 O^{q+} + H_{2}^{*}; H^{*} + H^{*} \hspace{.1in} \text{Electronic Excitation - All States}
@@ -253,20 +252,34 @@ The explicit calculation and implication of using SIM cross-sections rather than
 In a very broad sense, as an ion precipitates through the atmosphere each collision can result in four different outcomes for the projectile.
 The ion can become excited (e.g. SPEX), become further ionized by losing an electron or two (e.g. DS), become less ionized by gaining an electron or two (e.g. DCAI), or nothing can happen to it while the collision solely affects the target (e.g. SI).
 Each type of interaction is governed by the energy of the precipitating ion; that is, a more energetic ion will generally be stripped of more electrons than one precipitating with less energy.
-This can be shown by the charge state equilibrium fractions in Figure \ref{fig:CSDoxy} for oxygen and Figure \ref{fig:CSDsul} for sulfur.
+By knowledge of the stripping and charge transfer cross-sections, it is possible to calculate the equilibrium fractions of each charge state versus the ion energy.
+This is done using transition probabilities, $P_{ij}$:
+\begin{equation}
+    \phi_{q}^{i}(E) P^i_{q,q+1}=\phi_{q+1}^{i}(E) P^i_{q+1,q}
+    \label{eqn:EqProb}
+\end{equation}
+where $\phi_q^i$ is the fraction of ions in charge state $q$, at energy $E$, and species $i$, either oxygen or sulfur.
+$P^i_{q,q+1}$ denotes the sum of the stripping cross-sections and $P^i_{q+1,q}$, the sum of the charge transfer cross-sections, for species $i$.
+A normalization is given by the condition
+\begin{equation}
+    \int\displaylimits_{0}^{E_0}\sum_{q=q_0}^{q=Z}\phi^i_q(E)dE=1
+    \label{eqn:EqProbNorm}
+\end{equation}
+where $q_0$ denotes the lowest charge state for species $i$, $q_0$=-1 for O and $q_0$=0 for S, $Z$=8,16 are the nuclear charges for O and S, and $\phi_q^i$ is the charge state fraction.
+These are shown for oxygen and sulfur as a function of energy in Figures \ref{fig:CSDoxy} and \ref{fig:CSDsul}.
 
 \begin{figure}[ht]
-\centering
-\includegraphics[width=\textwidth]{Figures/CSDoxy.eps}
-\caption{Oxygen charge state distribution}
-\label{fig:CSDoxy}
+    \centering
+    \includegraphics[width=\textwidth]{Figures/CSDoxy.eps}
+    \caption{Oxygen charge state distribution}
+    \label{fig:CSDoxy}
 \end{figure}
 
 \begin{figure}[ht]
-\centering
-\includegraphics[width=\textwidth]{Figures/CSDsul.eps}
-\caption{Sulfur charge state distribution}
-\label{fig:CSDsul}
+    \centering
+    \includegraphics[width=\textwidth]{Figures/CSDsul.eps}
+    \caption{Sulfur charge state distribution}
+    \label{fig:CSDsul}
 \end{figure}
 
 The charge state equilibrium fractions demonstrate at what energy the ion will reach a given charge state regardless of the collision processes undergone or the initial ion energy; the ion history is immediately forgotten.
@@ -282,36 +295,32 @@ Not only does it now require less energy to produce charge states capable of emi
 The opacity of the Jovian atmosphere is incorporated into the model using the optical depth of outgoing X-ray photons.
 We look at three different path angles, 0$^{\circ}$, 80$^{\circ}$, and 90$^{\circ}$ (where the angle is measured with respect to the axis of rotation), and with two atmospheric profiles; the density profile shown in Figure \ref{fig:atm} and a well-mixed atmosphere as discussed in Section \ref{sec:atm}.
 The optical depth is given by
-
 \begin{equation}
     \tau(\lambda,z_{0})=Ch(\theta,z_{0})\sum_{j}\sigma_{j}^{abs}(\lambda)\int\displaylimits_{z_{0}}^{\infty}n_{j}(z)dz
     \label{eqn:tau}
 \end{equation}
-
-\noindent where $\tau(\lambda,z_{0})$ is the optical depth as a function of emitted photon wavelength, $\lambda$, and the altitude at which the emission occurred, $z_{0}$.
+where $\tau(\lambda,z_{0})$ is the optical depth as a function of emitted photon wavelength, $\lambda$, and the altitude at which the emission occurred, $z_{0}$.
 $Ch(\theta,z_{0})$ is the Chapman function, dependent upon the photon path angle, $\theta$, and the altitude.
 $\sigma_j^{abs}(\lambda)$ is the absorption cross-section summed over each species, $j$ (H$_2$, He, and CH$_4$), and is a function of wavelength.
 $n_j(z)$ is the neutral density of each atmospheric constituent as a function of altitude, integrated from the point of emission out through the top of the atmosphere.
 
 The Chapman function has been approximated to $Ch(0^{\circ} \leq \theta \leq 80^{\circ},z_{0}) \approx \mathrm{sec}(\theta)$ for the first two exit angles and
-
 \begin{equation}
     Ch(\frac{\pi}{2},z_{0})=\sqrt{\frac{R_J}{H(z_0)}\frac{\pi}{2}}
     \label{eqn:Chap}
 \end{equation}
-
-\noindent for $\theta$=90$^{0}$, where $R_J$ is the Jovian radii of 71,492 km and $H(z_0)$ is the scale height at altitude $z_0$.
+for $\theta$=90$^{0}$, where $R_J$ is the Jovian radii of 71,492 km and $H(z_0)$ is the scale height at altitude $z_0$.
 The spectrum intensity, $I(\lambda)$ can then be calculated as
-
 \begin{equation}
     4\pi I(\lambda)=\int\displaylimits_{z_0}^{\infty}P(\lambda,z)e^{-\tau(\lambda,z_0)}dz
     \label{eqn:I}
 \end{equation}
-
-\noindent where $P(\lambda,z)$ is the production rate of X-ray emission as a function of wavelength, $\lambda$ and altitude, $z$.
-To determine the production rate as a function of wavelength there are a couple of things to note before building synthetic spectra.
+where $P(\lambda,z)$ is the production rate of X-ray emission as a function of wavelength, $\lambda$ and altitude, $z$.
+$P(\lambda,z)$ integrated over every value of $\lambda$ is equal to the ion production rate, $P(z)$, for a given charge state.
+Therefore, to determine the production rate as a function of wavelength there are a couple of things to note before building synthetic spectra.
 
 \subsection{Synthetic X-ray Spectra}
+\label{sec:XraySpec}
 
 An X-ray can be emitted through either the ion gaining an electron (what we refer to as charge transfer or charge exchange collisions) or the excitation of the ion (called direct excitation).
 Both of these scenarios can result with an electron in an excited state where it will emit photons as it cascades down to a more energy favorable state.
@@ -336,181 +345,61 @@ The cross-sections for all of these cases were dominated by a change in principa
 Occasionally, $\sim$15$\%$ of the time, it will be excited to an even higher energy state.
 
 Thus, we take the two or three most common emission lines, at lower photon energies, from the charge exchange synthetic spectra provided by \citet{hui2010} and distribute the direct excitation emission in the following way
-
 \begin{equation}
     \sum_{i=1}^{2,3}\lambda_{i}f_{i}=E
     \label{eqn:DEemission}
 \end{equation}
-
-\noindent where $\lambda_{i}$ is the wavelength of the most likely emission line, or group of emission lines.
+where $\lambda_{i}$ is the wavelength of the most likely emission line, or group of emission lines.
 If there is a group of emission lines with similar wavelengths, the emission is distributed evenly among each wavelength because in this simple approximation we do not know the exact state-selective excitation transitions and forbidden excitation states have not been considered.
 $f_{i}$ is the distribution of X-ray production given to each wavelength.
 If only two lines, or groups of lines, are considered then $f_{1}$=0.85 and $f_{2}$=0.15; for three, $f_{1}$=0.80, $f_{2}$=0.15, and $f_{3}$=0.05.
 $E$ is the total photon energy from emission.
 
 To ensure this approximation is not violating conservation of energy, if $E>\Delta E$, where $\Delta E$ is the energy loss for SPEX at a given ion energy and charge state shown in \citet{schultz2018}, then the emission given in Equation \ref{eqn:DEemission} is re-normalized to conserve energy,
-
 \begin{equation}
     \sum_{n=1}^{2,3}\lambda_{n}f_{n}\epsilon=E
 \end{equation}
-
-\noindent where $\epsilon=\Delta E/E$.
+where $\epsilon=\Delta E/E$.
 If $E<\Delta E$ then we assume the energy difference is due to emission from lower energy photons not considered in the X-ray spectrum and X-ray inefficiencies in emission from the way the electrons cascade through the electron orbitals.
 
 To simulate a more realistic observation than perfect line emission that an X-ray observatory would detect, we apply a normalized Gaussian distribution to each data point to recover a new intensity:
-
 \begin{equation}
     4\pi I'(\lambda)=\sum_{\lambda_{\mu}}\frac{1}{\sqrt{2\pi\sigma^2}}I(\lambda)e^{-\frac{(\lambda-\lambda_{\mu})^2}{2\sigma^2}}
 \end{equation}
-
-\noindent where $\lambda$ is now the full spectrum (in eV) which we allow to go from 100 eV to 3500 eV. $\lambda_{\mu}$ is the original wavelength data points, $\sigma^2$ is the variance which we have set to 20 eV.
+where $\lambda$ is now the full spectrum (in eV) which we allow to go from 100 eV to 3500 eV. $\lambda_{\mu}$ is the original wavelength data points, $\sigma^2$ is the variance which we have set to 20 eV.
 
 \subsection{Juno Data}
 
 Maybe send to Abi and/or Dennis??
 
-%  Numbered lines in equations:
-%  To add line numbers to lines in equations,
-%  \begin{linenomath*}
-%  \begin{equation}
-%  \end{equation}
-%  \end{linenomath*}
+\section{Results}
 
+\subsection{Ion Production Rates}
 
+When referring to ion production rates, it is important to note that we are only referencing production from charge transfer collisions, i.e. $X^q \rightarrow X^{q-1}$, because that is what produces photon emission.
+Therefore, the ion production rate as a function of altitude, $P(z)$, can be calculated outright for a product ion species, $i$, (e.g. O$^{7+}$ or S$^{8+}$) as follows:
+\begin{equation}
+    P(z)=\int\displaylimits_{z_0}^{\infty}n(z)[\sigma_{q,q-1}^i(E(z))]\phi_q^i\Phi^idz
+\end{equation}
+where $n(z)$ is the neutral atmosphere density of H$_2$, $\sigma_{q,q-1}^i(E(z))$ denotes the charge transfer cross-sections for species $i$ with energy $E$ at altitude $z$, $\phi_q^i$ is the equilibrium fraction given in Equations \ref{eqn:EqProb} and \ref{eqn:EqProbNorm}, and $\Phi^i$ represents the total flux of the initial ion beam.
+However, our model uses a Monte Carlo method that tracks each ion individually and counts each charge exchange collision that occurs for a given charge state.
+These collisions are tracked through a set of altitude bins with a given input of $\sim$20,000 incident ions and then the production rate is normalized to an input of 1 ion/cm$^2$/s.
+The production rates for O$^{6+}$ and O$^{7+}$ are shown in Figures \ref{fig:O6+Prod} and \ref{fig:O7+Prod}.
+It is to be emphasized, these production rates only include charge exchange from the three collisions discussed in Section \ref{sec:XraySpec}, that is TI, SC, and SC+SS; although other processes can contribute to lowering the overall charge state without emitting a photon (e.g. the Auger process).
 
-%% Enter Figures and Tables near as possible to where they are first mentioned:
-%
-% DO NOT USE \psfrag or \subfigure commands.
-%
-% Figure captions go below the figure.
-% Table titles go above tables;  other caption information
-%  should be placed in last line of the table, using
-% \multicolumn2l{$^a$ This is a table note.}
-%
-%----------------
-% EXAMPLE FIGURE
-%
-% \begin{figure}[h]
-% \centering
-% when using pdflatex, use pdf file:
-% \includegraphics[natwidth=800px,natheight=600px]{figsamp.pdf}
-%
-% when using dvips, use .eps file:
-% \includegraphics[natwidth=800px,natheight=600px]{figsamp.eps}
-%
-% \caption{Short caption}
-% \label{figone}
-%  \end{figure}
-%
-% We recommend that you provide the native width and height (natwidth, natheight) of your figures.
-% Specifying native dimensions ensures that your figures are properly scaled
-%
-%
-% ---------------
-% EXAMPLE TABLE
-%
-% \begin{table}
-% \caption{Time of the Transition Between Phase 1 and Phase 2$^{a}$}
-% \centering
-% \begin{tabular}{l c}
-% \hline
-%  Run  & Time (min)  \\
-% \hline
-%   $l1$  & 260   \\
-%   $l2$  & 300   \\
-%   $l3$  & 340   \\
-%   $h1$  & 270   \\
-%   $h2$  & 250   \\
-%   $h3$  & 380   \\
-%   $r1$  & 370   \\
-%   $r2$  & 390   \\
-% \hline
-% \multicolumn{2}{l}{$^{a}$Footnote text here.}
-% \end{tabular}
-% \end{table}
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=\textwidth]{Figures/O6CXProd.eps}
+    \caption{The O$^{6+}$ production rate from TI, SC, and SC+SS vs. H$_2$ density [cm$^{-3}$] and altitude [km] for various incident ion energies (E=0.2, 0.3, 0.5, 1.0, 2.0, 5.0, 10.0, and 25.0 MeV/u).}
+    \label{fig:CSDoxy}
+\end{figure}
 
-%% SIDEWAYS FIGURE and TABLE
-% AGU prefers the use of {sidewaystable} over {landscapetable} as it causes fewer problems.
-%
-% \begin{sidewaysfigure}
-% \includegraphics[width=20pc]{figsamp}
-% \caption{caption here}
-% \label{newfig}
-% \end{sidewaysfigure}
-%
-%  \begin{sidewaystable}
-%  \caption{Caption here}
-% \label{tab:signif_gap_clos}
-%  \begin{tabular}{ccc}
-% one&two&three\\
-% four&five&six
-%  \end{tabular}
-%  \end{sidewaystable}
-
-%% If using numbered lines, please surround equations with \begin{linenomath*}...\end{linenomath*}
-%\begin{linenomath*}
-%\begin{equation}
-%y|{f} \sim g(m, \sigma),
-%\end{equation}
-%\end{linenomath*}
-
-%%% End of body of article
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%% Optional Appendix goes here
-%
-% The \appendix command resets counters and redefines section heads
-%
-% After typing \appendix
-%
-%\section{Here Is Appendix Title}
-% will show
-% A: Here Is Appendix Title
-%
-%\appendix
-%\section{Here is a sample appendix}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%
-% Optional Glossary, Notation or Acronym section goes here:
-%
-%%%%%%%%%%%%%%
-% Glossary is only allowed in Reviews of Geophysics
-%  \begin{glossary}
-%  \term{Term}
-%   Term Definition here
-%  \term{Term}
-%   Term Definition here
-%  \term{Term}
-%   Term Definition here
-%  \end{glossary}
-
-%
-%%%%%%%%%%%%%%
-% Acronyms
-%   \begin{acronyms}
-%   \acro{Acronym}
-%   Definition here
-%   \acro{EMOS}
-%   Ensemble model output statistics
-%   \acro{ECMWF}
-%   Centre for Medium-Range Weather Forecasts
-%   \end{acronyms}
-
-%
-%%%%%%%%%%%%%%
-% Notation
-%   \begin{notation}
-%   \notation{$a+b$} Notation Definition here
-%   \notation{$e=mc^2$}
-%   Equation in German-born physicist Albert Einstein's theory of special
-%  relativity that showed that the increased relativistic mass ($m$) of a
-%  body comes from the energy of motion of the body—that is, its kinetic
-%  energy ($E$)—divided by the speed of light squared ($c^2$).
-%   \end{notation}
-
-
-
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=\textwidth]{Figures/O7CXProd.eps}
+    \caption{The O$^{7+}$ production rate from TI, SC, and SC+SS vs. H$_2$ density [cm$^{-3}$] and altitude [km] for various incident ion energies (E=0.3, 0.5, 1.0, 2.0, 5.0, 10.0, and 25.0 MeV/u).}
+    \label{fig:CSDsul}
+\end{figure}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %
@@ -545,171 +434,5 @@ Enter acknowledgments, including your data availability statement, here.
 
 \bibliography{Biblio/mybiblio}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% BibTeX is preferred:
-%
-% \bibliography{<name of your .bib file>}
-%
-% don't specify bibliographystyle
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-
-
-% Please use ONLY \citet and \citep for reference citations.
-% DO NOT use other cite commands (e.g., \cite, \citeyear, \nocite, \citealp, etc.).
-%% Example \citet and \citep:
-%  ...as shown by \citet{Boug10}, \citet{Buiz07}, \citet{Fra10},
-%  \citet{Ghel00}, and \citet{Leit74}.
-
-%  ...as shown by \citep{Boug10}, \citep{Buiz07}, \citep{Fra10},
-%  \citep{Ghel00, Leit74}.
-
-%  ...has been shown \citep [e.g.,][]{Boug10,Buiz07,Fra10}.
-
 
 \end{document}
-
-
-
-More Information and Advice:
-
-%% ------------------------------------------------------------------------ %%
-%
-%  SECTION HEADS
-%
-%% ------------------------------------------------------------------------ %%
-
-% Capitalize the first letter of each word (except for
-% prepositions, conjunctions, and articles that are
-% three or fewer letters).
-
-% AGU follows standard outline style; therefore, there cannot be a section 1 without
-% a section 2, or a section 2.3.1 without a section 2.3.2.
-% Please make sure your section numbers are balanced.
-% ---------------
-% Level 1 head
-%
-% Use the \section{} command to identify level 1 heads;
-% type the appropriate head wording between the curly
-% brackets, as shown below.
-%
-%An example:
-%\section{Level 1 Head: Introduction}
-%
-% ---------------
-% Level 2 head
-%
-% Use the \subsection{} command to identify level 2 heads.
-%An example:
-%\subsection{Level 2 Head}
-%
-% ---------------
-% Level 3 head
-%
-% Use the \subsubsection{} command to identify level 3 heads
-%An example:
-%\subsubsection{Level 3 Head}
-%
-%---------------
-% Level 4 head
-%
-% Use the \subsubsubsection{} command to identify level 3 heads
-% An example:
-%\subsubsubsection{Level 4 Head} An example.
-%
-%% ------------------------------------------------------------------------ %%
-%
-%  IN-TEXT LISTS
-%
-%% ------------------------------------------------------------------------ %%
-%
-% Do not use bulleted lists; enumerated lists are okay.
-% \begin{enumerate}
-% \item
-% \item
-% \item
-% \end{enumerate}
-%
-%% ------------------------------------------------------------------------ %%
-%
-%  EQUATIONS
-%
-%% ------------------------------------------------------------------------ %%
-
-% Single-line equations are centered.
-% Equation arrays will appear left-aligned.
-
-Math coded inside display math mode \[ ...\]
- will not be numbered, e.g.,:
- \[ x^2=y^2 + z^2\]
-
- Math coded inside \begin{equation} and \end{equation} will
- be automatically numbered, e.g.,:
- \begin{equation}
- x^2=y^2 + z^2
- \end{equation}
-
-
-% To create multiline equations, use the
-% \begin{eqnarray} and \end{eqnarray} environment
-% as demonstrated below.
-\begin{eqnarray}
-  x_{1} & = & (x - x_{0}) \cos \Theta \nonumber \\
-        && + (y - y_{0}) \sin \Theta  \nonumber \\
-  y_{1} & = & -(x - x_{0}) \sin \Theta \nonumber \\
-        && + (y - y_{0}) \cos \Theta.
-\end{eqnarray}
-
-%If you don't want an equation number, use the star form:
-%\begin{eqnarray*}...\end{eqnarray*}
-
-% Break each line at a sign of operation
-% (+, -, etc.) if possible, with the sign of operation
-% on the new line.
-
-% Indent second and subsequent lines to align with
-% the first character following the equal sign on the
-% first line.
-
-% Use an \hspace{} command to insert horizontal space
-% into your equation if necessary. Place an appropriate
-% unit of measure between the curly braces, e.g.
-% \hspace{1in}; you may have to experiment to achieve
-% the correct amount of space.
-
-
-%% ------------------------------------------------------------------------ %%
-%
-%  EQUATION NUMBERING: COUNTER
-%
-%% ------------------------------------------------------------------------ %%
-
-% You may change equation numbering by resetting
-% the equation counter or by explicitly numbering
-% an equation.
-
-% To explicitly number an equation, type \eqnum{}
-% (with the desired number between the brackets)
-% after the \begin{equation} or \begin{eqnarray}
-% command.  The \eqnum{} command will affect only
-% the equation it appears with; LaTeX will number
-% any equations appearing later in the manuscript
-% according to the equation counter.
-%
-
-% If you have a multiline equation that needs only
-% one equation number, use a \nonumber command in
-% front of the double backslashes (\\) as shown in
-% the multiline equation above.
-
-% If you are using line numbers, remember to surround
-% equations with \begin{linenomath*}...\end{linenomath*}
-
-%  To add line numbers to lines in equations:
-%  \begin{linenomath*}
-%  \begin{equation}
-%  \end{equation}
-%  \end{linenomath*}
-
-
-
