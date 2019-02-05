@@ -109,7 +109,7 @@ X-ray production at Jupiter has been of interest to the space physics community 
 Although \citet{metzger1983} were unable to distinguish a line spectrum from a continuum due to the limitations of the detector, they still proposed that the source of X-rays must be coming from heavy ion precipitation, stating, ``the shape of the response and the observed X-ray power indicate that the source of this auroral emission is not electron bremmstrahlung as on the earth, but is most probably line emission from O and S ions with energies between 0.03 and 4.0 MeV/nucleon...''
 Now, with the Juno spacecraft orbiting Jupiter, oxygen and sulfur ions have been measured above the polar caps with energies up to 400 keV per nucleon (u) NEED CITATIONS.
 
-In the past, there have been attempts to reproduce the X-ray emission observed at Jupiter with ion precipitation models \citep{cravens1995,ozak2010,ozak2013}, but they mostly fell short due to the high energy ($\textgreater$1.2 MeV/u) required to strip the ions of their electrons enough to produce X-rays.
+In the past, there have been attempts to reproduce the X-ray emission observed at Jupiter with ion precipitation models \citep{cravens1995,ozak2010,ozak2013}, but they mostly fell short due to the high energy ($>$1.2 MeV/u) required to strip the ions of their electrons enough to produce X-rays.
 Although the energies proposed even seemed high at the time, this could be overlooked because there were not any in situ measurements of the ion energies above the polar cap.
 However, now with more accurate ion-neutral collision cross-sections from \citet{schultz2018} that include processes never before considered, we will show that the necessary ion energy needs to only be about 200 keV/u to begin producing X-rays.
 
@@ -384,21 +384,36 @@ Therefore, the ion production rate as a function of altitude, $P(z)$, can be cal
 where $n(z)$ is the neutral atmosphere density of H$_2$, $\sigma_{q,q-1}^i(E(z))$ denotes the charge transfer cross-sections for species $i$ with energy $E$ at altitude $z$, $\phi_q^i$ is the equilibrium fraction given in Equations \ref{eqn:EqProb} and \ref{eqn:EqProbNorm}, and $\Phi^i$ represents the total flux of the initial ion beam.
 However, our model uses a Monte Carlo method that tracks each ion individually and counts each charge exchange collision that occurs for a given charge state.
 These collisions are tracked through a set of altitude bins with a given input of $\sim$20,000 incident ions and then the production rate is normalized to an input of 1 ion/cm$^2$/s.
-The production rates for O$^{6+}$ and O$^{7+}$ are shown in Figures \ref{fig:O6+Prod} and \ref{fig:O7+Prod}.
+The production rates as a function of H$_2$ density and altitude for O$^{6+}$ and O$^{7+}$ are shown in Figures \ref{fig:O6+Prod} and \ref{fig:O7+Prod}.
+For sulfur, Figures \ref{fig:S7+Prod} and \ref{fig:S8+Prod} show the S$^{7+}$ and S$^{8+}$ charge transfer production rates, respectively.
 It is to be emphasized, these production rates only include charge exchange from the three collisions discussed in Section \ref{sec:XraySpec}, that is TI, SC, and SC+SS; although other processes can contribute to lowering the overall charge state without emitting a photon (e.g. the Auger process).
 
 \begin{figure}[ht]
     \centering
     \includegraphics[width=\textwidth]{Figures/O6CXProd.eps}
-    \caption{The O$^{6+}$ production rate from TI, SC, and SC+SS vs. H$_2$ density [cm$^{-3}$] and altitude [km] for various incident ion energies (E=0.2, 0.3, 0.5, 1.0, 2.0, 5.0, 10.0, and 25.0 MeV/u).}
-    \label{fig:CSDoxy}
+    \caption{The O$^{6+}$ production rate from TI, SC, and SC+SS vs. H$_2$ density and altitude for various incident ion energies (E=0.2, 0.3, 0.5, 1.0, 2.0, 5.0, 10.0, and 25.0 MeV/u).}
+    \label{fig:O6+Prod}
 \end{figure}
 
 \begin{figure}[ht]
     \centering
     \includegraphics[width=\textwidth]{Figures/O7CXProd.eps}
-    \caption{The O$^{7+}$ production rate from TI, SC, and SC+SS vs. H$_2$ density [cm$^{-3}$] and altitude [km] for various incident ion energies (E=0.3, 0.5, 1.0, 2.0, 5.0, 10.0, and 25.0 MeV/u).}
-    \label{fig:CSDsul}
+    \caption{The O$^{7+}$ production rate from TI, SC, and SC+SS vs. H$_2$ density and altitude for various incident ion energies (E=0.3, 0.5, 1.0, 2.0, 5.0, 10.0, and 25.0 MeV/u).}
+    \label{fig:O7+Prod}
+\end{figure}
+
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=\textwidth]{Figures/S7CXProd.eps}
+    \caption{The S$^{7+}$ production rate from TI, SC, and SC+SS vs. H$_2$ density and altitude for various incident ion energies (E=0.2, 0.3, 0.5, 1.0, and 2.0 MeV/u).}
+    \label{fig:S7+Prod}
+\end{figure}
+
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=\textwidth]{Figures/S8CXProd.eps}
+    \caption{The S$^{8+}$ production rate from TI, SC, and SC+SS vs. H$_2$ density and altitude for various incident ion energies (E=0.2, 0.3, 0.5, 1.0, and 2.0 MeV/u).}
+    \label{fig:S8+Prod}
 \end{figure}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -434,5 +449,7 @@ Enter acknowledgments, including your data availability statement, here.
 
 \bibliography{Biblio/mybiblio}
 
+\appendix
+\include{Appendix/AppA}
 
 \end{document}
