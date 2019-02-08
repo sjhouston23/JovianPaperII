@@ -329,31 +329,34 @@ Both of these scenarios can result with an electron in an excited state where it
 Although we have many charge transfer and projectile excitation processes we only allow three of each type to ultimately result in the emission of a photon, TI, SC, and SC+SS for charge exchange and SI+SPEX, DI+SPEX, and TEX+SPEX for direct excitation.
 Any collision that results in more than one electron being in an excited state at any time, whether it be through charge exchange, projectile excitation, or a combination of the two (e.g. DC or SC+SPEX collisions), we consider it much more likely for the Auger effect to take place than the emission of a photon.
 
-\citet{hui2010} created synthetic, charge exchange, X-ray spectra for O$^{6+}$, O$^{7+}$, and S$^{8+}$-S$^{14+}$ that we have integrated into our model.
+\citet{hui2010} created synthetic, charge exchange, X-ray emission lines for photon energies above 200 eV for O$^{6+}$ and O$^{7+}$ with initial ion energies of 1.2 MeV/u and 2.0 MeV/u, and S$^{8+}$-S$^{14+}$ at 1.86 MeV/u.
+Although these energies are slightly higher than what we expect to be precipitating, these emission lines are the most comprehensive set available, thus we have taken the 1.2 MeV/u emission lines for oxygen and 1.86 MeV/u lines for sulfur and integrated them into our model.
 (Note: S$^{6+}$, S$^{7+}$, and S$^{15+}$ are not included in this study because \citet{hui2010} did not include them in their data, although they are X-ray producing charge states.)
-They were able to produce spectra vs. number of photons/ion which we have re-normalized for each charge state to total number of photons/charge state.
-We then multiplied the production of each charge state, as a function of altitude, for the three charge exchange collisions that produce $P(\lambda,z)$.
+\citet{hui2010} were able to produce spectra vs. number of photons/ion which we have re-normalized for each charge state to total number of photons/charge state.
+We then multiplied the ion production from charge exchange produced by our model, $P(z)$, by the normalized emission lines to generate $P(\lambda,z)$.
 
+Unfortunately, we do not have any state-selective excitation emission spectra of oxygen and sulfur; instead we need to apply an approximation to the charge exchange emission lines we do have available.
 Because charge transfer collisions are pulling an electron into the particle from outside of the ionization potential the electron will cascade from very high energy states until it has energetically relaxed.
-This allows for high energy X-rays to be emitted and also many more cascading possibilities.
+This allows for high energy X-rays to be emitted and also many cascading possibilities.
 However, direct excitation excites an electron from the highest occupied electronic energy level, likely resulting in a change in principal quantum number of only one or two.
-But once the electron is in a particular energy level it is unaware of whether it has been excited or picked up from outside of the ion; thus, at that point, the cascading probabilities should not differ between charge exchange or excitation.
-It is important to note that electrons relaxing from charge transfer collisions will always be capable of following the same cascade path as an electron excited by direct excitation, but the reverse is not true.
-This is due to direct excitation not starting with the electron at principal quantum number, $n=\infty$, and also forbidden excitation energy states.
-Unfortunately, we do not have any state-selective excitation emission spectra of oxygen and sulfur; instead we need to apply an approximation to the charge exchange emission lines that represents the higher probability of starting at lower principal quantum numbers, rather than coming from principal quantum number, $n=\infty$, but have no approximation for the forbidden excitation transitions without a much more in-depth study of the matter.
+Once the electron is in a particular energy level it is unaware of whether it has been excited or picked up from outside of the ion; thus, at that point, the cascading probabilities should not differ between charge exchange or excitation.
+That is to say, electrons relaxing from charge transfer collisions will always be capable of following the same cascade path as an electron excited by direct excitation, but the reverse is not true.
+Excited electrons will not start at principal quantum number $n=\infty$, like charge transferred electrons.
+So an approximation to represent the higher probability of electrons starting at lower principal quantum numbers, rather than coming from $n=\infty$ is needed.
+(Note: A second thing to consider would be forbidden excitation transitions for each charge state; however, that requires a much more in-depth study of the situation that we do not include in our approximation.)
 
 We first approximate O$^{7+}$ as H, O$^{^6+}$ and S$^{14+}$ as He, S$^{13+}$ as Li, S$^{12+}$ as Li$^{+}$ or Be, S$^{11+}$ as Be$^{+}$, S$^{10+}$ as Be$^{++}$, and S$^{9+}$ as Be$^{3+}$, and assume the rest of the sulfur charge states will follow the same pattern shown by the higher charge states.
-We then reviewed a number of articles concerning electron-impact excitation of lithium\citep{griffin2001}, beryllium\citep{bartschat1996}, lithium-like\citep{bely1966}, and beryllium-like\citep{bartschat1996} particles to understand the relative cross-sections between electronic energy levels.
+We then reviewed a number of articles concerning electron-impact excitation of lithium \citep{griffin2001}, beryllium \citep{bartschat1996}, lithium-like \citep{bely1966}, and beryllium-like \citep{bartschat1996} particles to understand the relative cross-sections between excitation to various electronic energy levels.
 The cross-sections for all of these cases were dominated by a change in principal quantum number of one, i.e. when an electron is excited it will typically ($\sim$80$\%$-85$\%$ of the time) only be excited to the next highest energy level.
-Occasionally, $\sim$15$\%$ of the time, it will be excited to an even higher energy state.
+Occasionally, $\sim$15$\%$-20$\%$  of the time, it will be excited to an even higher energy state.
 
-Thus, we take the two or three most common emission lines, at lower photon energies, from the charge exchange synthetic spectra provided by \citet{hui2010} and distribute the direct excitation emission in the following way
+Therefore, we take the two or three most common emission lines, at lower photon energies, from the charge exchange synthetic spectra provided by \citet{hui2010} and distribute the direct excitation emission in the following way
 \begin{equation}
     \sum_{i=1}^{2,3}\lambda_{i}f_{i}=E
     \label{eqn:DEemission}
 \end{equation}
 where $\lambda_{i}$ is the wavelength of the most likely emission line, or group of emission lines.
-If there is a group of emission lines with similar wavelengths, the emission is distributed evenly among each wavelength because in this simple approximation we do not know the exact state-selective excitation transitions and forbidden excitation states have not been considered.
+If there is a group of emission lines with similar wavelengths ($\Delta\lambda\approx$ 10 eV), the emission is distributed evenly among each wavelength because in this simple approximation we do not know the exact state-selective excitation transitions, and forbidden excitation states have not been considered.
 $f_{i}$ is the distribution of X-ray production given to each wavelength.
 If only two lines, or groups of lines, are considered then $f_{1}$=0.85 and $f_{2}$=0.15; for three, $f_{1}$=0.80, $f_{2}$=0.15, and $f_{3}$=0.05.
 $E$ is the total photon energy from emission.
@@ -363,9 +366,9 @@ To ensure this approximation is not violating conservation of energy, if $E>\Del
     \sum_{n=1}^{2,3}\lambda_{n}f_{n}\epsilon=E
 \end{equation}
 where $\epsilon=\Delta E/E$.
-If $E<\Delta E$ then we assume the energy difference is due to emission from lower energy photons not considered in the X-ray spectrum and X-ray inefficiencies in emission from the way the electrons cascade through the electron orbitals.
+If $E<\Delta E$ then we keep the distribution as is and assume the energy difference is due to emission from lower energy photons not considered in the X-ray spectrum and X-ray inefficiencies in emission from the way the electrons cascade through the electron orbitals.
 
-To simulate a more realistic observation than perfect line emission that an X-ray observatory would detect, we apply a normalized Gaussian distribution to each data point to recover a new intensity:
+To produce a more realistic observation, than perfect line emission, that an X-ray observatory would detect, we apply a normalized Gaussian distribution to each data point to simulate instrumental response functions, recovering a new intensity:
 \begin{equation}
     4\pi I'(\lambda)=\sum_{\lambda_{\mu}}\frac{1}{\sqrt{2\pi\sigma^2}}I(\lambda)e^{-\frac{(\lambda-\lambda_{\mu})^2}{2\sigma^2}}
 \end{equation}
@@ -373,7 +376,8 @@ where $\lambda$ is now the full spectrum (in eV) which we allow to go from 100 e
 
 \subsection{Juno Data}
 
-Maybe send to Abi and/or Dennis??
+With recent measurements from the JEDI instrument \citep{mauk2017ssr} on the Juno spacecraft, we have been able to obtain heavy ion flux measurements above Jupiter's polar caps indicating both oxygen and sulfur precipitation \citep{haggerty2017,clark2017a,clark2017b}.
+We are able to input these measurements into our model to produce expected observable for the given flux.
 
 \section{Results}
 
@@ -431,16 +435,32 @@ The full set of efficiencies for every X-ray emitting charge state at each energ
     \multicolumn{9}{c}{Atmosphere 2 (Well-mixed atmosphere)} \\ \cline{2-9}
     Energy  & \multicolumn{4}{c|}{0$^\circ$} & \multicolumn{4}{c}{90$^\circ$} \\ \cline{2-9}
     $\mathrm{[keV/u]}$ & O$^{6+}$ & O$^{7+}$ & S$^{8+}$ & S$^{9+}$ & O$^{6+}$ & O$^{7+}$ & S$^{8+}$ & S$^{9+}$ \\ \cline{1-9}
-    200      & 0.0140 & 0.0005 & 0.0023 & 0.0001 & 0.0137 & 0.0005 & 0.0021 & 0.0001 \\
-    300      & 0.1192 & 0.0106 & 0.0506 & 0.0084 & 0.1131 & 0.0105 & 0.0436 & 0.0078 \\
-    500      & 0.2653 & 0.0733 & 0.3120 & 0.1851 & 0.2284 & 0.0702 & 0.2332 & 0.1544 \\
-    1000     & 0.2080 & 0.1904 & 0.1526 & 0.1217 & 0.1310 & 0.1446 & 0.1178 & 0.0915 \\
-    2000     & 0.0942 & 0.1234 & 0.0497 & 0.0453 & 0.0603 & 0.0781 & 0.0583 & 0.0450 \\
+    200      & 0.0140 & 0.0005 & 0.0023 & 0.0001 & 0.0134 & 0.0005 & 0.0016 & 0.0001 \\
+    300      & 0.1192 & 0.0106 & 0.0506 & 0.0084 & 0.1068 & 0.0100 & 0.0266 & 0.0057 \\
+    500      & 0.2653 & 0.0733 & 0.3120 & 0.1851 & 0.1867 & 0.0633 & 0.0793 & 0.0818 \\
+    1000     & 0.2080 & 0.1904 & 0.1526 & 0.1217 & 0.0311 & 0.0802 & 0.0032 & 0.0043 \\
+    2000     & 0.0942 & 0.1234 & 0.0497 & 0.0453 & 0.0017 & 0.0087 & 0.0006 & 0.0006 \\
     \hline
     \end{tabular}
     \caption{The X-ray efficiency ([cm$^2$sec]$^{-1}$[keV/u]$^{-1}$) of outgoing photons as a function of initial ion energy including opacity effects. The viewing angles of 0$^\circ$ and 90$^\circ$ are displayed for both atmosphere 1 and 2. The efficiency shown here includes X-ray production from both charge exchange and direct excitation collisions.}
     \label{tab:XrayEff}
 \end{table}
+
+The most efficient X-ray emission for O$^{6+}$, S$^{8+}$, and S$^{9+}$ is with an incident ion energy of 500 keV/u for both atmospheres and 1 MeV/u for O$^{7+}$.
+The well-mixed atmosphere has minimal effects on emission from low energy ion precipitation because the ions are not precipitating deep enough for the large column density to have much of an impact on the X-rays.
+As one would expect, the viewing angle of 90$^{\circ}$ greatly reduces emission for high energy ion precipitation when comparing with X-rays that propagate directly up and out of the atmosphere at 0$^{\circ}$, due to the reduced opacity effects experienced by the photons.
+This is even more true for X-ray production from sulfur which is the most efficient X-ray producer (i.e. S$^{8+}$) at 500 keV/u with a viewing angle of 0$^{\circ}$, but the efficiency is reduced by nearly 60$\%$ (for atmosphere 1) when the viewing angle changes to 90$^{\circ}$, whereas O$^{6+}$ is only reduced by about 12$\%$ (for atmosphere 1) making it the most efficient for 500 keV/u at 90$^{\circ}$.
+This is a very important effect to consider when looking at fluxes from earth based X-ray observations, which are generally taken at a very steep viewing angle.
+
+\citet{ozak2010} reported the most efficient X-ray emission for O$^{6+}$, O$^{7+}$, and S$^{8+}$ occurring for incident ions with energies of 1.5 MeV/u, 2.5 MeV/u, and 1 MeV/u, and efficiency values of $\sim$0.009, $\sim$0.003, and $\sim$0.015, respectively.
+These energies are 2-3x higher than what we are now producing with the SIM cross-sections.
+There are two major contributions accounting for such a great difference in X-ray efficiencies.
+Firstly, it requires much less energy to strip both oxygen and sulfur ions to a high, X-ray producing, charge state, allowing X-rays to be created at a much lower energy than previously thought.
+Secondly, we are depositing much more energy higher up in the atmosphere due to the increase in stopping power shown by \citet{schultz2018}, ultimately generating X-rays higher in the atmosphere than previously modeled, making them less susceptible to opacity effects even when considering an upper-limit atmosphere.
+
+\subsection{X-ray Spectra}
+
+A synthetic X-ray spectra is given in Figure \ref{fig:XraySpec} for an incident ion energy of 500 keV/u.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %
