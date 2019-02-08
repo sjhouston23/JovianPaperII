@@ -377,7 +377,16 @@ where $\lambda$ is now the full spectrum (in eV) which we allow to go from 100 e
 \subsection{Juno Data}
 
 With recent measurements from the JEDI instrument \citep{mauk2017ssr} on the Juno spacecraft, we have been able to obtain heavy ion flux measurements above Jupiter's polar caps indicating both oxygen and sulfur precipitation \citep{haggerty2017,clark2017a,clark2017b}.
-We are able to input these measurements into our model to produce expected observable for the given flux.
+We are able to input these measurements into our model to produce expected observables for a given flux.
+For the most recent modeling, we use heavy ion measurements from a northern auroral pass during Perijove 7 on July 11, 2017 displayed in Figure \ref{fig:JEDIFlux}, where we have processed the data to make it usable for the model.
+
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=\textwidth]{Figures/.eps}
+    \caption{The O$^{6+}$ and O$^{7+}$ production rate from TI, SC, and SC+SS vs. H$_2$ density and altitude for various incident ion energies (E=0.2, 0.3, 0.5, 1.0, 2.0, 5.0, 10.0, and 25.0 MeV/u). The production rates have been normalized to a single incident ion/cm$^2$/s.}
+    \label{fig:JEDIFlux}
+\end{figure}
+
 
 \section{Results}
 
@@ -473,12 +482,18 @@ This particular spectrum accounts for no opacity effects and we have included em
     \label{fig:XraySpec}
 \end{figure}
 
-Next, show in Figure \ref{fig:XraySpecOpac} is the same total emission from Figure \ref{fig:XraySpec} (black line) with opacity effects applied from both atmosphere 1 and 2 at three different viewing angles.
+Next, shown in Figure \ref{fig:XraySpecOpac} is the same total emission from Figure \ref{fig:XraySpec} (black line) with opacity effects applied from both atmosphere 1 and 2 at three different viewing angles.
+It is apparent that X-ray emission from sulfur is much more effected by opacity than that from oxygen, which was indicated by the X-ray efficiencies in Table \ref{tab:XrayEff}.
+This is due to the relatively large photo-absorption cross-sections at longer wavelengths, shown by \citet{cravens2006}.
+It's also important to note how little the overall absorption of X-rays is at this energy, even for atmosphere 2.
+500 keV/u (a total energy of 8 MeV for oxygen and 16 Mev for sulfur) is slightly below the most energetic ions JEDI is capable of measuring if they are oxygen, and well above the 10 MeV instrument threshold \citep{mauk2017ssr} if they are sulfur.
+This indicates that most X-ray emission from ion measurements made by JEDI will escape without undergoing large opacity effects and should be detectable, even if a very well-mixed atmosphere is present.
+These results are much different than those presented by \citet{ozak2010}, which show a reduction in sulfur emission by nearly two orders of magnitude when considering a 90$^{\circ}$ viewing angle.
 
 \begin{figure}[ht]
     \centering
     \includegraphics[width=\textwidth]{Figures/OpacityATM1ATM2.eps}
-    \caption{Synthetic X-ray spectra with opacity effects. }
+    \caption{Synthetic X-ray spectra with opacity effects at three viewing angles through an atmosphere with a deep, originally considered homopause (atmosphere 1) and an atmosphere that is well-mixed through the top of the atmosphere (atmosphere 2), what we consider an upper-limit to opacity effects. Initial ion energies are 500 keV/u for both oxygen and sulfur precipitation. Photon energies below about 400 eV are shown to be much more affected by the opacity than higher photon energies.}
     \label{fig:XraySpecOpac}
 \end{figure}
 
