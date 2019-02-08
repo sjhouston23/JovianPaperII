@@ -460,7 +460,28 @@ Secondly, we are depositing much more energy higher up in the atmosphere due to 
 
 \subsection{X-ray Spectra}
 
-A synthetic X-ray spectra is given in Figure \ref{fig:XraySpec} for an incident ion energy of 500 keV/u.
+When producing a synthetic X-ray spectrum we are able to distinguish between charge states and production type (charge transfer or direct excitation) and consider the effects due to opacity at different viewing angles in atmospheres 1 and 2.
+Figure \ref{fig:XraySpec} shows the total X-ray emission for a single oxygen plus a single sulfur ion (sulfur to oxygen ratio of 1:1), both with incident energies of 500 keV/u.
+The emission lines have been distributed with a normalized Gaussian and $\sigma$=20 eV, simulating instrument response functions (discussed in Section \ref{sec:XraySpec}).
+We have split the emission up by charge state to show where in the spectrum each emission line contributes the most, i.e. sulfur dominates at photon energies between 150-500 eV, while oxygen is prominent between 500-900 eV.
+This particular spectrum accounts for no opacity effects and we have included emission from both charge exchange and direct excitation collisions.
+
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=\textwidth]{Figures/O+S_CX+DE_500keVNoOpacSpec.eps}
+    \caption{Synthetic X-ray spectra showing the contribution from each charge state. This spectra includes emission from both charge exchange and direct excitation collisions considering no opacity effects from an incident ion beam of 500 keV/u. Not shown is the emission from S$^{14+}$ which peaks at $\sim$2450 eV with an intensity several orders of magnitude lower than the more prominent emission.}
+    \label{fig:XraySpec}
+\end{figure}
+
+Next, show in Figure \ref{fig:XraySpecOpac} is the same total emission from Figure \ref{fig:XraySpec} (black line) with opacity effects applied from both atmosphere 1 and 2 at three different viewing angles.
+
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=\textwidth]{Figures/OpacityATM1ATM2.eps}
+    \caption{Synthetic X-ray spectra with opacity effects. }
+    \label{fig:XraySpecOpac}
+\end{figure}
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %
