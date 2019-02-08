@@ -378,15 +378,19 @@ where $\lambda$ is now the full spectrum (in eV) which we allow to go from 100 e
 
 With recent measurements from the JEDI instrument \citep{mauk2017ssr} on the Juno spacecraft, we have been able to obtain heavy ion flux measurements above Jupiter's polar caps indicating both oxygen and sulfur precipitation \citep{haggerty2017,clark2017a,clark2017b}.
 We are able to input these measurements into our model to produce expected observables for a given flux.
-For the most recent modeling, we use heavy ion measurements from a northern auroral pass during Perijove 7 on July 11, 2017 displayed in Figure \ref{fig:JEDIFlux}, where we have processed the data to make it usable for the model.
+For the most recent modeling, we use heavy ion measurements from a northern auroral pass during Perijove 7 on July 11, 2017 displayed in Figure \ref{fig:JEDIFlux}.
 
 \begin{figure}[ht]
     \centering
-    \includegraphics[width=\textwidth]{Figures/.eps}
-    \caption{The O$^{6+}$ and O$^{7+}$ production rate from TI, SC, and SC+SS vs. H$_2$ density and altitude for various incident ion energies (E=0.2, 0.3, 0.5, 1.0, 2.0, 5.0, 10.0, and 25.0 MeV/u). The production rates have been normalized to a single incident ion/cm$^2$/s.}
+    \includegraphics[width=\textwidth]{Figures/O+S_PJ7.eps}
+    \caption{Oxygen and sulfur flux measurements from JEDI on the Juno spacecraft during Perijove 7 that were used as an input to our model.}
     \label{fig:JEDIFlux}
 \end{figure}
 
+It is important to note that to make the flux usable to our model, we first extrapolate the sulfur data points to lower energies and interpolate all of the data, then re-normalize the measurements to counts/cm$^2$/s.
+The extrapolation we apply to the sulfur data was only done for energies between 5-19 keV/u, well below the X-ray producing range, and was simply extrapolated to have the same shape of distribution oxygen had at those energies.
+Also, the first three energy bins (170.7, 240.2, and 323.6 keV) on the JEDI instrument is unable to distinguish between oxygen and sulfur.
+To account for that we assume a distribution of 2/3 oxygen and 1/3 sulfur, because the heavy ions likely originate from the sulfur dioxide, SO$_2$, volcanoes on IO.
 
 \section{Results}
 
