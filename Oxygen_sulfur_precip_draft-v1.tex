@@ -387,10 +387,10 @@ For the most recent modeling, we use heavy ion measurements from a northern auro
     \label{fig:JEDIFlux}
 \end{figure}
 
-An important note is, to make the flux usable to our model we first re-normalize the data, then extrapolate the sulfur data points to lower energies, and interpolate all of the data for a finer resolution.
-The re-normalization of the data required multiplying the measured intensity by the JEDI energy bin widths \citep{mauk2017ssr} and 4$\pi$ to obtain a flux in ions/cm$^2$/s. 
-The extrapolation we apply to the sulfur data was only done for energies between 5-19 keV/u, well below the X-ray producing range, and was simply extrapolated to have the same shape of distribution oxygen had at those energies.
+To make the flux usable to our model we re-normalize and interpolate all of the data.
+The re-normalization required multiplying the measured intensity by the JEDI energy bin widths \citep{mauk2017ssr} and 4$\pi$ to obtain a flux in ions/cm$^2$/s.
 The first three energy bins (170.7, 240.2, and 323.6 keV) on the JEDI instrument are unable to distinguish between oxygen and sulfur; therefore, we assume a distribution of 2/3 oxygen and 1/3 sulfur, because the ions likely originate from the sulfur dioxide, SO$_2$, volcanoes on IO.
+We then use a simple linear interpolation to give the data finer resolution so the results of the model will be smoother, although it has no effect on the total X-ray production.
 These flux measurements are then used as an input ion flux into our model, or more simply, one can multiply the output of our model (which is normalized to an input of 1 ion/cm$^2$/s) by the re-normalized flux given by JEDI.
 
 \section{Results}
@@ -431,7 +431,8 @@ It is evident that the production rate of X-ray producing charge states from cha
 
 The emitted photon flux can be determined using the production rates, shown in Figures \ref{fig:O6O7+Prod} and \ref{fig:S7S8+Prod}, and Equation \ref{eqn:I}, where $4\pi$ is included to convert the intensity units from cm$^{-2}$ s$^{-1}$ sr$^{-1}$ to cm$^{-2}$ s$^{-1}$.
 An X-ray emission efficiency is a way of quantifying how many photons are emitted given an incident ion energy and is found by dividing $4\pi I$ by the initial energy of the monoenergetic ion beam.
-Table \ref{tab:XrayEff} shows the X-ray efficiency from both charge exchange and direct excitation emission combined for a few data points at various viewing angles using both atmosphere 1 and 2.
+Table \ref{tab:XrayEff} shows the X-ray efficiency from both charge exchange and direct excitation emission combined given an incident ion energy at various viewing angles using both atmosphere 1 and 2.
+The same is also shown in Figures \ref{fig:OxyXrayEff} and \ref{fig:SulXrayEff}.
 The full set of efficiencies for every X-ray emitting charge state at each energy and three different viewing angles plus a no opacity case can be found in Appendices \ref{app:Oxy} and \ref{app:Sul}.
 
 \begin{table}[ht]
@@ -442,7 +443,12 @@ The full set of efficiencies for every X-ray emitting charge state at each energ
     $\mathrm{[keV/u]}$ & O$^{6+}$ & O$^{7+}$ & S$^{8+}$ & S$^{9+}$ & O$^{6+}$ & O$^{7+}$ & S$^{8+}$ & S$^{9+}$ \\ \cline{1-9}
     200      & 0.0141 & 0.0005 & 0.0023 & 0.0001 & 0.0139 & 0.0005 & 0.0019 & 0.0001 \\
     300      & 0.1195 & 0.0106 & 0.0513 & 0.0085 & 0.1165 & 0.0104 & 0.0364 & 0.0071 \\
+    400      & 0.2008 & 0.0317 & 0.2207 & 0.0786 & 0.1901 & 0.0309 & 0.1260 & 0.0593 \\
     500      & 0.2669 & 0.0735 & 0.3215 & 0.1884 & 0.2358 & 0.0701 & 0.1329 & 0.1206 \\
+    600      & 0.2884 & 0.1206 & 0.3971 & 0.2821 & 0.2235 & 0.1107 & 0.0807 & 0.1153 \\
+    700      & 0.2787 & 0.1578 & 0.3579 & 0.2693 & 0.1760 & 0.1357 & 0.0404 & 0.0664 \\
+    800      & 0.2573 & 0.1810 & 0.2891 & 0.2217 & 0.1240 & 0.1409 & 0.0201 & 0.0325 \\
+    900      & 0.2333 & 0.1911 & 0.2389 & 0.1855 & 0.0827 & 0.1303 & 0.0115 & 0.0169 \\
     1000     & 0.2105 & 0.1918 & 0.1613 & 0.1270 & 0.0551 & 0.1118 & 0.0067 & 0.0093 \\
     2000     & 0.0954 & 0.1244 & 0.0527 & 0.0474 & 0.0029 & 0.0128 & 0.0009 & 0.0009 \\
     \hline
@@ -451,7 +457,12 @@ The full set of efficiencies for every X-ray emitting charge state at each energ
     $\mathrm{[keV/u]}$ & O$^{6+}$ & O$^{7+}$ & S$^{8+}$ & S$^{9+}$ & O$^{6+}$ & O$^{7+}$ & S$^{8+}$ & S$^{9+}$ \\ \cline{1-9}
     200      & 0.0140 & 0.0005 & 0.0023 & 0.0001 & 0.0134 & 0.0005 & 0.0016 & 0.0001 \\
     300      & 0.1192 & 0.0106 & 0.0506 & 0.0084 & 0.1068 & 0.0100 & 0.0266 & 0.0057 \\
+    400      & 0.2000 & 0.0317 & 0.2159 & 0.0776 & 0.1643 & 0.0289 & 0.0843 & 0.0441 \\
     500      & 0.2653 & 0.0733 & 0.3120 & 0.1851 & 0.1867 & 0.0633 & 0.0793 & 0.0818 \\
+    600      & 0.2861 & 0.1201 & 0.3144 & 0.2438 & 0.1606 & 0.0954 & 0.0091 & 0.0147 \\
+    700      & 0.2761 & 0.1570 & 0.2550 & 0.2006 & 0.1156 & 0.1111 & 0.0054 & 0.0078 \\
+    800      & 0.2545 & 0.1799 & 0.2115 & 0.1683 & 0.0756 & 0.1096 & 0.0034 & 0.0044 \\
+    900      & 0.2307 & 0.1898 & 0.1749 & 0.1421 & 0.0478 & 0.0967 & 0.0020 & 0.0023 \\
     1000     & 0.2080 & 0.1904 & 0.1526 & 0.1217 & 0.0311 & 0.0802 & 0.0032 & 0.0043 \\
     2000     & 0.0942 & 0.1234 & 0.0497 & 0.0453 & 0.0017 & 0.0087 & 0.0006 & 0.0006 \\
     \hline
@@ -460,25 +471,40 @@ The full set of efficiencies for every X-ray emitting charge state at each energ
     \label{tab:XrayEff}
 \end{table}
 
-The most efficient X-ray emission for O$^{6+}$, S$^{8+}$, and S$^{9+}$ is with an incident ion energy of 500 keV/u for both atmospheres and 1 MeV/u for O$^{7+}$.
-The well-mixed atmosphere has minimal effects on emission from low energy ion precipitation because the ions are not precipitating deep enough for the large column density to have much of an impact on the X-rays.
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=\textwidth]{Figures/OxyXrayEff.eps}
+    \caption{The entire outgoing X-ray flux efficiency for all oxygen charge states as a function of initial ion energy. No opacity effects are shown by the solid line, an exit angle of 0$^{\circ}$ is represented by the dashed line, an exit angle of 80$^{\circ}$ by the dotted line, and an exit angle of 90$^{\circ}$ by the dash-dot line, where atmosphere 1 consideration is in black and atmosphere 2 is in gray. Every exit angle is with respect to the Jovian spin axis.}
+    \label{fig:OxyXrayEff}
+\end{figure}
+
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=\textwidth]{Figures/SulXrayEff.eps}
+    \caption{The entire outgoing X-ray flux efficiency for all sulfur charge states as a function of initial ion energy. No opacity effects are shown by the solid line, an exit angle of 0$^{\circ}$ is represented by the dashed line, an exit angle of 80$^{\circ}$ by the dotted line, and an exit angle of 90$^{\circ}$ by the dash-dot line, where atmosphere 1 consideration is in black and atmosphere 2 is in gray. Every exit angle is with respect to the Jovian spin axis.}
+    \label{fig:SulXrayEff}
+\end{figure}
+
+The most efficient X-ray emission for O$^{6+}$, S$^{8+}$, and S$^{9+}$ is with an incident ion energy of $\sim$600 keV/u for both atmospheres and $\sim$1 MeV/u for O$^{7+}$.
+The well-mixed atmosphere has minimal effects on emission from low energy ion precipitation because the ions are not precipitating deeply enough for the large column density to have much of an impact on the X-rays.
 As one would expect, the viewing angle of 90$^{\circ}$ greatly reduces emission for high energy ion precipitation when comparing with X-rays that propagate directly up and out of the atmosphere at 0$^{\circ}$, due to the reduced opacity effects experienced by the photons.
-This is even more true for X-ray production from sulfur which is the most efficient X-ray producer (i.e. S$^{8+}$) at 500 keV/u with a viewing angle of 0$^{\circ}$, but the efficiency is reduced by nearly 60$\%$ (for atmosphere 1) when the viewing angle changes to 90$^{\circ}$, whereas O$^{6+}$ is only reduced by about 12$\%$ (for atmosphere 1) making it the most efficient for 500 keV/u at 90$^{\circ}$.
+This is even more true for X-ray production from sulfur which is the overall most efficient X-ray producer (i.e. S$^{8+}$) at 600 keV/u with a viewing angle of 0$^{\circ}$, but the efficiency is reduced by nearly 80$\%$ (for atmosphere 1) when the viewing angle changes to 90$^{\circ}$, whereas O$^{6+}$ is only reduced by about 23$\%$ (for atmosphere 1) making it the most efficient for 600 keV/u at 90$^{\circ}$.
 This is a very important effect to consider when looking at fluxes from earth based X-ray observations, which are generally taken at a very steep viewing angle.
 
 \citet{ozak2010} reported the most efficient X-ray emission for O$^{6+}$, O$^{7+}$, and S$^{8+}$ occurring for incident ions with energies of 1.5 MeV/u, 2.5 MeV/u, and 1 MeV/u, and efficiency values of $\sim$0.009, $\sim$0.003, and $\sim$0.015, respectively.
 These energies are 2-3x higher than what we are now producing with the SIM cross-sections.
 There are two major contributions accounting for such a great difference in X-ray efficiencies.
-Firstly, it requires much less energy to strip both oxygen and sulfur ions to a high, X-ray producing, charge state, allowing X-rays to be created at a much lower energy than previously thought.
-Secondly, we are depositing much more energy higher up in the atmosphere due to the increase in stopping power shown by \citet{schultz2018}, ultimately generating X-rays higher in the atmosphere than previously modeled, making them less susceptible to opacity effects even when considering an upper-limit atmosphere.
+Firstly, it now requires much less energy to strip both oxygen and sulfur ions to a high, X-ray producing, charge state, allowing X-rays to be created at much lower energies than previously thought.
+Secondly, we are depositing much more energy higher up in the atmosphere due to the increase in stopping power shown by \citet{schultz2018}, ultimately generating X-rays higher in the atmosphere than previously modeled, making them less susceptible to opacity effects even when considering an upper-limit, highly-mixed atmosphere.
 
 \subsection{X-ray Spectra}
 
-When producing a synthetic X-ray spectrum we are able to distinguish between charge states and production type (charge transfer or direct excitation) and consider the effects due to opacity at different viewing angles in atmospheres 1 and 2.
+When producing a synthetic X-ray spectrum we are able to distinguish between charge states and production type (charge transfer or direct excitation), and consider the effects due to opacity at different viewing angles in atmospheres 1 and 2.
 Figure \ref{fig:XraySpec} shows the total X-ray emission for a single oxygen plus a single sulfur ion (sulfur to oxygen ratio of 1:1), both with incident energies of 500 keV/u.
 The emission lines have been distributed with a normalized Gaussian and $\sigma$=20 eV, simulating instrument response functions (discussed in Section \ref{sec:XraySpec}).
 We have split the emission up by charge state to show where in the spectrum each emission line contributes the most, i.e. sulfur dominates at photon energies between 150-500 eV, while oxygen is prominent between 500-900 eV.
 This particular spectrum accounts for no opacity effects and we have included emission from both charge exchange and direct excitation collisions.
+The emission from S$^{14+}$ has two peaks at $\sim$430 eV and $\sim$2450 but is multiple orders of magnitude below the rest off the mission and is too faint to see in Figure \ref{fig:XraySpec}.
 
 \begin{figure}[ht]
     \centering
@@ -490,7 +516,7 @@ This particular spectrum accounts for no opacity effects and we have included em
 Next, shown in Figure \ref{fig:XraySpecOpac} is the same total emission from Figure \ref{fig:XraySpec} (black line) with opacity effects applied from both atmosphere 1 and 2 at three different viewing angles.
 It is apparent that X-ray emission from sulfur is much more effected by opacity than that from oxygen, which was indicated by the X-ray efficiencies in Table \ref{tab:XrayEff}.
 This is due to the relatively large photo-absorption cross-sections at longer wavelengths, shown by \citet{cravens2006}.
-It's also important to note how little the overall absorption of X-rays is at this energy, even for atmosphere 2.
+It's also important to note how little X-ray absorption occurs at this energy, even for atmosphere 2.
 500 keV/u (a total energy of 8 MeV for oxygen and 16 Mev for sulfur) is slightly below the most energetic ions JEDI is capable of measuring if they are oxygen, and well above the 10 MeV instrument threshold \citep{mauk2017ssr} if they are sulfur.
 This indicates that most X-ray emission from ion measurements made by JEDI will escape without undergoing large opacity effects and should be detectable, even if a very well-mixed atmosphere is present.
 These results are much different than those presented by \citet{ozak2010}, which show a reduction in sulfur emission by nearly two orders of magnitude when considering a 90$^{\circ}$ viewing angle.
@@ -505,8 +531,15 @@ These results are much different than those presented by \citet{ozak2010}, which
 \subsection{Inputting JEDI Measurements}
 
 Finally, we input the JEDI flux measurements, displayed in Figure \ref{fig:JEDIFlux}, into our model and are able to determine ion production rates and an expected X-ray spectra.
-The ion production rates shown in Figure \ref{fig:JEDIIonProd} demonstrate that X-ray emission will occur and also the ions do not precipitate deeply enough to go below the homopause in the atmosphere of Figure \ref{fig:atm}, indicating that absorption will have minimal effects.
-. shown in Figure \ref{fig:JEDIXray}.
+In the results presented using JEDI measurements we only consider atmosphere 1, the original atmosphere in Figure \ref{fig:atm} with a well defined homopause.
+The ion production rates shown in Figure \ref{fig:JEDIIonProd} demonstrate that X-ray emission will occur and the ions do not precipitate deeply enough to go below the homopause indicating that absorption will have minimal effects.
+
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=\textwidth]{Figures/OpacityATM1ATM2.eps}
+    \caption{Synthetic X-ray spectra with opacity effects at three viewing angles through an atmosphere with a deep, originally considered homopause (atmosphere 1) and an atmosphere that is well-mixed through the top of the atmosphere (atmosphere 2), what we consider an upper-limit to opacity effects. Initial ion energies are 500 keV/u for both oxygen and sulfur precipitation and the input is 1 ion/cm$^2$/s for both species. Photon energies below about 400 eV are shown to be much more affected by the opacity than higher photon energies.}
+    \label{fig:XraySpecOpac}
+\end{figure}
 
 
 
