@@ -56,7 +56,7 @@
 % \end{keypoints}
 
 \begin{keypoints}
-\item Oxygen and sulfur precipitation into the jovian auroral atmosphere produce X-rays.
+\item Oxygen and sulfur precipitation into the Jovian auroral atmosphere produce X-rays.
 \item The Juno spacecraft has observed oxygen and sulfur precipitation above the polar caps.
 \item Using Juno measurements, we are able to produce a significant number of X-rays.
 \end{keypoints}
@@ -100,39 +100,44 @@ enter abstract here
 
 \section{Introduction}
 
-The National Aeronautics and Space Administration's (NASA) Juno mission has now been orbiting Jupiter for nearly three years, at the time of this writing.
+The National Aeronautics and Space Administration's (NASA) Juno mission has, at the time of this writing, been orbiting Jupiter for nearly three years.
 Since arrival, Juno has arguably uncovered more questions than it has answered, although its discoveries are nothing short of amazing.
-In its time spent at Jupiter, it has put greater constraints on gravitational field, measured a much more intense magnetic field than predicted, and observed particle species in the magnetosphere that still bring about confusion.
-Most importantly to this paper, Juno has been able to measure heavy ions above the polar caps that indicate they are precipitating into the top of the atmosphere \citep{haggerty2017}.
+In its time spent at Jupiter, Juno has put greater constraints on the gravitational field \citep{folkner2017,iess2018}, measured a magnetic field with complexity unlike anything imagined \citep{connerney2017,connerney2018,moore2018}, and returned images of Jupiter detailing the phenomenal features seen in the cloud tops \citep{orton2017,sanchez2018}.
+Most importantly to this paper, Juno has been able to measure heavy ions above the polar caps that indicate they are precipitating into the top of the atmosphere \citep{haggerty2017,clark2017a,clark2017b}, potentially producing X-rays.
 
 X-ray production at Jupiter has been of interest to the space physics community from when it was first observed by the Einstein Observatory in April of 1979 \citep{metzger1983}.
-Although \citet{metzger1983} were unable to distinguish a line spectrum from a continuum due to the limitations of the detector, they still proposed that the source of X-rays must be coming from heavy ion precipitation, stating, ``the shape of the response and the observed X-ray power indicate that the source of this auroral emission is not electron bremmstrahlung as on the earth, but is most probably line emission from O and S ions with energies between 0.03 and 4.0 MeV/nucleon...''
-Now, with the Juno spacecraft orbiting Jupiter, oxygen and sulfur ions have been measured above the polar caps with energies up to 400 keV per nucleon (u) \citep{haggerty2017,clark2017a,clark2017b}.
+Although \citet{metzger1983} were unable to distinguish a line spectrum from a continuum due to the limitations of the detector, they still proposed that the source of X-rays must be coming from heavy ion precipitation, stating, ``the shape of the response and the observed X-ray power indicate that the source of this auroral emission is not electron bremmstrahlung as on the earth, but is most probably line emission from O and S ions with energies between 0.03 and 4.0 MeV/nucleon...''.
+Now, with the Juno spacecraft orbiting Jupiter, oxygen and sulfur ions have been measured above the polar caps with energies up to 400 keV per nucleon (keV/u) \citep{haggerty2017,clark2017a,clark2017b}.
 
 In the past, there have been attempts to reproduce the X-ray emission observed at Jupiter with ion precipitation models \citep{cravens1995,ozak2010,ozak2013}, but they mostly fell short due to the high energy ($>$1.2 MeV/u) required to strip the ions of their electrons enough to produce X-rays.
 Although the energies proposed even seemed high at the time, this could be overlooked because there were not any in situ measurements of the ion energies above the polar cap.
 However, now with more accurate ion-neutral collision cross-sections from \citet{schultz2018} that include processes never before considered, we will show that the necessary ion energy needs to only be about 200 keV/u to begin producing X-rays.
 
-We have expanded on the ion precipitation models that have come before \citep{cravens1995,ozak2010,ozak2013,houston2018}, modeling oxygen from 10 keV/u to 25 MeV/u, including the O$^-$ charge state through O$^{8+}$.
-For sulfur we will show results between 10 keV/u and 2 MeV/u for S neutral through S$^{16+}$.
+We expand on the ion precipitation models that have come before \citep{cravens1995,ozak2010,ozak2013,houston2018}, modeling oxygen from 10 keV/u to 25 MeV/u and sulfur between 10 keV/u and 2 MeV/u, in an attempt to explain the X-ray emission from the Jovian polar caps using heavy ion precipitation.
+We consider all charge states of oxygen, including the negative charge state (O$^{q+}$, q=-1, 0, ..., 8), and all sulfur charge states (S$^{q+}$, q=0, ..., 16).
+Ultimately, O$^{6+}$, O$^{7+}$, and S$^{6+}$-S$^{15+}$ are the most important charge states to consider when producing X-rays, because their ionization potentials are great enough to emit X-ray photons.
 
-Throughout this paper, following historical nomenclature, we will refer to the precipitating particle (either oxygen or sulfur) as an ion and the target particle (molecular hydrogen) as the atom, although the target particles often end up ionized and the precipitating particles can, and will, reach a neutral state.
+We first discuss the differences between our model and those by \citet{ozak2010}, \citet{ozak2012}, and \citet{houston2018}.
+We then introduce new ion-neutral collision processes that account for the vast contrast in our results and those presented by our predecessors.
+Various techniques used within the model are explained and ion flux measurements made by the Jupiter Energetic Particle Detector Instrument (JEDI) \citep{mauk2017ssr} are displayed.
+Results are given for a variety of monoenergetic ion beam energies, including several ion production rates, X-ray efficiencies, and example X-ray spectra with opacity effects.
+The JEDI measurements are input into the model and results indicating X-ray production are shown.
+Finally, we conclude with a discussion on the implications of the model results.
 
 \section{Physical Processes and Model Description}
 
-The model presented in this manuscript is introduced in great detail by \citet{houston2018}, \citet{ozak2010}, \citet{ozak2013}, and the references therein.
-\citet{houston2018} primarily focused on field-aligned currents (FAC) and ultraviolet (UV) emission from oxygen, \citet{ozak2010} showed X-ray production rates from precipitating oxygen and sulfur, and \citet{ozak2013} made predictions of FAC and airglow intensities that Juno would measure when it arrived to Jupiter.
-We follow up on the promise of \citet{houston2018} to include energetic sulfur precipitation and oxygen improvements; however, proton precipitation will be left to a future publication. 
+The simulation presented in this manuscript is introduced in great detail by \citet{ozak2010,ozak2013,houston2018}, and the references therein.
+When \citet{ozak2010} first published results, they showed X-ray production rates from precipitating oxygen and sulfur, then \citet{ozak2013} made predictions of field-aligned currents (FAC) and airglow intensities that Juno would measure when it arrived to Jupiter, and \citet{houston2018} primarily focused on FAC and ultraviolet (UV) emission from oxygen.
+We follow up on the promise of \citet{houston2018} to include energetic sulfur precipitation and oxygen improvements; however, proton precipitation will be left to a future publication.
 
-Here, we present X-ray productions from precipitating oxygen and sulfur, rather than FAC and UV emission.
-We layout the differences and updates to the simulation, but the finer details of the model will be left to the previous papers.
+Any differences to the ion precipitation model will be explicitly stated; however, if a detail is left out one can assume the same procedure used by our predecessors has been used here.
 Aside from optimization improvements, the main contrast can be summarized as follows:
 \begin{itemize}
 \item The Jovian atmosphere has been extended deeper, down below the 1 bar level.
 \item Oxygen cross-sections previously only included non-simultaneous (NSIM) collisions; we now consider simultaneous (SIM) ion-target interactions.
 \item Sulfur SIM cross-sections have been analyzed and are included in the model.
 \item X-ray efficiencies and synthetic X-ray spectra that include opacity effects are presented with both the current atmosphere and an upper limit, fully mixed atmosphere.
-\item Juno data (both oxygen and sulfur measurements) are adapted and input into the simulation.
+\item Juno data (both oxygen and sulfur flux measurements) are adapted and input into the simulation.
 \end{itemize}
 
 \subsection{Jovian Atmosphere}
@@ -140,7 +145,8 @@ Aside from optimization improvements, the main contrast can be summarized as fol
 
 \citet{houston2018} used a neutral atmosphere originally presented by \citet{maurellis2001} based on Galileo probe data \citep{seiff1996,seiff1997} and remote observations \citep{sada1998}.
 The same atmosphere is used here, only we have extended the depth from 200 km to -88 km, where 0 km is set to where the pressure is equal to 1 bar (Fig. \ref{fig:atm}).
-The deeper atmosphere has been generated using temperature-pressure profiles retrieved from NASA's Infrared Telescope Facility and the Texas Echelon Cross Echelle Spectrograph Instrument (IRTF-TEXES) \citep{sinclair2018} and the ideal gas law because the measurements come from below the homopause, where the atmosphere is well-mixed.
+The atmosphere below 200 km has been generated using temperature-pressure profiles retrieved from NASA's Infrared Telescope Facility and the Texas Echelon Cross Echelle Spectrograph Instrument (IRTF-TEXES) \citep{sinclair2018}.
+Then the ideal gas law is applied to solve for the number density, because the measurements come from below the homopause, where the atmosphere is well-mixed.
 
 \begin{figure}[ht]
 \centering
@@ -149,8 +155,10 @@ The deeper atmosphere has been generated using temperature-pressure profiles ret
 \label{fig:atm}
 \end{figure}
 
-When opacity effects are discussed, the second atmosphere investigated is generated by taking the mixing ratio of molecular hydrogen to helium and methane at the bottom of the density profile in Figure \ref{fig:atm} and then redistributing helium and methane from the top of the atmosphere with that same mixing ratio.
-The H$_{2}$ distribution remains the same, thus ion precipitation will not be effected because only ion collisions in a hydrogen gas are considered.
+There has been much speculation about the composition of the upper atmosphere over the polar caps.
+To help account for this, we generate a second atmospheric profile by taking the mixing ratio of molecular hydrogen to helium and methane at the bottom of the density profile in Figure \ref{fig:atm} and then redistribute the helium and methane from the top of the atmosphere with that same mixing ratio.
+This allows for a completely, well-mixed atmosphere that completely ignores a homopause; rather, the entire atmosphere is homogeneous.
+The H$_{2}$ distribution of this atmosphere remains the same as that in Fig \ref{fig:atm}, thus ion precipitation will not be effected because only ion collisions in a hydrogen gas are considered.
 Atomic hydrogen is ignored in the well-mixed atmosphere because of how chemically active it tends to be (as can be seen in the original atmosphere, below the homopause) and it is not unreasonable to think the column density of H will have negligible affects on the opacity of X-ray emission, as it does in the original atmosphere.
 We will refer to the atmosphere displayed in Figure \ref{fig:atm} as atmosphere 1 and the well-mixed atmosphere as atmosphere 2.
 
@@ -245,6 +253,10 @@ The NSIM and SIM projectile and target processes used are the following:
 \end{tabbing}
 where X stands for the projectile, either O or S. $q$ is the charge state and depends on the number of electrons bound to the ion; $q$ runs from 0 to 8 for O and from 0 to 16 for S.
 Some processes are not possible for neutral or singly ionized atoms or, similarly, for fully stripped or O$^{7+}$ and S$^{15+}$ ions (e.g., for neutral O and S, SC and DC are not possible, or for O$^{8+}$ and S$^{16+}$, SS and DS are not considered).
+As above, we now include the negatively charged ionic state of oxygen, O$^-$, but it does not follow the same processes described here due to the difficulty \citet{schultz2018} encounter when modeling the charge state due to the low binding energy.
+We end up using a single, NSIM process that can bring O to O$^-$, governed by the cross-section in Table C of \citet{schultz2018}.
+Once in the negative charge state, six processes are considered; SI, SI+SS, DI, DI+SS, TEX, and TEX+SS.
+For more details, see Section 3.4 \textit{Auxiliary data model} given by \citet{schultz2018}.
 
 The explicit calculation and implication of using SIM cross-sections rather than NSIM cross-sections can be found in \citet{schultz2018}; but for the model presented, it has shifted the peaks of the charge state equilibrium fractions down to a lower initial ion energy, ultimately requiring less energy to fully strip both oxygen and sulfur ions.
 
@@ -259,14 +271,14 @@ This is done using transition probabilities, $P_{ij}$:
     \phi_{q}^{i}(E) P^i_{q,q+1}=\phi_{q+1}^{i}(E) P^i_{q+1,q}
     \label{eqn:EqProb}
 \end{equation}
-where $\phi_q^i$ is the fraction of ions in charge state $q$, at energy $E$, and species $i$, either oxygen or sulfur.
+where $\phi_q^i(E)$ is the fraction of ions in charge state $q$, at energy $E$, for species $i$, either oxygen or sulfur.
 $P^i_{q,q+1}$ denotes the sum of the stripping cross-sections and $P^i_{q+1,q}$, the sum of the charge transfer cross-sections, for species $i$.
 A normalization is given by the condition
 \begin{equation}
     \int\displaylimits_{0}^{E_0}\sum_{q=q_0}^{q=Z}\phi^i_q(E)dE=1
     \label{eqn:EqProbNorm}
 \end{equation}
-where $q_0$ denotes the lowest charge state for species $i$, $q_0$=-1 for O and $q_0$=0 for S, $Z$=8,16 are the nuclear charges for O and S, and $\phi_q^i$ is the charge state fraction.
+where $q_0$ denotes the lowest charge state for species $i$, $q_0$=-1 for O and $q_0$=0 for S, $Z$=8,16 are the nuclear charges for O and S, and $\phi_q^i(E)$ is the charge state fraction.
 These are shown for oxygen and sulfur as a function of energy in Figures \ref{fig:CSDoxy} and \ref{fig:CSDsul}.
 
 \begin{figure}[ht]
@@ -285,7 +297,7 @@ These are shown for oxygen and sulfur as a function of energy in Figures \ref{fi
 
 The charge state equilibrium fractions demonstrate at what energy the ion will reach a given charge state regardless of the collision processes undergone or the initial ion energy; the ion history is immediately forgotten.
 From here, one can see, at a glance, what energies are required for an ion to begin producing X-rays.
-For both oxygen and sulfur the sixth charge state must be reached to begin producing X-rays (O$^{6+}$ and S$^{6+}$ with projectile excitation, or O$^{7+}$ and S$^{7+}$ with charge exchange).
+For both oxygen and sulfur the sixth charge state must be reached to begin producing X-rays (O$^{6+}$ and S$^{6+}$ with projectile excitation, or O$^{7+}$ and S$^{7+}$ with consequent charge exchange).
 These charge states are sufficiently reached for both species at an energy between 200-300 keV/u, where they become the most probable charge state for the given energy (a total energy of ~3.2 MeV and ~6.4 MeV for oxygen and sulfur, respectively).
 These newly developed equilibrium fractions are no longer in agreement with previous models presented by \citet{ozak2010} and \citet{houston2018}, where they showed an O$^{6+}$ peak at nearly 1 MeV/u and an S$^{6+}$ peak at 600 keV/u.
 
@@ -376,9 +388,9 @@ where $\lambda$ is now the full spectrum (in eV) which we allow to go from 100 e
 
 \subsection{Juno Data}
 
-With recent measurements from the JEDI instrument \citep{mauk2017ssr} on the Juno spacecraft, we have been able to obtain heavy ion flux measurements above Jupiter's polar caps indicating both oxygen and sulfur precipitation \citep{haggerty2017,clark2017a,clark2017b}.
+With recent measurements from JEDI \citep{mauk2017ssr} on the Juno spacecraft, we have been able to obtain heavy ion flux measurements above Jupiter's polar caps indicating both oxygen and sulfur precipitation \citep{haggerty2017,clark2017a,clark2017b}.
 We are able to input these measurements into our model to produce expected observables for a given flux.
-For the most recent modeling, we use heavy ion measurements from a northern auroral pass during Perijove 7 on July 11, 2017, displayed in Figure \ref{fig:JEDIFlux}.
+For the most recent modeling, we use heavy ion measurements from a northern auroral pass during Perijove (PJ) 7 on July 11, 2017, displayed in Figure \ref{fig:JEDIFlux}.
 
 \begin{figure}[ht]
     \centering
@@ -541,6 +553,21 @@ The ion production rates shown in Figure \ref{fig:JEDIIonProd} demonstrate that 
     \label{fig:JEDIIonProd}
 \end{figure}
 
+Displayed in figure \ref{fig:JEDISpec} is the X-ray spectrum that we predict was emitted from JEDI's measured ion flux measurement (Fig. \ref{fig:JEDIFlux}) during PJ 7.
+This particular spectrum considers opacity effects with a photon exit angle of 80$^{\circ}$, which we assume to be a common viewing angle from earth based observations; although, opacity effects make little difference on the X-ray emission from ions with this low of initial energy\footnote{When comparing an 80$^{\circ}$ exit angle to a 90$^{\circ}$ exit angle, the total emitted flux from oxygen emission was only reduced by 5.4$\%$ for the 90$^{\circ}$ case, while emission from sulfur was diminished by 15$\%$.}.
+
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=\textwidth]{Figures/PJ7Spectrum.eps}
+    \caption{Predicted X-ray spectrum from JEDI's ion flux measurements during the PJ 7 polar cap pass in 2017. This spectrum assumes an opacity effect with an exit angle of 80$^{\circ}$ through atmosphere 1. It appears emission from oxygen is the most prominent source of X-rays associated with this flux measurement.}
+    \label{fig:JEDISpec}
+\end{figure}
+
+\section{Discussion and Conclusions}
+
+This paper has provided evidence that heavy ion precipitation can produce X-ray emission.
+One of the main questions left to answer, though, is: can heavy ion precipitation produce \textit{enough} X-ray emission to account for what is being observed?
+ 
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
