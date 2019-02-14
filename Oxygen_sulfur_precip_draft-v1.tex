@@ -334,7 +334,7 @@ $P(\lambda,z)$ integrated over every value of $\lambda$ is equal to the ion prod
 Therefore, to determine the production rate as a function of wavelength there are a couple of things to note before building synthetic spectra.
 
 \subsection{Synthetic X-ray Spectra}
-\label{sec:XraySpec}
+\label{sec:SynthXraySpec}
 
 An X-ray can be emitted through either the ion gaining an electron (what we refer to as charge transfer or charge exchange collisions) or the excitation of the ion (called direct excitation).
 Both of these scenarios can result with an electron in an excited state where it will emit photons as it cascades down to a more energy favorable state.
@@ -419,19 +419,19 @@ However, our model uses a Monte Carlo method that tracks each ion individually a
 These collisions are tracked through a set of altitude bins with a given input of $\sim$20,000 incident ions and then the production rate is normalized to an input of 1 ion/cm$^2$/s.
 The production rates as a function of H$_2$ density and altitude for O$^{6+}$ and O$^{7+}$ are shown in Figure \ref{fig:O6O7+Prod}.
 For sulfur, Figure \ref{fig:S7S8+Prod} shows the S$^{7+}$ and S$^{8+}$ charge transfer production rates.
-It is to be emphasized, these production rates only include charge exchange from the three collisions discussed in Section \ref{sec:XraySpec}, that is TI, SC, and SC+SS; although other processes can contribute to lowering the overall charge state without emitting a photon (e.g. the Auger process).
+It is to be emphasized, these production rates only include charge exchange from the three collisions discussed in Section \ref{sec:SynthXraySpec}, that is TI, SC, and SC+SS; although other processes can contribute to lowering the overall charge state without emitting a photon (e.g. the Auger process).
 The altitude integrated production rates for every charge state and various initial ion energies can be found in Appendices \ref{app:Oxy} and \ref{app:Sul}, including the production rate of directly excited ions.
 
 \begin{figure}[ht]
     \centering
-    \includegraphics[width=\textwidth]{Figures/O6O7CXProd2x2.eps}
+    \includegraphics[width=\textwidth]{Figures/O6O7CXProd.eps}
     \caption{The O$^{6+}$ and O$^{7+}$ production rate from TI, SC, and SC+SS vs. H$_2$ density and altitude for various incident ion energies (E=0.2, 0.3, 0.5, 1.0, 2.0, 5.0, 10.0, and 25.0 MeV/u). The production rates have been normalized to a single incident ion/cm$^2$/s.}
     \label{fig:O6O7+Prod}
 \end{figure}
 
 \begin{figure}[ht]
     \centering
-    \includegraphics[width=\textwidth]{Figures/S7S8CXProd2x2.eps}
+    \includegraphics[width=\textwidth]{Figures/S7S8CXProd.eps}
     \caption{The S$^{7+}$ and S$^{8+}$ production rate from TI, SC, and SC+SS vs. H$_2$ density and altitude for various incident ion energies (E=0.2, 0.3, 0.5, 1.0, and 2.0 MeV/u). The production rates have been normalized to a single incident ion/cm$^2$/s.}
     \label{fig:S7S8+Prod}
 \end{figure}
@@ -442,8 +442,8 @@ It is evident that the production rate of X-ray producing charge states from cha
 \subsection{X-ray Efficiencies}
 
 The emitted photon flux can be determined using the production rates, shown in Figures \ref{fig:O6O7+Prod} and \ref{fig:S7S8+Prod}, and Equation \ref{eqn:I}, where $4\pi$ is included to convert the intensity units from cm$^{-2}$ s$^{-1}$ sr$^{-1}$ to cm$^{-2}$ s$^{-1}$.
-An X-ray emission efficiency is a way of quantifying how many photons are emitted given an incident ion energy and is found by dividing $4\pi I$ by the initial energy of the monoenergetic ion beam.
-Table \ref{tab:XrayEff} shows the X-ray efficiency from both charge exchange and direct excitation emission combined given an incident ion energy at various viewing angles using both atmosphere 1 and 2.
+X-ray emission efficiency is a way of quantifying how many photons are emitted given an incident ion energy and is found by dividing $4\pi I$ by the initial energy of the monoenergetic ion beam.
+Table \ref{tab:XrayEff} shows the X-ray efficiency from both charge exchange and direct excitation emission combined given an incident ion energy at various viewing angles using both atmosphere 1 and 2, and with an input of 1 ion/cm$^2$/s.
 The same is also shown in Figures \ref{fig:OxyXrayEff} and \ref{fig:SulXrayEff}.
 The full set of efficiencies for every X-ray emitting charge state at each energy and three different viewing angles plus a no opacity case can be found in Appendices \ref{app:Oxy} and \ref{app:Sul}.
 
@@ -486,14 +486,14 @@ The full set of efficiencies for every X-ray emitting charge state at each energ
 \begin{figure}[ht]
     \centering
     \includegraphics[width=\textwidth]{Figures/OxyXrayEff.eps}
-    \caption{The entire outgoing X-ray flux efficiency for all oxygen charge states as a function of initial ion energy. No opacity effects are shown by the solid line, an exit angle of 0$^{\circ}$ is represented by the dashed line, an exit angle of 80$^{\circ}$ by the dotted line, and an exit angle of 90$^{\circ}$ by the dash-dot line, where atmosphere 1 consideration is in black and atmosphere 2 is in gray. Every exit angle is with respect to the Jovian spin axis.}
+    \caption{The entire outgoing X-ray flux efficiency for all X-ray producing oxygen charge states as a function of initial ion energy. No opacity effects are shown by the solid line, an exit angle of 0$^{\circ}$ is represented by the dashed line, an exit angle of 80$^{\circ}$ by the dotted line, and an exit angle of 90$^{\circ}$ by the dash-dot line, where atmosphere 1 consideration is in black and atmosphere 2 is in gray. Every exit angle is with respect to the Jovian spin axis. The figure on the right is a zoomed-in portion of the figure on the left (represented by the black rectangle) used to magnify the efficiencies of ions in the energy range of JEDI measurements.}
     \label{fig:OxyXrayEff}
 \end{figure}
 
 \begin{figure}[ht]
     \centering
     \includegraphics[width=\textwidth]{Figures/SulXrayEff.eps}
-    \caption{The entire outgoing X-ray flux efficiency for all sulfur charge states as a function of initial ion energy. No opacity effects are shown by the solid line, an exit angle of 0$^{\circ}$ is represented by the dashed line, an exit angle of 80$^{\circ}$ by the dotted line, and an exit angle of 90$^{\circ}$ by the dash-dot line, where atmosphere 1 consideration is in black and atmosphere 2 is in gray. Every exit angle is with respect to the Jovian spin axis.}
+    \caption{The entire outgoing X-ray flux efficiency for all X-ray producing sulfur charge states as a function of initial ion energy. No opacity effects are shown by the solid line, an exit angle of 0$^{\circ}$ is represented by the dashed line, an exit angle of 80$^{\circ}$ by the dotted line, and an exit angle of 90$^{\circ}$ by the dash-dot line, where atmosphere 1 consideration is in black and atmosphere 2 is in gray. Every exit angle is with respect to the Jovian spin axis. The figure on the right is a zoomed-in portion of the figure on the left (represented by the black rectangle) used to magnify the efficiencies of ions in the energy range of JEDI measurements.}
     \label{fig:SulXrayEff}
 \end{figure}
 
@@ -509,11 +509,29 @@ There are two major contributions accounting for such a great difference in X-ra
 Firstly, it now requires much less energy to strip both oxygen and sulfur ions to a high, X-ray producing, charge state, allowing X-rays to be created at much lower energies than previously thought.
 Secondly, we are depositing much more energy higher up in the atmosphere due to the increase in stopping power shown by \citet{schultz2018}, ultimately generating X-rays higher in the atmosphere than previously modeled, making them less susceptible to opacity effects even when considering an upper-limit, highly-mixed atmosphere.
 
+There are several very useful ways to interpret the X-ray efficiency.
+Because the efficiencies are calculated with an input of 1 ion/cm$^2$/s, one can view the efficiency as the number of X-ray photons emitted given an initial ion energy.
+That is to say, if a single oxygen ion with an energy of 300 keV/u is precipitating, then it is expected that $\sim$0.1 $\frac{\mathrm{photons}}{\mathrm{cm}^2 \mathrm{s}}\frac{1}{\mathrm{keV/u}}$ x 300 keV/u = 30 photons/cm$^2$/s will be emitted.
+Therefore, 1 oxygen ion/cm$^2$/s at 300 keV/u will produce 30 photons/cm$^2$/s, or 1 ion/s precipitating results in 30 photons/s.
+This is an extremely quick estimate that can be made when trying to interpret the emission from a measured JEDI ion flux.
+
+Another practical application of the X-ray efficiencies is to calculate power emission given an initial ion.
+This is easily accomplished by the following; we have just discussed that 1 oxygen ion/s at 300 keV/u will produce 30 photons/s.
+The average emitted photon energy from X-rays emitted from oxygen is ~600 eV (See Section \ref{sec:XraySpec}).
+The power out is then 30 photons/s x 600 eV x 1.6x10$^{-9}$ $\frac{\mathrm{Joules}}{\mathrm{eV}}$ $\approx$ 3x10$^{-15}$ $\frac{\mathrm{Joules}}{\mathrm{s}}$ or 3x10$^{-15}$ watts.
+Thus, given an ion flux, one can approximate the total power output from the precipitating ions.
+
+Finally, given an ion flux one can conceivably calculate the power output from the entirety of the polar cap, or a defined area that Juno has flown over while an X-ray observation has been made simultaneously.
+If photons/cm$^2$/s is calculated, either through the aforementioned method or as a direct result output from our model with a variety of initial ion energies, then finding the power/cm$^2$/s is a matter of combining the two methods just mentioned
+That is, photons/cm$^2$/s x average photon energy [eV] x 1.6x10$^{-19}$ $\frac{\mathrm{Joules}}{\mathrm{eV}}$ results in W/cm$^2$.
+Now, if the area of the measurement is known, or deduced by geometry, multiplying the power/cm$^2$ by the area will result in the total power for that area which then can be directly compared to an observational X-ray power measurement.
+
 \subsection{X-ray Spectra}
+\label{sec:XraySpec}
 
 When producing a synthetic X-ray spectrum we are able to distinguish between charge states and production type (charge transfer or direct excitation), and consider the effects due to opacity at different viewing angles in atmospheres 1 and 2.
 Figure \ref{fig:XraySpec} shows the total X-ray emission for a single oxygen plus a single sulfur ion (sulfur to oxygen ratio of 1:1), both with incident energies of 500 keV/u.
-The emission lines have been distributed with a normalized Gaussian and $\sigma$=20 eV, simulating instrument response functions (discussed in Section \ref{sec:XraySpec}).
+The emission lines have been distributed with a normalized Gaussian and $\sigma$=20 eV, simulating instrument response functions (discussed in Section \ref{sec:SynthXraySpec}).
 We have split the emission up by charge state to show where in the spectrum each emission line contributes the most, i.e. sulfur dominates at photon energies between 150-500 eV, while oxygen is prominent between 500-900 eV.
 This particular spectrum accounts for no opacity effects and we have included emission from both charge exchange and direct excitation collisions.
 The emission from S$^{14+}$ has two peaks at $\sim$430 eV and $\sim$2450 but is multiple orders of magnitude below the rest off the mission and is too faint to see in Figure \ref{fig:XraySpec}.
@@ -565,10 +583,28 @@ This particular spectrum considers opacity effects with a photon exit angle of 8
 
 \section{Discussion and Conclusions}
 
-This paper has provided evidence that heavy ion precipitation can produce X-ray emission.
-One of the main questions left to answer, though, is: can heavy ion precipitation produce \textit{enough} X-ray emission to account for what is being observed?
- 
+The mysterious source of X-ray emission from Jupiter has been discussed for over 35 years, since they were first observed in 1979 and 1981 \citep{metzger1983}.
+There have been multiple modeling attempts of both heavy ion precipitation \citep{horanyi1988,cravens1995,ozak2010,ozak2013,houston2018} and electron bremsstrahlung \citep{metzger1983,waite1991,barbosa1992,singhal1992}, with great controversy surrounding the mechanism responsible for the emission \citep{barbosa1990,waite1991,barbosa1992}.
+It was eventually shown that the required input power to produce 1 GW of X-ray power (shown by \citet{branduardi2004} and \citet{elsner2005}) was over 10$^{15}$ W when using bremsstrahlung from electrons \citep{waite1991,waite1994}, which is a couple orders of magnitude higher than UV auroral observations measured.
 
+However, even with electron bremsstrahlung being largely proven as unable to produce the X-ray emission, recent heavy ion precipitation models required the precipitating ions to reach energies larger than what was to be expected at Jupiter \citep{cravens1995,ozak2010,ozak2013,houston2018}.
+Now with \textit{in situ} measurements of the environment above the Jovian polar caps, it is clear the ions are not energetic enough to produce X-rays based on the previous modeling attempts.
+This helped force us to rethink the processes producing X-ray emission from ion precipitation.
+\citet{schultz2018} determined not every process was being accounted for in the original precipitation modeling, but simultaneous processes (both target and ion) needed to be considered.
+This lead to a completely new series of processes and cross-sections that we have now utilized for the updated heavy ion precipitation model described here.
+The required initial ion energy to produce X-rays has been reduced dramatically, and is now well within the energy range being measured by the Juno spacecraft.
+
+We have now provided evidence that heavy ion precipitation can produce X-ray emission.
+This still begs the question, though: can heavy ion precipitation produce \textit{enough} X-ray emission?
+The X-ray emission our model produces when the JEDI ion flux measurement shown in Figure \ref{fig:JEDIFlux} are input is $\sim$4x10$^6$ photons/cm$^2$/s.
+This is the sum of all oxygen and sulfur X-ray emission from both charge exchange and direct excitation with an exit angle of 80$^{\circ}$ from the original atmosphere.
+Integrating the emission in Figure \ref{fig:JEDIFlux}, results in $\sim$2.5x10$^9$ eV/cm$^2$/s.
+Converting this to watts/cm$^2$ by multiplying by a factor of 1.6x10$^{-19}$ J/eV yields a power output of 4x10$^{-9}$ W/cm$^2$.
+Now, the total area of X-ray emission on the Jovian polar cap can be assumed to come from within a latitude of $\sim$5$^{\circ}$.
+This gives an area of 2$\pi$R$_{\mathrm{J}}^2$(1-cos$\mathrm{\theta}$) $\approx$ 10$^{18}$ cm$^2$ (R$_{\mathrm{J}}$ = Jovian radii = 71,492 km).
+4x10$^{-9}$ W/cm$^2$ x 10$^{18}$ cm$^2$ = 4x10$^9$ W, or 4 GW.
+It appears, based on this quick, ``back of the envelope'' calculation, that we can now account for the entirety of the output power of the X-rays.
+Of course, the area of emission needs to be greatly constrained, but this shows it is now feasible that the ion flux measurements at Jupiter are responsible for the X-ray emission.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %
