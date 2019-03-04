@@ -74,7 +74,7 @@
 %% \begin{abstract} starts the second page
 
 \begin{abstract}
-The source of auroral X-ray emission from the Jovian polar caps, whether from electron bremmstrahlung or heavy ion precipitation, has been veiled in mystery and debate for the past 40 years, beginning with the Einstein Observatory's first measurement of X-ray emission in 1979.
+The source of auroral X-ray emission from the Jovian polar caps, whether from electron bremmstrahlung or heavy ion precipitation, has been a topic of debate for the past 40 years, beginning with the Einstein Observatory's first measurement of X-ray emission in 1979.
 Since then, the R\"oentgen satellite, Chandra X-ray Observatory, and XMM-Newton have been able to distinguish heavy ion (oxygen and sulfur) line emission in the X-ray spectrum and measure a total power of about 1 GW.
 There have been many attempts to model both bremmstrahlung and ion precipitation with the goal of reproducing what is being seen; however, both have encountered push back.
 Electron bremmstrahlung modeling has fallen short of producing the total overall power output being observed by our earth based X-ray observatories.
@@ -168,7 +168,7 @@ To help account for this, we generate a second atmospheric profile (not displaye
 This allows for a completely well-mixed atmosphere that ignores a defined homopause; rather, the entire atmosphere is homogeneous.
 The H$_{2}$ distribution of this atmosphere remains the same as that in Fig \ref{fig:atm}, thus ion precipitation will not be effected because only ion collisions in a hydrogen gas are considered.
 However, when photoemission is discussed, the well-mixed atmosphere will have greater photoabsorption effects.
-Atomic hydrogen is ignored in the well-mixed atmosphere because of how chemically active it tends to be (as can be seen in the original atmosphere, below the homopause) and it is not unreasonable to think the column density of H will have negligible affects on the opacity of X-ray emission, as it does in the original atmosphere.
+Atomic hydrogen is ignored in the well-mixed atmosphere because of how chemically active it tends to be (as can be seen in the original atmosphere, below the homopause) and it is not unreasonable to think the column density of H will have negligible effects on the opacity of X-ray emission, as it does in the original atmosphere.
 We will refer to the atmosphere displayed in Figure \ref{fig:atm} as atmosphere 1 and the well-mixed atmosphere as atmosphere 2.
 
 \subsection{Ion-Neutral Impact Processes}
@@ -411,7 +411,7 @@ For this study, we use heavy ion measurements from a northern auroral pass durin
 \begin{figure}[ht]
     \centering
     \includegraphics[width=\textwidth]{Figures/O+S_PJ7.eps}
-    \caption{Oxygen and sulfur flux measurements from JEDI on the Juno spacecraft during Perijove 7 that are used as an input to our model.}
+    \caption{Oxygen and sulfur flux measurements from JEDI on the Juno spacecraft during Perijove 7. The points marked with a diamond are the actual JEDI measurements. The lines represents the interpolation of the data that we applied to the measurements.}
     \label{fig:JEDIFlux}
 \end{figure}
 
@@ -510,14 +510,14 @@ The full set of efficiencies for every X-ray emitting charge state at each energ
 \begin{figure}[ht]
     \centering
     \includegraphics[width=\textwidth]{Figures/OxyXrayEff2.eps}
-    \caption{The entire outgoing X-ray flux efficiency for all X-ray producing oxygen charge states as a function of initial ion energy. No opacity effects is shown by the solid line, an exit angle of 0$^{\circ}$ is represented by the dashed line, an exit angle of 80$^{\circ}$ by the dotted line, and an exit angle of 90$^{\circ}$ by the dash-dot line. Atmosphere 1 consideration is in black and atmosphere 2 is in gray. Every exit angle is with respect to the Jovian spin axis. The figure on the right is a zoomed-in portion of the figure on the left (represented by the black rectangle), used to magnify the efficiencies of ions in the energy range of JEDI measurements.}
+    \caption{The entire outgoing X-ray flux efficiency for all X-ray producing oxygen charge states as a function of initial ion energy. The condition of no opacity is shown by the solid line, an exit angle of 0$^{\circ}$ is represented by the dashed line, an exit angle of 80$^{\circ}$ by the dotted line, and an exit angle of 90$^{\circ}$ by the dash-dot line. Atmosphere 1 consideration is in black and atmosphere 2 is in gray. Every exit angle is with respect to the Jovian spin axis. The figure on the right is a magnified portion of the figure on the left (represented by the black rectangle), used to emphasize the efficiencies of ions in the energy range of JEDI measurements.}
     \label{fig:OxyXrayEff}
 \end{figure}
 
 \begin{figure}[ht]
     \centering
     \includegraphics[width=\textwidth]{Figures/SulXrayEff2.eps}
-    \caption{The entire outgoing X-ray flux efficiency for all X-ray producing sulfur charge states as a function of initial ion energy. No opacity effects is shown by the solid line, an exit angle of 0$^{\circ}$ is represented by the dashed line, an exit angle of 80$^{\circ}$ by the dotted line, and an exit angle of 90$^{\circ}$ by the dash-dot line. Atmosphere 1 consideration is in black and atmosphere 2 is in gray. Every exit angle is with respect to the Jovian spin axis. The figure on the right is a zoomed-in portion of the figure on the left (represented by the black rectangle), used to magnify the efficiencies of ions in the energy range of JEDI measurements.}
+    \caption{The entire outgoing X-ray flux efficiency for all X-ray producing sulfur charge states as a function of initial ion energy. The condition of no opacity is shown by the solid line, an exit angle of 0$^{\circ}$ is represented by the dashed line, an exit angle of 80$^{\circ}$ by the dotted line, and an exit angle of 90$^{\circ}$ by the dash-dot line. Atmosphere 1 consideration is in black and atmosphere 2 is in gray. Every exit angle is with respect to the Jovian spin axis. The figure on the right is a magnified portion of the figure on the left (represented by the black rectangle), used to emphasize the efficiencies of ions in the energy range of JEDI measurements.}
     \label{fig:SulXrayEff}
 \end{figure}
 
@@ -530,7 +530,7 @@ This is a very important effect to consider when looking at fluxes from earth ba
 \citet{ozak2010} reported the most efficient X-ray emission for O$^{6+}$, O$^{7+}$, and S$^{8+}$ occurring for incident ions with energies of 1.5 MeV/u, 2.5 MeV/u, and 1 MeV/u, and efficiency values of $\sim$0.009, $\sim$0.003, and $\sim$0.015, respectively.
 These energies are 2-3x higher than what we are now producing with the SIM cross-sections.
 There are two major contributions accounting for such a great difference in X-ray efficiencies.
-Firstly, it now requires much less energy to strip both oxygen and sulfur ions to a high, X-ray producing, charge state, allowing X-rays to be created at much lower energies than previously thought.
+Firstly, due to the use of the new SIM cross-sections, it now requires much less energy to strip both oxygen and sulfur ions to a high, X-ray producing, charge state, allowing X-rays to be created at much lower energies than previously thought.
 Secondly, we are depositing much more energy higher up in the atmosphere due to the increase in stopping power shown by \citet{schultz2019}, ultimately generating X-rays higher in the atmosphere than previously modeled, making them less susceptible to opacity effects even when considering an upper-limit, highly-mixed atmosphere.
 
 There are several very useful ways to interpret X-ray efficiencies.
@@ -570,10 +570,11 @@ The emission from S$^{14+}$ has two peaks at $\sim$430 eV and $\sim$2450 eV, but
 Next, shown in Figure \ref{fig:XraySpecOpac} is the same total emission from Figure \ref{fig:XraySpec} (black line) with opacity effects applied from both atmosphere 1 and 2 at three different viewing angles.
 It is apparent that X-ray emission from sulfur is much more effected by opacity than that from oxygen, which was indicated by the X-ray efficiencies in Table \ref{tab:XrayEff}.
 This is due to the relatively large photo-absorption cross-sections at longer wavelengths, shown by \citet{cravens2006}.
-It is also important to note how little X-ray absorption occurs at this energy, even for atmosphere 2.
+
+It is also important to note how little X-ray absorption occurs at this energy of 500 keV/u, even for atmosphere 2.
 A 500 keV/u oxygen ion (total energy of 8 MeV) is nearing the upper energy limit of the JEDI instrument of 10 MeV \citep{mauk2017ssr} and a 500 keV/u sulfur ion (16 MeV) is above that limit.
 This suggests that precipitation of ions with energies within the JEDI limits will have X-ray emission that will escape without undergoing large opacity effects, and should be detectable, even if a very well-mixed atmosphere is present.
-These results are much different than those presented by \citet{ozak2010}, which show a reduction in sulfur emission by nearly two orders of magnitude when considering a 90$^{\circ}$ viewing angle.
+Due to the new SIM cross-sections no longer allowing the ions to precipitate deep into the atmosphere, these results are much different than those presented by \citet{ozak2010}, which show a reduction in sulfur emission by nearly two orders of magnitude when considering a 90$^{\circ}$ viewing angle.
 
 \begin{figure}[ht]
     \centering
@@ -611,11 +612,13 @@ This particular spectrum considers opacity effects with a photon exit angle of 8
 
 \section{Discussion and Conclusions}
 
-The mysterious source of X-ray emission from Jupiter has been discussed for over 35 years, since they were first observed in 1979 and 1981 \citep{metzger1983}.
-There have been multiple modeling attempts of both heavy ion precipitation \citep{horanyi1988,cravens1995,ozak2010,ozak2013,houston2018} and electron bremsstrahlung \citep{metzger1983,waite1991,barbosa1992,singhal1992}, with great controversy surrounding the mechanism responsible for the emission \citep{barbosa1990,waite1991,barbosa1992}.
-It was eventually shown that the required input power to produce 1 GW of X-ray power (shown by \citet{branduardi2004} and \citet{elsner2005}) was over 10$^{15}$ W when using bremsstrahlung from electrons \citep{waite1991,waite1994}, which is a couple orders of magnitude higher than UV auroral observations would suggest.
+% The mysterious source of X-ray emission from Jupiter has been discussed for over 35 years, since they were first observed in 1979 and 1981 \citep{metzger1983}.
+% There have been multiple modeling attempts of both heavy ion precipitation \citep{horanyi1988,cravens1995,ozak2010,ozak2013,houston2018} and electron bremsstrahlung \citep{metzger1983,waite1991,barbosa1992,singhal1992}, with great controversy surrounding the mechanism responsible for the emission \citep{barbosa1990,waite1991,barbosa1992}.
+% It was eventually shown that the required input power to produce 1 GW of X-ray power (shown by \citet{branduardi2004} and \citet{elsner2005}) was over 10$^{15}$ W when using bremsstrahlung from electrons \citep{waite1991,waite1994}, which is a couple orders of magnitude higher than UV auroral observations would suggest.
 
-However, even with electron bremsstrahlung being largely proven as unable to produce the X-ray emission, recent heavy ion precipitation models required the precipitating ions to reach energies larger than what was to be expected at Jupiter \citep{cravens1995,ozak2010,ozak2013,houston2018}.
+% However, even with electron bremsstrahlung being largely proven as unable to produce the X-ray emission, recent heavy ion precipitation models required the precipitating ions to reach energies larger than what was to be expected at Jupiter \citep{cravens1995,ozak2010,ozak2013,houston2018}.
+
+With electron bremsstrahlung largely proven as unable to produce the amount of X-ray emission observed \citep{branduardi2004,elsner2005}, recent heavy ion precipitation models required the precipitating ions to reach energies larger than what was to be expected at Jupiter \citep{cravens1995,ozak2010,ozak2013,houston2018}.
 Now with \textit{in situ} measurements of the environment above the Jovian polar caps, it is clear the ions are not energetic enough to produce X-rays based on the previous modeling attempts.
 This helped force us to rethink the processes producing X-ray emission from ion precipitation.
 \citet{schultz2019} determined not every process was being accounted for in the original precipitation modeling, but simultaneous processes (both target and ion) needed to be considered.
