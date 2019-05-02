@@ -27,15 +27,17 @@
 %
 %% ------------------------------------------------------------------------ %%
 
-\authors{S. J. Houston\affil{1}, T. E. Cravens\affil{1}, D. R. Schultz\affil{2,3}, H. Gharibnejad\affil{2,4}, W. R. Dunn\affil{5}, D. K. Haggerty\affil{6}, A. M. Rymer\affil{6}, B. H. Mauk\affil{6}, N. Ozak\affil{7}}
+\authors{S. J. Houston\affil{1}, T. E. Cravens\affil{1}, D. R. Schultz\affil{2,3}, H. Gharibnejad\affil{2,4}, W. R. Dunn\affil{5,6,7}, D. K. Haggerty\affil{8}, A. M. Rymer\affil{8}, B. H. Mauk\affil{8}, N. Ozak\affil{9}}
 
 \affiliation{1}{Department of Physics and Astronomy, University of Kansas, Lawrence, KS, USA}
 \affiliation{2}{Department of Physics, University of North Texas, Denton, TX, USA}
 \affiliation{3}{Now at Department of Physics and Astronomy, Northern Arizona University, Flagstaff, AZ, USA}
 \affiliation{4}{Now at National Institute of Standards and Technology, Gaithersburg, MD, USA}
 \affiliation{5}{Mullard Space Science Laboratory, University College London, London, UK}
-\affiliation{6}{The Johns Hopkins University Applied Physics Laboratory, Laurel, Maryland, USA}
-\affiliation{7}{TBD}
+\affiliation{6}{University College London Center for Planetary Science, London, UK}
+\affiliation{7}{Harvard-Smithsonian Center for Astrophysics, Cambridge, MA, USA}
+\affiliation{8}{The Johns Hopkins University Applied Physics Laboratory, Laurel, Maryland, USA}
+\affiliation{9}{TBD}
 
 %% Corresponding Author:
 % Corresponding author mailing address and e-mail address:
@@ -56,9 +58,9 @@
 % \end{keypoints}
 
 \begin{keypoints}
-\item Oxygen and sulfur precipitation into the Jovian auroral atmosphere can produce X-rays.
-\item The Juno spacecraft has observed oxygen and sulfur precipitation above the polar caps.
-\item Using Juno measurements, we can produce a significant number of X-rays, comparable to observation.
+\item Heavy ion precipitation into the Jovian atmosphere can produce the observed auroral X-ray emission.
+\item Using Juno measurements of ion fluxes over Jupiter's pole we simulate X-ray spectra.
+\item We compare our synthetic X-ray spectra produced by \textit{in situ} data to observed emission.
 \end{keypoints}
 
 %% ------------------------------------------------------------------------ %%
@@ -77,14 +79,15 @@
 The source of auroral X-ray emission from the Jovian polar caps, whether from electron bremmstrahlung or heavy ion precipitation, has been a topic of debate for the past 40 years, beginning with the Einstein Observatory's first measurement of X-ray emission in 1979.
 Since then, the R\"oentgen satellite, Chandra X-ray Observatory, and XMM-Newton have been able to distinguish heavy ion (oxygen and sulfur) line emission in the X-ray spectrum and measure a total power of about 1 GW.
 There have been many attempts to model both bremmstrahlung and ion precipitation with the goal of reproducing what is being seen; however, both have encountered push back.
-Electron bremmstrahlung modeling has fallen short of producing the total overall power output being observed by our earth-orbit-based X-ray observatories.
+Electron bremmstrahlung modeling has fallen short of producing the total overall power output being observed by our earth-orbit-based X-ray observatories and observations suggest that it may contribute $\sim$10$\%$ of the total emission.
 Whereas heavy ion precipitation has been able to reproduce strong X-ray fluxes, but the proposed incident ion energies seemed to likely be much higher ($>$1 MeV/nucleon) than what was thought to be present above Jupiter's polar caps.
-Now with the National Aeronautics and Space Administration's Juno spacecraft arriving at Jupiter, there have been many measurements of heavy ion populations above the polar cap with energies up to 300-400 keV/nucleon (keV/u), well below predictions the of previous models.
+Now with the National Aeronautics and Space Administration's Juno spacecraft arriving at Jupiter, there have been many measurements of heavy ion populations above the polar cap with energies up to 300-400 keV/nucleon (keV/u), well below predictions from previous models.
 Meanwhile, \citet{schultz2019} have provided a new outlook on how ion-neutral collisions in the Jovian atmosphere are occurring, providing us with an entirely new set of impact cross-sections and a total of 35 collision processes.
 The model presented here simulates oxygen and sulfur precipitation, taking into account the new cross-sections, every collision process, the measured ion fluxes above Jupiter's polar aurora, and synthetic X-ray spectra from \citet{hui2010}.
 We predict X-ray fluxes, efficiencies, and spectra for various initial ion energies considering opacity effects from two different atmospheres.
 The data is made available for quick X-ray calculations given an input ion flux.
 A calculation is given that demonstrates an \textit{in situ} measured heavy ion flux above Jupiter's polar cap is capable of producing over 1 GW of X-ray emission when some assumptions are made.
+We compare our synthetic X-ray spectrum produced from \textit{in situ} particle data with a simultaneous X-ray spectrum observed by XMM-Newton.
 \end{abstract}
 
 
@@ -98,37 +101,39 @@ A calculation is given that demonstrates an \textit{in situ} measured heavy ion 
 \section{Introduction}
 
 The National Aeronautics and Space Administration's (NASA) Juno mission has, at the time of this writing, been orbiting Jupiter for nearly three years.
-Since arrival, Juno has arguably uncovered more questions than it has answered, although its discoveries are nothing short of amazing.
-In its time spent at Jupiter, Juno has put greater constraints on the gravitational field \citep{folkner2017,iess2018}, measured a magnetic field with complexity unlike anything imagined \citep{connerney2017,connerney2018,moore2018}, and returned images of Jupiter detailing the phenomenal features seen in the cloud tops \citep{orton2017,sanchez2018}.
-Most importantly to this paper, Juno has been able to measure heavy ions above the polar caps that indicate they are precipitating into the top of the atmosphere \citep{haggerty2017,clark2017a,clark2017b}, potentially producing X-rays.
+Since arrival, Juno has arguably uncovered more questions than it has answered, although its discoveries have been numerous.
+In its time spent at Jupiter, Juno has put greater constraints on the gravitational field \citep{folkner2017,iess2018}, measured a magnetic field with substantial complexity \citep{connerney2017,connerney2018,moore2018}, and returned images of Jupiter detailing the intricate features seen in the cloud tops \citep{orton2017,sanchez2018}.
+Most importantly to this paper, Juno has been able to measure heavy ions above the polar caps that indicate they are precipitating into the top of the atmosphere \citep{haggerty2017,clark2017a,clark2017b}, potentially producing Jupiter's dynamic X-ray aurorae.
 
 X-ray production at Jupiter has been of interest to the space physics community from when it was first observed by the Einstein Observatory in April of 1979 \citep{metzger1983}.
 Although \citet{metzger1983} were unable to distinguish a line spectrum from a continuum due to the limitations of the detector, they proposed that the primary source of X-rays must be coming from heavy ion precipitation, stating, ``the shape of the response and the observed X-ray power indicate that the source of this auroral emission is not electron bremmstrahlung as on the earth, but is most probably line emission from O and S ions with energies between 0.03 and 4.0 MeV/nucleon...''.
-Now, with the Juno spacecraft orbiting Jupiter, oxygen and sulfur ions have been measured above the polar caps with energies up to 400 keV per nucleon (keV/u) \citep{haggerty2017,clark2017a,clark2017b}. 
+Now, with the Juno spacecraft orbiting Jupiter, oxygen and sulfur ions have been measured above the polar caps with energies up to 400 keV per nucleon (keV/u) \citep{clark2017a,clark2017b,haggerty2017}. 
 
-In the past, there have been attempts to reproduce the X-ray emission observed at Jupiter with ion precipitation models \citep{cravens1995,ozak2010,ozak2013}, but they mostly fell short due to the high energy ($>$1.2 MeV/u) required to strip the ions of their electrons enough to produce X-rays.
-Although the energies proposed even seemed high at the time, this could be overlooked because there were not any \textit{in situ} measurements of the ion energies above the polar cap.
-However, now with more accurate ion-neutral collision cross-sections from \citet{schultz2019} that include processes never before considered, we will show that the necessary ion energy needs to only be about 200 keV/u to begin producing X-rays.
-This difference largely arises from an increased stopping power at middle energies causing a shift in the charge state distribution to lower energies.
-There is now also X-ray production from direct excitation, as opposed to solely charge exchange collisions modeled by our predecessors.
+In the past, there have been attempts to reproduce the X-ray emission observed at Jupiter with ion precipitation models \citep{cravens1995,ozak2010,ozak2013}, but they mostly fell short due to the high energy ($>$1.2 MeV/u) required to sufficiently strip the ions of their electrons in order to produce the observed X-ray emissions.
+Although the energies proposed seemed high at the time, this could be overlooked because there were not any \textit{in situ} measurements of the ion energies above the polar cap.
+However, a more complete treatment of the underlying atomic collision processes now exists \citep{gharibnejad2019,schultz2019} that, once incorporated into our ion-precipitation models, shows the ``threshold'' ion energy necessary to produce X-ray yielding excited states is significantly less, on the order of 200 keV/u.
+This difference arises largely from the improved treatment of ion energy loss in the new atomic data, evidenced by an increased stopping power derived from ion-transport simulations for ion energies between 50 and 2000 keV/u that is now in better agreement with recommended values.
+The more complete treatment also results in a shift in the equilibrium distribution of charge states toward lower energies, and motivated consideration of X-ray production from direct ion excitation in addition to that from charge transfer.
 
-We expand on the ion precipitation models that have come before \citep{cravens1995,ozak2010,ozak2013,houston2018}, modeling oxygen from 10 keV/u to 25 MeV/u and sulfur between 10 keV/u and 2 MeV/u, in an attempt to explain the X-ray emission from the Jovian polar caps.
+We expand on the ion precipitation models that have come before \citep{cravens1995,houston2018,ozak2010,ozak2013}, modeling oxygen from 10 keV/u to 25 MeV/u and sulfur between 10 keV/u and 2 MeV/u, in an attempt to explain the X-ray emission from the Jovian polar caps.
 We consider all charge states of oxygen, including the negative charge state (O$^{q+}$, q=-1, 0, ..., 8), and all sulfur charge states (S$^{q+}$, q=0, ..., 16).
 Ultimately, O$^{6+}$, O$^{7+}$, and S$^{6+}$-S$^{15+}$ are the most important charge states to consider when producing X-rays, because their ionization potentials are great enough to emit X-ray photons.
 
-We first discuss the differences between our model and those by \citet{ozak2010}, \citet{ozak2013}, and \citet{houston2018}.
+We first discuss the differences between our model and those by \citet{houston2018}, \citet{ozak2010}, and \citet{ozak2013}.
 We then introduce new ion-neutral collision processes that account for the vast contrast in our results and those presented by our predecessors.
 Various techniques used within the model are explained and ion flux measurements made by the Jupiter Energetic Particle Detector Instrument (JEDI) \citep{mauk2017ssr} are displayed.
 Results are given for a variety of monoenergetic ion beam energies, including several ion production rates, X-ray efficiencies, and example X-ray spectra with opacity effects.
 The JEDI measurements are input into the model and results indicating X-ray production are shown.
+We compare our modeled spectrum with a simultaneous XMM-Newton spectrum observed during the same window within which the ion precipitation was detected by Juno.
 Finally, we conclude with a discussion on the implications of the model results.
 
 The X-ray aurora has shown a strange complexity during observations.
-For example, at times there seems to be a $\sim$45 minute period hot spot as reported by \citet{gladstone2002}; however, during other observations this pulsation does not appear to exist \citep{elsner2005,branduardi2007}.
-Therefore, when analyzing heavy ion measurements made by JEDI, a certain level of awareness needs to be present.
-It is important to remember that every energy spectrum and flux intensity of oxygen and sulfur is unique.
+For example, in $\sim$30$\%$ of observations the X-ray aurora pulses with a regular period on the order of 10s of minutes as reported by \citet{dunn2016,dunn2017,gladstone2002}, and \citet{jackman2018}; however, during other observations, the emission is either continuous or the pulses are erratic, with no clear periodic signature \citep{elsner2005,branduardi2007}.
+Therefore, when analyzing heavy ion measurements made by JEDI, it is important to consider that this emission is highly temporally and spatially variable and that the associated ion precipitation may also vary with time.
+One must remember that every energy spectrum and flux intensity of oxygen and sulfur is unique.
 Sometimes oxygen ions are measured with a higher intensity while at other times sulfur measurements are more prevalent.
 Each collection of data greatly depends on the time and location of where it is made.
+Given that each flight of Juno over the polar regions follows a different flight path, it is also difficult to differentiate spatial and temporal changes in the measurements.
 Thus, when using the JEDI flux measurements, they need to be fine tuned for every case.
 
 \section{Physical Processes and Model Description}
@@ -141,8 +146,8 @@ Any differences to the ion precipitation model will be explicitly stated; howeve
 Aside from optimization improvements, the main contrast can be summarized as follows:
 \begin{itemize}
 \item The Jovian atmosphere has been extended deeper, down below the 1 bar level.
-\item Oxygen cross-sections previously only included non-simultaneous (NSIM) collisions; we now consider simultaneous (SIM) ion-target interactions.
-\item Sulfur SIM cross-sections have been analyzed and are included in the model.
+\item Atomic data (principally inelastic collision cross-sections) for oxygen ions colliding with H$_2$ previously \citep{ozak2013,schultz2017} only considered processes that occurred involving electronic transitions of projectile electrons or target electrons non-simultaneously (denoted ``NSIM'' processes).  A more complete treatment for oxygen \citep{schultz2019} ion impact expands the model to include simultaneous (SIM) processes that occur involving both target and projectile electron transitions.
+\item Analogous atomic data for sulfur ion impact of H$_2$ have also been created \citep{gharibnejad2019} that include treatment of SIM processes, updating the purely NSIM processes considered in \citet{ozak2013}, and have been incorporated in the present work from the preliminary analysis of the data to be published.
 \item X-ray efficiencies and synthetic X-ray spectra that include opacity effects are presented with both the current atmosphere and an upper limit, fully mixed atmosphere.
 \item Juno data (both oxygen and sulfur flux measurements) are adapted and input into the simulation.
 \end{itemize}
@@ -173,7 +178,7 @@ We will refer to the atmosphere displayed in Figure \ref{fig:atm} as atmosphere 
 
 \subsection{Ion-Neutral Impact Processes}
 
-\citet{houston2018} modeled oxygen precipitation using 9 different collision processes that occurred non-simultaneously as the ion precipitated through the atmosphere following the cross-section data presented by \citet{schultz2017} and summarized here:
+\citet{houston2018} modeled oxygen precipitation using the nine relevant NSIM processes as the ion traversed the upper atmosphere using the atomic data describing the rates of these processes and the energy loss for each process as a function of ion energy given by \citet{schultz2017}, summarized here:
 \begin{subequations}
 \begin{equation}
 O^{q+} + H_{2} \rightarrow \begin{cases}
@@ -214,8 +219,8 @@ O^{q+} + H_{2}^{*}; H^{*} + H^{*} \hspace{.1in} \text{Electronic Excitation - Al
 \label{eqn:all}
 \end{subequations}
 
-However, since then, \citet{schultz2019} has proposed that target and projectile processes could occur simultaneously (referred to as SIM collisions) and the cross-sections should reflected this, ultimately providing the cross-sections for 35 processes that are used in the current model.
-The NSIM and SIM projectile and target processes used are the following:
+However, as noted above, treatment of processes that involve electron transitions on both target and projectile simultaneously has subsequently lead to fundamental improvements of the oxygen \citep{schultz2019} and sulfur \citep{gharibnejad2019} data.
+The NSIM and SIM processes represented by this expanded consideration, utilized in the present ion precipitation model, are the following:
 
 \begin{tabbing}
 \= X$^{q+}$ + H$_2$ $\rightarrow$ X$^{q+}$ + H$_2^+$ + e;  X$^{q+}$ + H + H$^+$ + e \= $\;\;\;\;\;$ \= single ionization (SI) \\
@@ -261,20 +266,20 @@ The NSIM and SIM projectile and target processes used are the following:
 \> X$^{q+}$ + H$_2$ $\rightarrow$ X$^{(q+2)+}$ + H$_2^*$ + 2e \> \> TEX+DS
 \end{tabbing}
 where X stands for the projectile, either O or S. $q$ is the charge state and depends on the number of electrons bound to the ion; $q$ runs from 0 to 8 for O and from 0 to 16 for S.
-Some processes are not possible for neutral or singly ionized atoms or, similarly, for fully stripped or O$^{7+}$ and S$^{15+}$ ions (e.g., for neutral O and S, SC and DC are not possible, or for O$^{8+}$ and S$^{16+}$, SS and DS are not considered).
-We also include the negatively charged ionic state of oxygen, O$^-$, but it does not follow the same processes described here due to the difficulty \citet{schultz2019} encounter when modeling the charge state due to the low binding energy.
-We use a single, NSIM process that can bring O to O$^-$, governed by the cross-section in Table C of \citet{schultz2019}.
+The abbreviations for each process shown here are used throughout the rest of the paper.
+Some processes are not possible for neutral or singly ionized atoms or, similarly, for fully stripped or O$^{7+}$ and S$^{15+}$ ions (e.g., for neutral O and S capture of two electrons, DC, cannot occur and for the fully stripped ions O$^{8+}$ and S$^{16+}$, neither single or double stripping, SS or DS, is possible).
+We also include the negative ion channel, that is, production and destruction of O$^-$, as described by \citet{schultz2019}, owing to the importance to the charge state distribution at low energy, and implications for its presence in atmospheric chemical models. 
+We use a single, NSIM process that can bring O to O$^-$, governed by the cross-sections in Table C of \citet{schultz2019}.
 Once in the negative charge state, six processes are considered; SI, SI+SS, DI, DI+SS, TEX, and TEX+SS.
 For more details, see Section 3.4 \textit{Auxiliary data model} given by \citet{schultz2019}.
 
-The explicit calculation and implication of using SIM cross-sections rather than NSIM cross-sections can be found in \citet{schultz2019}; but for the model presented, it has shifted the peaks of the charge state equilibrium fractions down to a lower initial ion energy, ultimately requiring less energy to fully strip both oxygen and sulfur ions.
-
-\noindent\textbf{\Large Dave, please expand on this as you see appropriate. $\uparrow$}
+Details of the atomic collision model and calculations have been given by \citet{schultz2019} and \citet{gharibnejad2019} as well as explanation of the improvements to ion and electron transport models due to inclusion of SIM processes.
+As noted above, important for the present work is the fact that the more complete atomic collision model has shifted the peaks of the ion charge state distribution to lower ion energies and has motivated consideration of the additional X-ray production mechanism, direct projectile excitation, in addition to the previously considered X-ray emission subsequent to charge transfer.
 
 \subsection{Charge State Equilibrium Fractions}
 
-In a very broad sense, as an ion precipitates through the atmosphere each collision can result in four different outcomes for the projectile.
-The ion can become excited (e.g. SPEX), become further ionized by losing an electron or two (e.g. DS), become less ionized by gaining an electron or two (e.g. DCAI), or nothing can happen to it while the collision solely affects the target (e.g. SI).
+In a very broad sense, as an ion precipitates through the atmosphere each collision with an atmospheric gas molecule or atom can result in four different outcomes for the projectile.
+The ion can become excited through NSIM or SIM processes (e.g. SPEX or SPEX+SI), become further ionized (e.g. NSIM or SIM SS or DS), gain an electron or two (e.g. NSIM or SIM SC or TI), or can maintain its charge while effecting the target (e.g. NSIM SI or TEX).
 Each type of interaction is governed by the energy of the precipitating ion; that is, a more energetic ion will generally be stripped of more electrons than one precipitating with less energy.
 By knowledge of the stripping and charge transfer cross-sections, it is possible to calculate the equilibrium fractions of each charge state versus the ion energy.
 This is done using transition probabilities, $P_{ij}$:
@@ -306,13 +311,13 @@ These are shown for oxygen and sulfur as a function of energy in Figures \ref{fi
     \label{fig:CSDsul}
 \end{figure}
 
-The charge state equilibrium fractions demonstrate at what energy the ion will reach a given charge state regardless of the collision processes undergone or the initial ion energy; the ion history is immediately forgotten.
+The charge state equilibrium fractions demonstrate at what energy the ion will reach a given charge state regardless of the sequence of collision processes undergone or the initial ion energy; the ion history is immediately forgotten.
 From these fractions one can quickly see what energies are required for an ion to begin producing X-rays.
-For both oxygen and sulfur the sixth charge state must be reached to begin producing X-rays (O$^{6+}$ and S$^{6+}$ with projectile excitation, or O$^{7+}$ and S$^{7+}$ with consequent charge exchange).
+For both oxygen and sulfur the sixth charge state must be reached to begin producing X-rays (O$^{6+}$ and S$^{6+}$ with projectile excitation, or O$^{7+}$ and S$^{7+}$ via charge exchange).
 These charge states are sufficiently reached for both species at an energy between 200-300 keV/u, where they become the most probable charge state for the given energy (a total energy of $\sim$3.2 MeV and $\sim$6.4 MeV for oxygen and sulfur, respectively).
-These newly developed equilibrium fractions are no longer in agreement with previous models presented by \citet{ozak2010} and \citet{houston2018}, where they showed an O$^{6+}$ peak at nearly 1 MeV/u and an S$^{6+}$ peak at 600 keV/u.
+These newly developed equilibrium fractions supersede previous models presented by \citet{ozak2010} and \citet{houston2018}, which showed an O$^{6+}$ peak at nearly 1 MeV/u and an S$^{6+}$ peak at 600 keV/u.
 
-Not only does it now require less energy to produce charge states capable of emitting X-rays, but the ions are not penetrating the atmosphere as deeply as was previously modeled because more energy is being lost in the middle energy range\footnote{See the stopping power discussion given by \citet{schultz2019}.}, affecting the depth effects and predicted X-ray spectra.
+Relative to the previous results it now requires less energy to produce charge states capable of emitting X-rays and the ions are not penetrating the atmosphere as deeply as was previously modeled because more energy is being lost in the middle energy range (between 50 and 2000 keV/u)\footnote{See the stopping power discussion given by \citet{schultz2019}.}, affecting the depth effects and predicted X-ray spectra.
 
 \subsection{Depth Effects}
 
@@ -350,33 +355,32 @@ Therefore, to determine the production rate as a function of wavelength there ar
 \label{sec:SynthXraySpec}
 
 An X-ray can be emitted through either the ion gaining an electron (what we refer to as a charge transfer or charge exchange collision) or the excitation of the ion (called direct excitation).
-Both of these scenarios result in one or more electrons in an excited state where a photon can be emitted as the electrons cascade down to a more energy favorable state.
+Both of these scenarios result in one or more electrons in an excited state where a photon can be emitted as the electrons cascade down to a lower energy state.
 Although there are many charge transfer and projectile excitation processes we only allow three of each type to ultimately result in the emission of a photon: TI, SC, and SC+SS for charge exchange and SI+SPEX, DI+SPEX, and TEX+SPEX for direct excitation.
-Any collisions that result in more than one electron being in an excited state at a given time, whether it be through charge exchange, projectile excitation, or a combination of the two (e.g. DC or SC+SPEX collisions), we consider it much more likely for the Auger effect to take place than the emission of a photon.
+Any collisions that result in more than one electron being in an excited state at a given time, whether it be through charge exchange, projectile excitation, or a combination of the two (e.g. DC or SC+SPEX collisions), we consider it much more likely for the Auger effect (the energy being given to an ejected electron) to take place than the emission of a photon.
 
-\citet{hui2010} created synthetic, charge exchange, X-ray emission lines for photon energies above 200 eV.
-The emission lines include O$^{6+}$ and O$^{7+}$ with initial ion energies of 1.2 MeV/u and 2.0 MeV/u, and S$^{8+}$-S$^{14+}$ at 1.86 MeV/u.
-Although these energies are slightly higher than what we expect to be precipitating, these emission lines are the most comprehensive set available, thus we have taken the 1.2 MeV/u emission lines for oxygen and 1.86 MeV/u lines for sulfur and integrated them into our model.
-(Note: S$^{6+}$, S$^{7+}$, and S$^{15+}$ are not included in this study because \citet{hui2010} did not include them in their data, although they are X-ray producing charge states.)
-\citet{hui2010} were able to produce spectra vs. number of photons/ion which we have re-normalized for each charge state to the total number of photons/charge state.
+Due to the lack of published, available X-ray emission cascade models given the distribution of electronic excitation given by our ion-precipitation model, we have adopted synthetic spectra resulting from charge transfer for O and S ions by \citet{hui2010} available only at ion energies somewhat above those needed here (owing to the shift of the charge state distributions to lower energies from use of the SIM processes model).
+From the data available from \citet{hui2010}, we have produced spectra vs. number of photons/ion which we have re-normalized for each charge state to the total number of photons/charge state.
 We then multiplied the ion production from charge exchange produced by our model, $P(z)$, by the normalized emission lines to generate $P(\lambda,z)$.
 
 Unfortunately, we do not have any state-selective excitation emission spectra of oxygen and sulfur; instead we apply an approximation to the charge exchange emission lines we do have available.
-Because charge transfer collisions are pulling an electron into the particle from outside of the ionization potential the electron will cascade from very high energy states until it has energetically relaxed.
-This allows for high energy X-rays to be emitted and many cascading possibilities.
-However, direct excitation excites an electron from the highest occupied electronic energy level, likely resulting in a change in principal quantum number of only one or two.
-Once the electron is in a particular energy level it is unaware of whether it has been excited or picked up from outside of the ion; thus, at that point, the cascading probabilities should not differ between charge exchange or excitation.
-That is to say, electrons relaxing from charge transfer collisions will always be capable of following the same cascade path as an electron excited by direct excitation, but the reverse is not true.
-Excited electrons will not start at principal quantum number $n=\infty$, like charge transferred electrons.
-So an approximation to represent the higher probability of electrons starting at lower principal quantum numbers, rather than coming from $n=\infty$, is needed.
-(Note: A second thing to consider would be forbidden excitation transitions for each charge state; however, that requires a much more in-depth study of the situation that we do not include in our approximation.)
+% Because charge transfer collisions are pulling an electron into the particle from outside of the ionization potential the electron will cascade from very high energy states until it has energetically relaxed.
+% This allows for high energy X-rays to be emitted and many cascading possibilities.
+% However, direct excitation excites an electron from the highest occupied electronic energy level, likely resulting in a change in principal quantum number of only one or two.
+% Once the electron is in a particular energy level it is unaware of whether it has been excited or picked up from outside of the ion; thus, at that point, the cascading probabilities should not differ between charge exchange or excitation.
+% That is to say,
+In general, energy levels reached by excitation of the projectile ion will be predominantly to lower levels than those from charge transfer.
+Charge transfer produces to states principal quantum number n $\approx$ q$^{3/4}$, with a distribution below and above this, falling off at high quantum number as 1/n$^3$.
+In contrast, excitation proceeds dominantly to the next highest n-level and rapidly falls off for higher n.
+(Note: A second thing to consider would be forbidden excitation transitions for each charge state; however, that requires a much more in-depth study of the situation beyond the scope of the research presented here.)
+Thus, we have approximated the excitation to the next highest n-level as 80-85$\%$, the possibility of excitation of two n-levels as 15$\%$, and to a third higher excitation level as 0-5$\%$.
 
-We first approximate O$^{7+}$ as H, O$^{^6+}$ and S$^{14+}$ as He, S$^{13+}$ as Li, S$^{12+}$ as Li$^{+}$ or Be, S$^{11+}$ as Be$^{+}$, S$^{10+}$ as Be$^{++}$, and S$^{9+}$ as Be$^{3+}$, and assume S$^{8+}$ will follow the same pattern shown by the higher charge states.
-We then reviewed a number of articles concerning electron-impact excitation of lithium \citep{griffin2001}, beryllium \citep{bartschat1996}, lithium-like \citep{bely1966}, and beryllium-like \citep{ballance2003} particles to understand the relative cross-sections between excitation to various electronic energy levels.
-The cross-sections for all of these cases were dominated by a change in principal quantum number of one, i.e. when an electron is excited it will typically ($\sim$80$\%$-85$\%$ of the time) only be excited to the next highest energy level.
-Occasionally, $\sim$15$\%$-20$\%$  of the time, it will be excited to an even higher energy state.
+% We first approximate O$^{7+}$ as H, O$^{^6+}$ and S$^{14+}$ as He, S$^{13+}$ as Li, S$^{12+}$ as Li$^{+}$ or Be, S$^{11+}$ as Be$^{+}$, S$^{10+}$ as Be$^{++}$, and S$^{9+}$ as Be$^{3+}$, and assume S$^{8+}$ will follow the same pattern shown by the higher charge states.
+% We then reviewed a number of articles concerning electron-impact excitation of lithium \citep{griffin2001}, beryllium \citep{bartschat1996}, lithium-like \citep{bely1966}, and beryllium-like \citep{ballance2003} particles to understand the relative cross-sections between excitation to various electronic energy levels.
+% The cross-sections for all of these cases were dominated by a change in principal quantum number of one, i.e. when an electron is excited it will typically ($\sim$80$\%$-85$\%$ of the time) only be excited to the next highest energy level.
+% Occasionally, $\sim$15$\%$-20$\%$  of the time, it will be excited to an even higher energy state.
 
-Therefore, we take the two or three most common emission lines, at lower photon energies, from the charge exchange synthetic spectra provided by \citet{hui2010} and distribute the direct excitation emission in the following way
+To do this, we take the two or three most common emission lines, at lower photon energies, from the charge exchange synthetic spectra provided by \citet{hui2010} and distribute the direct excitation emission in the following way
 \begin{equation}
     \sum_{i=1}^{2,3}\lambda_{i}f_{i}=E
     \label{eqn:DEemission}
@@ -394,7 +398,7 @@ To ensure this approximation is not violating conservation of energy, if the emi
 where $\epsilon=\Delta E/E$.
 If $E<\Delta E$ then we keep the distribution as is and assume the energy difference is due to emission from lower energy photons not considered in the X-ray spectrum and X-ray inefficiencies in emission from the way the electrons cascade through the electron orbitals.
 
-To produce a more realistic observation than perfect line emission that an X-ray observatory would detect, we apply a normalized Gaussian distribution to each data point to simulate instrumental response functions, recovering a new intensity:
+To produce a more realistic synthetic spectrum comparable with observation as opposed to infinitely narrow line emission that an X-ray observatory would detect, we apply a normalized Gaussian distribution to each data point to simulate instrumental response functions, recovering a new intensity:
 \begin{equation}
     4\pi I'(\lambda)=\sum_{\lambda_{\mu}}\frac{1}{\sqrt{2\pi\sigma^2}}I(\lambda)e^{-\frac{(\lambda-\lambda_{\mu})^2}{2\sigma^2}}
 \end{equation}
@@ -418,21 +422,22 @@ For this study, we use heavy ion measurements from a northern auroral pass durin
 Re-normalization and interpolation of all of the data is necessary to make the flux compatible with the ion precipitation model.
 The re-normalization requires multiplying the measured intensity by the JEDI energy bin widths \citep{mauk2017ssr} and 2$\pi$ to obtain a flux in ions/cm$^2$/s.
 The first three energy bins (170.7, 240.2, and 323.6 keV) on the JEDI instrument are unable to distinguish between oxygen and sulfur; therefore, we assume a distribution of 2/3 oxygen and 1/3 sulfur, because the ions likely originate from the sulfur dioxide, SO$_2$, volcanoes on Io.
+However, data have shown various oxygen to sulfur ratios in Jupiter's magnetosphere \citep{delamere2005,dougherty2017,kim2019}, but fortunately these low energy bins will not contribute to X-ray production.
 We then use a simple linear interpolation to give the data finer resolution so the results are smoother, although it has no effect on the total X-ray production.
 These flux measurements are then used as an input ion flux into our model, or more simply, one can multiply the output from various monoenergetic runs (which are normalized to an input of 1 ion/cm$^2$/s) by the re-normalized flux given by JEDI.
 
 It is important to note that although the low energy bins are unable to distinguish between oxygen and sulfur, the higher energy bins of JEDI make separate oxygen and sulfur measurements, and in the case presented, oxygen happens to be more abundant.
-This is not necessarily a typical measurement and, as suggested by X-ray observation, we generally expect sulfur to produce higher concentrations of X-ray emission. \textbf{citation needed}
-Also, there has been evidence of temporal and spatial dependence on X-ray emission coming from both oxygen and sulfur where emission lines from each species are, at times, more intense depending on where one looks at the polar cap \citep{dunn2017,gladstone2002,jackman2018}.
+This is not necessarily a typical measurement and, as suggested by X-ray observation, we generally expect sulfur to produce higher concentrations of X-ray emission. 
 
-
-\noindent\textbf{\Large Will, please expand on this as you see appropriate. $\uparrow$}
+Jupiter's X-ray aurora is known to be highly time variable.
+The X-ray aurora pulses/flares on timescales of a few minutes, while the power output from the aurora can vary by a factor of a few from rotation to rotation (0.5 - 2 GW) and the spectrum is known to change significantly on similar timescales (e.g. \citet{branduardi2007,elsner2005,hui2010}).
+There has also been proposal that the spatial location of the emission may also vary across the auroral zone \citep{dunn2017,gladstone2002,jackman2018}, with some suggestion that sulfur X-ray lines may be brighter at lower auroral latitudes \citep{dunn2016}.
 
 \section{Results}
 
 \subsection{Ion Production Rates}
 
-When referring to ion production rates here, we are only referencing production from charge transfer collisions, i.e. $X^q \rightarrow X^{q-1}$, and not stripping collisions, which changes the charge state in the opposite direction.
+When referring to ion production rates here, we are only focusing on production from charge transfer collisions, i.e. $X^q \rightarrow X^{q-1}$, and not stripping collisions, which changes the charge state in the opposite direction.
 At times, we will only consider the ion production rate from the collisions that we believe produce photons, TI, SC, and SC+SS.
 Furthermore, the ion production rate as a function of altitude, $P(z)$, can be calculated outright for a product ion species, $i$, (e.g. O$^{7+}$ or S$^{8+}$) as follows:
 \begin{equation}
@@ -445,6 +450,7 @@ The production rates as a function of H$_2$ density and altitude for O$^{6+}$ an
 For sulfur, Figure \ref{fig:S7S8+Prod} shows the S$^{7+}$ and S$^{8+}$ charge transfer production rates.
 It is to be emphasized, these production rates only include charge exchange from the three collisions discussed in Section \ref{sec:SynthXraySpec}, that is TI, SC, and SC+SS; although other processes can contribute to lowering the overall charge state without emitting a photon (e.g. the Auger process).
 The altitude integrated production rates for every charge state and various initial ion energies can be found in Appendices \ref{app:Oxy} and \ref{app:Sul}, including the production rate of directly excited ions.
+It is worth noting that for sulfur, these results use preliminary data that will subsequently be checked and refined prior to publication \citep{gharibnejad2019}.
 
 \begin{figure}[ht]
     \centering
@@ -468,7 +474,7 @@ The emitted photon flux is determined by using the production rates, shown in Fi
 X-ray emission efficiency is a way of quantifying how many photons are emitted given an incident ion energy and is found by dividing $4\pi I$ by the initial energy of the monoenergetic ion beam.
 Table \ref{tab:XrayEff} shows the combined X-ray efficiencies from both charge exchange and direct excitation emission given an incident ion energy, at various viewing angles, using both atmosphere 1 and 2, and with an input of 1 ion/cm$^2$/s.
 The same is also shown in Figures \ref{fig:OxyXrayEff} and \ref{fig:SulXrayEff}.
-The full set of efficiencies for every X-ray emitting charge state at each energy and three different viewing angles plus a no opacity case can be found in Appendices \ref{app:Oxy} and \ref{app:Sul}.
+Given the approximations noted above to infer the electron state populations from charge transfer and projectile excitation, the full set of efficiencies for every X-ray emitting charge state at each energy and three different viewing angles plus a no opacity case can be found in Appendices \ref{app:Oxy} and \ref{app:Sul}.
 
 \begin{table}[ht]
     \centering
@@ -509,34 +515,34 @@ The full set of efficiencies for every X-ray emitting charge state at each energ
 \begin{figure}[ht]
     \centering
     \includegraphics[width=\textwidth]{Figures/OxyXrayEff2.eps}
-    \caption{The entire outgoing X-ray flux efficiency for all X-ray producing oxygen charge states as a function of initial ion energy. The condition of no opacity is shown by the solid line, an exit angle of 0$^{\circ}$ is represented by the dashed line, an exit angle of 80$^{\circ}$ by the dotted line, and an exit angle of 90$^{\circ}$ by the dash-dot line. Atmosphere 1 consideration is in black and atmosphere 2 is in gray. Every exit angle is with respect to the Jovian spin axis. The figure on the right is a magnified portion of the figure on the left (represented by the black rectangle), used to emphasize the efficiencies of ions in the energy range of JEDI measurements.}
+    \caption{The entire outgoing X-ray flux efficiency for all X-ray producing oxygen charge states as a function of initial ion energy. The condition of no opacity is shown by the solid line, an exit angle of 0$^{\circ}$ is represented by the dashed line, an exit angle of 80$^{\circ}$ by the dotted line, and an exit angle of 90$^{\circ}$ by the dash-dot line. Atmosphere 1 is in black and atmosphere 2 is in gray. Every exit angle is with respect to the Jovian spin axis. The figure on the right is a magnified portion of the figure on the left (represented by the black rectangle), used to emphasize the efficiencies of ions in the energy range of JEDI measurements.}
     \label{fig:OxyXrayEff}
 \end{figure}
 
 \begin{figure}[ht]
     \centering
     \includegraphics[width=\textwidth]{Figures/SulXrayEff2.eps}
-    \caption{The entire outgoing X-ray flux efficiency for all X-ray producing sulfur charge states as a function of initial ion energy. The condition of no opacity is shown by the solid line, an exit angle of 0$^{\circ}$ is represented by the dashed line, an exit angle of 80$^{\circ}$ by the dotted line, and an exit angle of 90$^{\circ}$ by the dash-dot line. Atmosphere 1 consideration is in black and atmosphere 2 is in gray. Every exit angle is with respect to the Jovian spin axis. The figure on the right is a magnified portion of the figure on the left (represented by the black rectangle), used to emphasize the efficiencies of ions in the energy range of JEDI measurements.}
+    \caption{The entire outgoing X-ray flux efficiency for all X-ray producing sulfur charge states as a function of initial ion energy. The condition of no opacity is shown by the solid line, an exit angle of 0$^{\circ}$ is represented by the dashed line, an exit angle of 80$^{\circ}$ by the dotted line, and an exit angle of 90$^{\circ}$ by the dash-dot line. Atmosphere 1 is in black and atmosphere 2 is in gray. Every exit angle is with respect to the Jovian spin axis. The figure on the right is a magnified portion of the figure on the left (represented by the black rectangle), used to emphasize the efficiencies of ions in the energy range of JEDI measurements.}
     \label{fig:SulXrayEff}
 \end{figure}
 
-The most efficient X-ray emission for O$^{6+}$ and S$^{9+}$ is with an incident ion energy of $\sim$600 keV/u for both atmospheres, $\sim$1 MeV/u for O$^{7+}$, and $\sim$500 keV/u S$^{8+}$.
+The most efficient X-ray emission for O$^{6+}$ is with an incident ion energy of $\sim$600 keV/u for both atmosphere, $\sim$1 MeV/u for O$^{7+}$, $\sim$500 keV/u S$^{8+}$, and $\sim$600 keV/u for S$^{9+}$.
 The well-mixed atmosphere has minimal effects on emission from low energy ion precipitation because the ions are not precipitating deeply enough for the large column density to have much of an impact on the X-rays.
 As one would expect, the viewing angle of 90$^{\circ}$ greatly reduces emission for high energy ion precipitation when comparing with X-rays that propagate directly up and out of the atmosphere at 0$^{\circ}$.
 This is even more true for X-ray production from sulfur which is the overall most efficient X-ray producer (i.e. S$^{8+}$ at 500 keV/u) with a viewing angle of 0$^{\circ}$, but the efficiency is reduced by nearly 60$\%$ (for atmosphere 1) when the viewing angle changes to 90$^{\circ}$, whereas O$^{6+}$ is only reduced by about 23$\%$ (for atmosphere 1) making it the most efficient emitter at 90$^{\circ}$.
-This is a very important effect to consider when looking at fluxes from earth-orbit-based X-ray observations, which are generally taken at a very steep viewing angle.
+This is an important effect to consider when looking at fluxes from earth-orbit-based X-ray observations, which are generally taken at a steep viewing angle, especially for the southern aurora.
 
 \citet{ozak2010} reported the most efficient X-ray emission for O$^{6+}$, O$^{7+}$, and S$^{8+}$ occurring for incident ions with energies of 1.5 MeV/u, 2.5 MeV/u, and 1 MeV/u, and efficiency values of $\sim$0.009, $\sim$0.003, and $\sim$0.015, respectively.
-These energies are 2-3x higher than what we are now producing with the SIM cross-sections.
+These required energies are 2-3x higher than what we are now producing with the SIM cross-sections which indicate for O$^{6+}$, O$^{7+}$, and S$^{8+}$ the most efficient X-ray emissions occur at energies of 600 keV/u, 1 MeV/u, and 500 keV/u with efficiencies of 0.29, 0.19, and 0.32, respectively (from Tab. \ref{tab:XrayEff}, atmosphere 1, 0$^{\circ}$ viewing angle).
 There are two major contributions accounting for such a great difference in X-ray efficiencies.
-Firstly, due to the use of the new SIM cross-sections, it now requires much less energy to strip both oxygen and sulfur ions to a high, X-ray producing, charge state, allowing X-rays to be created at much lower energies than previously thought.
-Secondly, we are depositing much more energy higher up in the atmosphere due to the increase in stopping power shown by \citet{schultz2019}, ultimately generating X-rays higher in the atmosphere than previously modeled, making them less susceptible to opacity effects even when considering an upper-limit, highly-mixed atmosphere.
+First, with the more complete treatment of the fundamental atomic collision processes, it requires much less energy than inferred in the previous models to strip both oxygen and sulfur ions to a high, X-ray producing charge state, allowing X-rays to be created at much lower energies than previously thought.
+Second, we are depositing much more energy higher up in the atmosphere due to the increase in stopping power shown by \citet{schultz2019}, ultimately generating X-rays higher in the atmosphere than previously modeled, making them less susceptible to opacity effects even when considering an upper-limit, highly-mixed atmosphere.
 
 There are several very useful ways to interpret X-ray efficiencies.
 Because the efficiencies are calculated with an input of 1 ion/cm$^2$/s, one can view each efficiency as the number of X-ray photons emitted given an initial ion energy.
 That is to say, if a single oxygen ion with an energy of 300 keV/u is precipitating, then it is expected that $\sim$0.1 $\frac{\mathrm{photons}}{\mathrm{cm}^2 \mathrm{s}}\frac{1}{\mathrm{keV/u}}$ x 300 keV/u $\approx$ 30 photons/cm$^2$/s will be emitted.
 Therefore, 1 oxygen ion/cm$^2$/s at 300 keV/u will produce about 30 photons/cm$^2$/s, or 1 ion/s precipitating results in 30 photons/s.
-This is an extremely quick estimate that can be made when trying to interpret the emission from a measured JEDI ion flux.
+This is an extremely quick estimate that can be made when trying to interpret the emission from a measured JEDI ion flux and is useful if considering an X-ray instrument for a future mission to Jupiter.
 
 Another practical application of the X-ray efficiencies is to calculate power emission given an initial ion.
 This is easily accomplished by the following; we have just discussed that 1 oxygen ion/s at 300 keV/u will produce 30 photons/s.
@@ -556,7 +562,7 @@ When producing a synthetic X-ray spectrum we are able to distinguish between cha
 Figure \ref{fig:XraySpec} shows the total X-ray emission for a single oxygen plus a single sulfur ion (sulfur to oxygen ratio of 1:1), both with incident energies of 500 keV/u.
 The emission lines have been distributed with a normalized Gaussian and $\sigma$=20 eV, simulating instrument response functions (discussed in Section \ref{sec:SynthXraySpec}).
 The emission is plotted by charge state to show where in the spectrum each emission line contributes the most, i.e. sulfur dominates at photon energies between 150-500 eV, while oxygen is prominent between 500-900 eV.
-This particular spectrum accounts for no opacity effects and we have included emission from both charge exchange and direct excitation collisions.
+This particular spectrum (Fig. \ref{fig:XraySpec}) accounts for no opacity effects and we have included emission from both charge exchange and direct excitation collisions.
 The emission from S$^{14+}$ has two peaks at $\sim$430 eV and $\sim$2450 eV, but the latter is multiple orders of magnitude below the rest off the emission and would too faint to see in Figure \ref{fig:XraySpec}.
 
 \begin{figure}[ht]
@@ -569,6 +575,7 @@ The emission from S$^{14+}$ has two peaks at $\sim$430 eV and $\sim$2450 eV, but
 Next, shown in Figure \ref{fig:XraySpecOpac} is the same total emission from Figure \ref{fig:XraySpec} (black line) with opacity effects applied from both atmosphere 1 and 2 at three different viewing angles.
 It is apparent that X-ray emission from sulfur is much more effected by opacity than that from oxygen, which was indicated by the X-ray efficiencies in Table \ref{tab:XrayEff}.
 This is due to the relatively large photo-absorption cross-sections at longer wavelengths, shown by \citet{cravens2006}.
+The relative absorption is useful when comparing emissions from the northern and southern aurorae, because the southern aurora is generally observed at a much steeper viewing angle than the northern aurora.
 
 It is also important to note how little X-ray absorption occurs at this energy of 500 keV/u, even for atmosphere 2.
 A 500 keV/u oxygen ion (total energy of 8 MeV) is nearing the upper energy limit of the JEDI instrument of 10 MeV \citep{mauk2017ssr} and a 500 keV/u sulfur ion (16 MeV) is above that limit.
@@ -607,19 +614,18 @@ This particular spectrum considers opacity effects with a photon exit angle of 8
     \label{fig:JEDISpec}
 \end{figure}
 
+\subsection{Comparing Simulated and Observed X-ray Spectra}
+
+
+
 \noindent\textbf{\Large T.E.C. $\downarrow$}
 
 \section{Discussion and Conclusions}
 
-% The mysterious source of X-ray emission from Jupiter has been discussed for over 35 years, since they were first observed in 1979 and 1981 \citep{metzger1983}.
-% There have been multiple modeling attempts of both heavy ion precipitation \citep{horanyi1988,cravens1995,ozak2010,ozak2013,houston2018} and electron bremsstrahlung \citep{metzger1983,waite1991,barbosa1992,singhal1992}, with great controversy surrounding the mechanism responsible for the emission \citep{barbosa1990,waite1991,barbosa1992}.
-% It was eventually shown that the required input power to produce 1 GW of X-ray power (shown by \citet{branduardi2004} and \citet{elsner2005}) was over 10$^{15}$ W when using bremsstrahlung from electrons \citep{waite1991,waite1994}, which is a couple orders of magnitude higher than UV auroral observations would suggest.
-
-% However, even with electron bremsstrahlung being largely proven as unable to produce the X-ray emission, recent heavy ion precipitation models required the precipitating ions to reach energies larger than what was to be expected at Jupiter \citep{cravens1995,ozak2010,ozak2013,houston2018}.
-
-With electron bremsstrahlung largely proven as unable to produce the amount of X-ray emission observed \citep{branduardi2004,elsner2005}, recent heavy ion precipitation models required the precipitating ions to reach energies larger than what was to be expected at Jupiter \citep{cravens1995,ozak2010,ozak2013,houston2018}.
-Now with \textit{in situ} measurements of the environment above the Jovian polar caps, it is clear the ions are not energetic enough to produce X-rays based on the previous modeling attempts.
-This helped force us to rethink the processes producing X-ray emission from ion precipitation.
+Spectral lines from precipitating ions have been known to dominate Jupiter's X-ray aurora since the launch of XMM-Newton and Chandra in 1999 \citep{branduardi2004,elsner2005}.
+New \textit{in situ} measurements by Juno have detected the ion precipitation that leads to these X-ray emissions.
+However, previous modeling required much higher energy ions \citep{cravens1995,ozak2010,ozak2013,houston2018}, which were difficult to explain with given knowledge of Jupiter's magnetosphere.
+This forced us to rethink the processes producing X-ray emission from ion precipitation.
 \citet{schultz2019} determined not every process was being accounted for in the original precipitation modeling, but simultaneous processes (both target and ion) needed to be considered.
 This lead to a completely new series of processes and cross-sections that we have now utilized for the updated heavy ion precipitation model described here.
 The required initial ion energy to produce X-rays has been reduced dramatically, and is now well within the energy range being measured by the Juno spacecraft.
@@ -638,7 +644,7 @@ Of course, the area of emission needs to be greatly constrained, but this shows 
 
 We summarize the findings of our model as follows:
 \begin{enumerate}
-    \item New SIM cross-section data has shifted the charge state distribution of both oxygen and sulfur to lower energies than before.
+    \item New data, accounting for SIM processes has shifted the charge state distribution of both oxygen and sulfur to lower energies than before.
     The repercussions being it now requires less energy to strip ions to X-ray producing charge states, resulting in precipitation that does not penetrate as deeply into the atmosphere.
     \item Because the ions are not precipitating as deep into the atmosphere as previous models suggested, there is less absorption of photon emission when opacity effects are considered.
     \item If an atmosphere of fully mixed constituents is used, the X-ray efficiency is reduced; but, emission from ions at the energies measured by JEDI is only reduced by about 15-20$\%$ compared to the original atmosphere.
@@ -649,7 +655,7 @@ We summarize the findings of our model as follows:
 
 \subsection{Discussion on Data Usage}
 
-In the appendix we have provided as much data as we can with the goal that anyone can use it to estimate their own X-ray flux as long as they have access to an initial JEDI spectrum.
+In the appendix we have provided as much of the derived data as possible (the atomic collision data made violable by \citet{schultz2019} and \citet{gharibnejad2019}) with the goal that anyone can use it to estimate their own X-ray flux as long as they have access to an initial JEDI spectrum.
 Here we want to layout as clearly as possible how to take an ion flux and produce an X-ray power.
 
 \begin{enumerate}
