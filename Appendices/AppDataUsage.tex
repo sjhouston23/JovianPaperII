@@ -1,0 +1,65 @@
+\section{Discussion on Data Usage}
+
+In the appendix we have provided as much of the derived data as possible (the atomic collision data made violable by \citet{schultz2019} and \citet{gharibnejad2019}) with the goal that anyone can use it to estimate their own X-ray flux as long as they have access to an initial JEDI spectrum.
+Here we want to layout as clearly as possible how to take an ion flux and produce an X-ray power.
+
+\begin{enumerate}
+    \item The first, and arguably most difficult, part is converting the JEDI energy spectrogram into a usable ion flux.
+    To be done accurately, this requires knowing the width of each energy bin on JEDI at the time of measurement.
+    We have included the energy bin widths in Table \ref{tab:JEDIFlux} that correspond to the data in Figure \ref{fig:JEDIFlux}.
+    It is likely the energies bins will be changed and resized, if they have not already.
+    \item Once the bin widths are known, one can convert the intensity from counts/steradian/cm$^2$/s/keV to counts/cm$^2$/sec by multiplying each flux intensity by 2$\pi$ and the corresponding energy bin width.
+    A second thing to consider is that the first three energy bins cannot distinguish between oxygen and sulfur ions.
+    In this study we used an O:S ratio of 2:1 motivated by the likely source of SO$_2$ from Io's volcanoes.
+    A different ratio can be used, but those low energies will not affect X-ray production, anyway.
+    \item Once an intensity of counts/cm$^2$/s vs. ion energy (in keV/u, not total energy) is obtained, one can multiply the intensity by the ion energy (keV/u) and the X-ray efficiency for each charge state of the ion species at a given ion energy in Appendix \ref{app:Oxy} or \ref{app:Sul}.
+    To account for all X-rays, charge exchange and direct excitation need to be considered, in which case the X-ray efficiencies can be summed together.
+    This will result in the number of photons/cm$^2$/s produced by each ion charge state and species.
+    \item Summing the photon production rate for each charge state together will give the total X-ray production rate  for a given JEDI pass.
+    \item Multiplying the photon production rate by the average photon energy, 1.6x10$^{-19}$ J/eV, 10$^6$ $\mu$W/W, and 10$^4$ cm$^2$/m$^2$ will yield the power in $\mu$W/m$^2$.
+    In general, the average photon energy is likely between 500-600 eV.
+    If sulfur emission is higher than oxygen, then 500 eV is more accurate and if oxygen emission is greater, the average photon energy probably tends closer to 600 eV.
+\end{enumerate}
+
+As an example, for the JEDI oxygen measurement discussed in this text, the total photon production and power is calculated at each step in Table \ref{tab:JEDIFlux}.
+
+\begin{table}
+    \centering
+    \begin{tabular}{r|c|c|c|c}
+    \multicolumn{5}{c}{Oxygen} \\ \cline{1-5}
+    Energy & JEDI Flux* & Energy Bin & Intensity & Energy  \\
+    $\mathrm{[keV]}$ & [c/str/cm$^2$/s/keV] & Width [keV] & [c/cm$^2$/s] & $\mathrm{[keV/u]}$ \\ \cline{1-5}
+     171  & 249.9 &   66 & 103631 & 11  \\
+     240  & 339.7 &   71 & 151542 & 15  \\
+     324  & 279.0 &  105 & 184066 & 20  \\
+     477  & 219.8 &  216 & 298306 & 30  \\
+     746  & 89.50 &  346 & 194571 & 47  \\
+     956  & 43.61 &  251 &  68776 & 60  \\
+    1240  & 22.56 &  300 &  42525 & 78  \\
+    1930  & 8.687 &  880 &  48032 & 121 \\
+    3490  & 3.018 & 2280 &  43235 & 218 \\
+    7300  & 0.914 & 5340 &  30667 & 456 \\ \cline{1-5}
+    Energy  & X-Ray Efficiency$\dagger$ & X-ray Production \\
+    $\mathrm{[keV/u]}$ & [cm$^2$sec]$^{-1}$[keV/u]$^{-1}$ & photons/cm$^2$/s \\ \cline{1-3}
+    11    & 0.0000 & 0.000 \\
+    15    & 0.0000 & 0.000 \\
+    20    & 0.0000 & 0.000 \\
+    30    & 0.0000 & 0.000 \\
+    47    & 0.0000 & 0.000 \\
+    60    & 0.0000 & 0.000 \\
+    78    & 0.0000 & 0.000 \\
+    121   & 0.0003 & 1.74x10$^{3}$  \\
+    218   & 0.0246 & 2.32x10$^{5}$  \\
+    456   & 0.2951 & 4.13x10$^{6}$ \\ \cline{1-3}
+    \multicolumn{2}{l}{Total power flux [$\mu$W/m$^2$]:} & 4.2 \\ \cline{1-3}
+    \end{tabular}
+    \begin{flushleft}
+    * These are the same flux measurements as those shown in Figure \ref{fig:JEDIFlux}.
+    
+    $\dagger$ X-ray efficiency values in Appendix \ref{app:Oxy} or \ref{app:Sul}. These values are the sum of O$^{6+}$ and O$^{7+}$ from both charge exchange and direct excitation for an exit angle of 80$^{\circ}$ in atmosphere 1.
+    \end{flushleft}
+    \label{tab:JEDIFlux}
+\end{table}
+
+The total X-ray production shown in Table \ref{tab:JEDIFlux} is only about 7$\%$ percent higher than what is shown in Figure \ref{fig:JEDISpec}, where the power flux was found by integrating over every photon energy.
+This exact same process can be used for sulfur, but in this example sulfur emission is much less than oxygen.
