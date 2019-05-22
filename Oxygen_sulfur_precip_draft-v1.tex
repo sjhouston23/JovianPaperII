@@ -634,22 +634,24 @@ We found that the X-ray aurora in this interval was relatively dim ($\sim$50$\%$
 We took the simulated X-ray photon fluxes emitted from the \textit{in situ} ion flux measurements at a 60 degree viewing angle, to represent the latitudinal location of the observed Northern X-ray emissions (e.g. see \citet{gladstone2002,dunn2017}).
 We multiplied these photon fluxes per cm$^2$ by the area of a typical dim X-ray auroral region (e.g. time-binned X-ray projections in \citet{dunn2016}) to attain a total flux of photons from the aurora.
 We then scaled these auroral photon fluxes by 2$\pi$r$^2$ to account for their dispersion between Jupiter and XMM-Newton.
-Having calculated fluxes arriving at XMM (top panel of Fig. \ref{fig:XraySpectrumXMM}), we applied XMM-Newton’s time-dependent instrument responses on July 10th (XMM-Newton calibration, response matrices and ancillary response files) to the simulated photon fluxes.
+Having calculated fluxes arriving at XMM, we applied XMM-Newton’s time-dependent instrument responses on July 10th (XMM-Newton calibration, response matrices, and ancillary response files) to the simulated photon fluxes.
 This provided a simulated X-ray spectrum for what would be detected by XMM-Newton on July 10-11th, 2017.
 Finally, we compared the simulated and observed spectra by calculating the reduced Chi-Squared between the two.
 
-\begin{figure}
+\begin{figure}[ht]
     \centering
-    \includegraphics[width=\textwidth]{Figures/XraySpectrum.png}
-    \includegraphics[width=\textwidth]{Figures/XMMNewtonComparison.png}
+    % \includegraphics[width=\textwidth]{Figures/XraySpectrum.png}
+    \includegraphics[width=\textwidth]{Figures/XMMNewtonComparison.eps}
     \caption{A) The top panel shows the simulated X-ray Photon Fluxes from Juno JEDI ion measurements of sulfur and oxygen above Jupiter’s North pole from July 10th, 2017, and then scaled to account for fluxes incident at the XMM-Newton X-ray observatory in Earth orbit. This assumes an X-ray auroral region of 5 x 7.5 degrees System III latitude-longitude. B) The bottom panel is an XMM-Newton EPIC-pn observation of Jupiter’s Northern X-ray Auroral spectrum from 19:29-21:30 on July 10th, 2017 (black crosses) binned to ensure at least 5 counts per energy channel. Overlaid on the observational data is the simulated photon fluxes from Figure \ref{fig:XraySpectrumXMM} convolved with the XMM-Newton EPIC-pn instrument response to produce a simulated X-ray spectrum (black line).}
     \label{fig:XraySpectrumXMM}
 \end{figure}
 
-The bottom panel of Figure \ref{fig:XraySpectrumXMM} shows the comparison between the simulated spectrum (black line) and the observed data from 19:29-21:30 on July 10th, 2017 (black crosses).
+Figure \ref{fig:XraySpectrumXMM} shows the comparison between the simulated spectrum (black lines) and the observed data from 19:29-21:30 on July 10th, 2017 (blue crosses).
 The results were similar for both intervals (see supporting information).
 The simulated oxygen emission between 0.5-0.9 keV is an excellent fit to the observed spectrum for both intervals producing a reduced $\chi^2$ of 1.3-1.5 (Table \ref{tab:XMMComparison}).
-However, below 0.5 keV the simulated sulfur photon fluxes do not well re-produce the observed emission, which leads to a reduced $\chi^2$ of 4-5 for the overall spectrum from both intervals (Table \ref{tab:XMMComparison}).
+However, below 0.5 keV the simulated sulfur photon fluxes do not well reproduce the observed emission, which leads to a reduced $\chi^2$ of 4-5 for the overall spectrum from both intervals (Table \ref{tab:XMMComparison}).
+Consequently, we investigate a "boosted" sulfur model to determine how much sulfur emission is necessary to reproduce the observed spectrum.
+A sulfur boost of 100x is needed to fit the emission measured by XMM-Newton; this is concerning because of the luminosity associated with this large of a boost.
 
 \begin{table}
     \centering
