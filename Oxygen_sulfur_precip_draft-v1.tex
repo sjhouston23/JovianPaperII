@@ -642,7 +642,7 @@ Finally, we compared the simulated and observed spectra by calculating the reduc
     \centering
     % \includegraphics[width=\textwidth]{Figures/XraySpectrum.png}
     \includegraphics[width=\textwidth]{Figures/XMMNewtonComparison.eps}
-    \caption{A) The top panel shows the simulated X-ray Photon Fluxes from Juno JEDI ion measurements of sulfur and oxygen above Jupiter’s North pole from July 10th, 2017, and then scaled to account for fluxes incident at the XMM-Newton X-ray observatory in Earth orbit. This assumes an X-ray auroral region of 5 x 7.5 degrees System III latitude-longitude. B) The bottom panel is an XMM-Newton EPIC-pn observation of Jupiter’s Northern X-ray Auroral spectrum from 19:29-21:30 on July 10th, 2017 (black crosses) binned to ensure at least 5 counts per energy channel. Overlaid on the observational data is the simulated photon fluxes from Figure \ref{fig:XraySpectrumXMM} convolved with the XMM-Newton EPIC-pn instrument response to produce a simulated X-ray spectrum (black line).}
+    \caption{An XMM-Newton EPIC-pn observation of Jupiter’s Northern X-ray Auroral spectrum from 19:29-21:30 on July 10th, 2017 (blue crosses) binned to ensure at least 5 counts per energy channel. Overlaid on the observational data is the simulated photon fluxes from Figure \ref{fig:XraySpectrumXMM} convolved with the XMM-Newton EPIC-pn instrument response to produce a simulated X-ray spectrum (black solid line) and a second, sulfur boost of 100x, X-ray spectrum (black dash-dotted line). This assumes an X-ray auroral region of 5 x 7.5 degrees System III latitude-longitude.}
     \label{fig:XraySpectrumXMM}
 \end{figure}
 
@@ -650,8 +650,11 @@ Figure \ref{fig:XraySpectrumXMM} shows the comparison between the simulated spec
 The results were similar for both intervals (see supporting information).
 The simulated oxygen emission between 0.5-0.9 keV is an excellent fit to the observed spectrum for both intervals producing a reduced $\chi^2$ of 1.3-1.5 (Table \ref{tab:XMMComparison}).
 However, below 0.5 keV the simulated sulfur photon fluxes do not well reproduce the observed emission, which leads to a reduced $\chi^2$ of 4-5 for the overall spectrum from both intervals (Table \ref{tab:XMMComparison}).
-Consequently, we investigate a "boosted" sulfur model to determine how much sulfur emission is necessary to reproduce the observed spectrum.
-A sulfur boost of 100x is needed to fit the emission measured by XMM-Newton; this is concerning because of the luminosity associated with this large of a boost.
+Consequently, we investigate a "boosted" sulfur model (Black dash-dotted line in Fig. \ref{fig:XraySpectrumXMM}) to determine how much sulfur emission is necessary to reproduce the observed spectrum.
+A sulfur boost of 100x is needed to fit the emission measured by XMM-Newton; this is concerning because of the luminosity associated with this large of a boost ($\sim$ 7 GW).
+This lower energy spectrum could also be fit well with a bremsstrahlung continuum, but this does not resolve the high luminosity issue.
+However, this discrepancy may also be a result of the poor effective area for the XMM-Newton EPIC-pn instrument below 0.3 keV.
+Ultimately, more input data (JEDI measurements) and XMM-Newton observation comparisons are necessary for greater statistical significance.
 
 \begin{table}
     \centering
