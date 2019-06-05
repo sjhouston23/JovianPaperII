@@ -1,0 +1,15 @@
+Table C.1. Example of calculating X-ray production rates associated with JEDI oxygen ion flux measurements.
+
+                                                Oxygen
+Energy     JEDI Flux       Energy Bin   Intensity   Energy        X-Ray Efficiency        X-ray Production  
+[keV]  [c/str/cm^2/s/keV]  Width [keV]  [c/cm^2/s]  [keV/u]  [cm^2sec]^{-1}[keV/u]^{-1}    photons/cm^2/s
+ 171         249.9               66       103631      11              0.0000                   0.000    
+ 240         339.7               71       151542      15              0.0000                   0.000    
+ 324         279.0              105       184066      20              0.0000                   0.000    
+ 477         219.8              216       298306      30              0.0000                   0.000    
+ 746         89.50              346       194571      47              0.0000                   0.000    
+ 956         43.61              251        68776      60              0.0000                   0.000    
+1240         22.56              300        42525      78              0.0000                   0.000    
+1930         8.687              880        48032      121             0.0003                1.74x10^{3}     
+3490         3.018             2280        43235      218             0.0246                2.32x10^{5}     
+7300         0.914             5340        30667      456             0.2951                4.13x10^{6}   
