@@ -38,7 +38,7 @@
 \affiliation{6}{University College London Center for Planetary Science, London, UK}
 \affiliation{7}{Harvard-Smithsonian Center for Astrophysics, Cambridge, MA, USA}
 \affiliation{8}{The Johns Hopkins University Applied Physics Laboratory, Laurel, Maryland, USA}
-\affiliation{9}{TBD}
+\affiliation{9}{CluePoint S.A., Axis Parc, Rue Emile Francqui 1, 1435 Mont-Saint-Guibert, Belgium, EU}
 
 %% Corresponding Author:
 % Corresponding author mailing address and e-mail address:
@@ -61,7 +61,7 @@
 \begin{keypoints}
 \item Heavy ion precipitation into the Jovian atmosphere can produce the observed auroral X-ray emission.
 \item Using Juno measurements of ion fluxes over Jupiter's pole we simulate X-ray spectra.
-\item We compare our synthetic X-ray spectra produced by \textit{in situ} data to observed emission.
+\item We compare our approximated synthetic X-ray spectra produced by \textit{in situ} data to observed emission.
 \end{keypoints}
 
 %% ------------------------------------------------------------------------ %%
@@ -77,18 +77,15 @@
 %% \begin{abstract} starts the second page
 
 \begin{abstract}
-The source of auroral X-ray emission from the Jovian polar caps, whether from electron bremsstrahlung or heavy ion precipitation, has been a topic of debate for the past 40 years, beginning with the Einstein Observatory's first measurement of X-ray emission in 1979.
-Since then, the R\"oentgen satellite, Chandra X-ray Observatory, and XMM-Newton have been able to distinguish heavy ion (oxygen and sulfur) line emission in the X-ray spectrum and measure a total power of about 1 GW.
-There have been many attempts to model both bremsstrahlung and ion precipitation with the goal of reproducing what is being seen; however, both mechanisms encountered difficulties.
-Electron bremsstrahlung modeling has fallen short of producing the total overall power output being observed by earth-orbit-based X-ray observatories and observations suggest that it may contribute $\sim$10$\%$ of the total emission.
+Many attempts have been made to model X-ray emission from both bremsstrahlung and ion precipitation into Jupiter’s polar caps.
+Electron bremsstrahlung modeling has fallen short of producing the total overall power output observed by earth-orbit-based X-ray observatories.
 Heavy ion precipitation was able to reproduce strong X-ray fluxes, but the proposed incident ion energies were very high ($>$1 MeV/nucleon).
-Now with the National Aeronautics and Space Administration's Juno spacecraft arriving at Jupiter, there have been many measurements of heavy ion populations above the polar cap with energies up to 300-400 keV/nucleon (keV/u), well below the ion energies required by earlier X-ray models.
-\citet{schultz2019} recently provided a new outlook on how ion-neutral collisions in the Jovian atmosphere are occurring, providing us with an entirely new set of impact cross-sections and a total of 35 collision processes.
-The model presented here simulates oxygen and sulfur precipitation, taking into account the new cross-sections, every collision process, the measured ion fluxes above Jupiter's polar aurora, and synthetic X-ray spectra from \citet{hui2010}.
+Now with the Juno spacecraft at Jupiter, there have been many measurements of heavy ion populations above the polar cap with energies up to 300-400 keV/nucleon (keV/u), well below the ion energies required by earlier models.
+Recent work has provided a new outlook on how ion-neutral collisions in the Jovian atmosphere are occurring, providing us with an entirely new set of impact cross-sections.
+The model presented here simulates oxygen and sulfur precipitation, taking into account the new cross-sections, every collision process, the measured ion fluxes above Jupiter's polar aurora, and synthetic X-ray spectra.
 We predict X-ray fluxes, efficiencies, and spectra for various initial ion energies considering opacity effects from two different atmospheres.
-Information is provided for quick X-ray calculations given an input ion flux.
-A calculation is given that demonstrates an \textit{in situ} measured heavy ion flux above Jupiter's polar cap is capable of producing over 1 GW of X-ray emission when some assumptions are made.
-We compare our synthetic X-ray spectrum produced from \textit{in situ} particle data with a simultaneous X-ray spectrum observed by XMM-Newton.
+We demonstrate an \textit{in situ} measured heavy ion flux above Jupiter's polar cap is capable of producing over 1 GW of X-ray emission when some assumptions are made.
+Comparison of our approximated synthetic X-ray spectrum produced from \textit{in situ} particle data with a simultaneous X-ray spectrum observed by XMM-Newton show good agreement for the oxygen part of the spectrum, but not for the sulfur part.
 \end{abstract}
 
 
@@ -149,7 +146,8 @@ Aside from optimization improvements, the main contrast between the current mode
 \item The Jovian atmosphere has been extended deeper, down below the 1 bar level.
 \item Atomic data (principally inelastic collision cross-sections) for oxygen ions colliding with H$_2$ previously \citep{ozak2013,schultz2017} only considered processes that occurred involving electronic transitions of projectile electrons or target electrons non-simultaneously (denoted ``NSIM'' processes).  A more complete treatment for oxygen \citep{schultz2019} ion impact expands the model to include simultaneous (SIM) processes that occur involving both target and projectile electron transitions.
 \item Analogous atomic data for sulfur ion impact of H$_2$ have also been created \citep{gharibnejad2019} that include treatment of SIM processes, updating the purely NSIM processes considered in \citet{ozak2013}, and have been incorporated in the present work from the preliminary analysis of the data to be published.
-\item X-ray efficiencies and synthetic X-ray spectra that include opacity effects are presented with both the current atmosphere and an upper limit, fully mixed atmosphere.
+\item X-ray efficiencies and approximations to synthetic X-ray spectra that include opacity effects are presented with both the current atmosphere and an upper limit, fully mixed atmosphere.
+\item The direct excitation mechanism now also contributes to X-ray production, increasing the number of X-rays produced.
 \item Juno data (both oxygen and sulfur flux measurements) are adapted and input into the simulation.
 \end{itemize}
 
@@ -318,7 +316,7 @@ For both oxygen and sulfur the sixth charge state must be reached to begin produ
 These charge states are sufficiently reached for both species at an energy between 200-300 keV/u, where they become the most probable charge state for the given energy (a total energy of $\sim$3.2 MeV and $\sim$6.4 MeV for oxygen and sulfur, respectively).
 These newly developed equilibrium fractions supersede previous models presented by \citet{ozak2010} and \citet{houston2018}, which showed an O$^{6+}$ peak at nearly 1 MeV/u and an S$^{6+}$ peak at 600 keV/u.
 
-Relative to the previous results it now requires less energy to produce charge states capable of emitting X-rays and the ions are not penetrating the atmosphere as deeply as was previously modeled because more energy is being lost in the middle energy range (between 50 and 2000 keV/u)\footnote{See the stopping power discussion given by \citet{schultz2019}.}, affecting the depth effects and predicted X-ray spectra.
+Relative to the previous results it now requires less energy to produce charge states capable of emitting X-rays and the ions are not penetrating the atmosphere as deeply as was previously modeled because more energy is being lost in the middle energy range (between 50 and 2000 keV/u; see the stopping power discussion given by \citet{schultz2019}), affecting the depth effects and predicted X-ray spectra.
 
 \subsection{Depth Effects}
 
@@ -350,9 +348,9 @@ where $P(\lambda,z)$ is the production rate of X-ray emission as a function of w
 $z_0$ is the deepest altitude that is reached by the ion beam before all of its energy is deposited into the atmosphere and $\tau(\lambda,z_0)$ is the aforementioned optical depth.
 
 $P(\lambda,z)$ integrated over every value of $\lambda$ is equal to the ion production rate, $P(z)$, and can be calculated for a given ion charge state.
-Therefore, to determine the production rate as a function of wavelength there are a couple of things to note before building synthetic spectra.
+Therefore, to determine the production rate as a function of wavelength there are a couple of things to note before building an approximate synthetic spectra.
 
-\subsection{Synthetic X-ray Spectra}
+\subsection{Approximated Synthetic X-ray Spectra}
 \label{sec:SynthXraySpec}
 
 An X-ray can be emitted through either the ion gaining an electron (what we refer to as a charge transfer or charge exchange collision) or the excitation of the ion (called direct excitation).
@@ -361,7 +359,7 @@ Although there are many charge transfer and projectile excitation processes we o
 Any collisions that result in more than one electron being in an excited state at a given time, whether it be through charge exchange, projectile excitation, or a combination of the two (e.g. DC or SC+SPEX collisions), we consider it much more likely for the Auger effect (the energy being given to an ejected electron) to take place than the emission of a photon.
 
 Due to the lack of published, available X-ray emission cascade models given the distribution of electronic excitation given by our ion-precipitation model, we have adopted synthetic spectra resulting from charge transfer for O and S ions by \citet{hui2010} available only at ion energies somewhat above those needed here (owing to the shift of the charge state distributions to lower energies from use of the SIM processes model).
-From the data available from \citet{hui2010}, we have produced spectra vs. number of photons/ion which we have re-normalized for each charge state to the total number of photons/charge state.
+From the data available from \citet{hui2010}, we have produced an approximated spectra vs. number of photons/ion which we have re-normalized for each charge state to the total number of photons/charge state.
 We then multiplied the ion production from charge exchange produced by our model, $P(z)$, by the normalized emission lines to generate $P(\lambda,z)$.
 
 Unfortunately, we do not have any state-selective excitation emission spectra of oxygen and sulfur for direct excitation; instead we apply an approximation to the charge exchange emission lines we do have available.
@@ -371,7 +369,7 @@ Unfortunately, we do not have any state-selective excitation emission spectra of
 % Once the electron is in a particular energy level it is unaware of whether it has been excited or picked up from outside of the ion; thus, at that point, the cascading probabilities should not differ between charge exchange or excitation.
 % That is to say,
 In general, energy levels reached by excitation of the projectile ion will be predominantly to lower levels than those from charge transfer.
-Charge transfer produces to states principal quantum number n $\approx$ q$^{3/4}$, with a distribution below and above this, falling off at high quantum number as 1/n$^3$.
+Charge transfer proceeds to states with principal quantum number n peaked at $\approx$q$^{3/4}$, with a distribution below and above this, falling off at high quantum number as 1/n$^3$.
 In contrast, excitation proceeds dominantly to the next highest n-level and rapidly falls off for higher n.
 (Note: A second thing to consider would be forbidden excitation transitions for each charge state; however, that requires a much more in-depth study of the situation beyond the scope of the research presented here.)
 Thus, we have approximated the excitation to the next highest n-level as 80-85$\%$, the possibility of excitation of two n-levels as 15$\%$, and to a third higher excitation level as 0-5$\%$.
@@ -399,7 +397,7 @@ To ensure this approximation is not violating conservation of energy, if the emi
 where $\epsilon=\Delta E/E$.
 If $E<\Delta E$ then we keep the distribution as is and assume the energy difference is due to emission from lower energy photons not considered in the X-ray spectrum and X-ray inefficiencies in emission from the way the electrons cascade through the electron orbitals.
 
-To produce a more realistic synthetic spectrum comparable with observation as opposed to infinitely narrow line emission that an X-ray observatory would detect, we apply a normalized Gaussian distribution to each data point to simulate instrumental response functions, recovering a new intensity:
+To produce a more realistic approximate synthetic spectrum comparable with observation as opposed to infinitely narrow line emission that an X-ray observatory would detect, we apply a normalized Gaussian distribution to each data point to simulate instrumental response functions, recovering a new intensity:
 \begin{equation}
     4\pi I'(\lambda)=\sum_{\lambda_{\mu}}\frac{1}{\sqrt{2\pi\sigma^2}}I(\lambda)e^{-\frac{(\lambda-\lambda_{\mu})^2}{2\sigma^2}}
 \end{equation}
@@ -416,7 +414,7 @@ For this study, we use heavy ion measurements from a northern auroral pass durin
 \begin{figure}
     \centering
     \includegraphics[width=\textwidth]{Figures/O+S_PJ7.eps}
-    \caption{Oxygen and sulfur flux measurements from JEDI on the Juno spacecraft during Perijove 7. The points marked with a diamond are the actual JEDI measurements. The lines represents the interpolation of the data that we applied to the measurements. Note that if the flux is plotted with respect to total energy, then the power law seen in both ion species tails are very similar.}
+    \caption{Oxygen and sulfur flux measurements from JEDI on the Juno spacecraft during Perijove 7. The points marked with a diamond are the actual JEDI measurements. The lines represents the interpolation of the data that we applied to the measurements. Note the power law distribution seen in both species; however, oxygen appears to have an extended high energy tail when compared with sulfur.}
     \label{fig:JEDIFlux}
 \end{figure}
 
@@ -430,8 +428,8 @@ These flux measurements are then used as an input ion flux into our model, or mo
 
 It is important to note that although the low energy bins are unable to distinguish between oxygen and sulfur, the higher energy bins of JEDI make separate oxygen and sulfur measurements, and in the case presented, oxygen happens to be more abundant.
 This is not necessarily a typical measurement and, as suggested by X-ray observation, we generally expect sulfur to produce higher concentrations of X-ray emission.
-Data have indicated that the sulfur to oxygen (S:O) ratio varies between measurements \citep{delamere2005,dougherty2017,kim2019} which needs to be considered when comparing synthetic X-ray spectra with that from observation.
-Figure \ref{fig:JEDIFlux} has an S:O ratio of about 0.3 which is the lowest ratio presented by \citet{radioti2005,radioti2006}, where the S:O ratio is shown to vary between 0.3-1.2.
+Data have indicated that the sulfur to oxygen (S:O) ratio varies between measurements \citep{delamere2005,dougherty2017,kim2019} which needs to be considered when comparing approximated synthetic X-ray spectra with that from observation.
+Figure \ref{fig:JEDIFlux} has an S:O ratio of about 0.8 which is a mid-range ratio presented by \citet{radioti2005,radioti2006}, where the S:O ratio is shown to vary between 0.3-1.2.
 
 Jupiter's X-ray aurora is known to be highly time variable.
 The X-ray aurora pulses/flares on timescales of a few minutes, while the power output from the aurora can vary by a factor of a few from rotation to rotation (0.5 - 2 GW) and the spectrum is known to change significantly on similar timescales (e.g. \citet{branduardi2007,elsner2005,hui2010}).
@@ -512,7 +510,7 @@ Given the approximations noted above to infer the electron state populations fro
     2000     & 0.0942 & 0.1234 & 0.0498	& 0.0453 & 0.0017 & 0.0087 & 0.0006 & 0.0006 \\
     \hline
     \end{tabular}
-    \caption{The X-ray efficiency ([cm$^2$sec]$^{-1}$[keV/u]$^{-1}$) of outgoing photons as a function of initial ion energy including opacity effects from a single incident ion/cm$^2$/s with an isotropic downward distribution of pitch angles. The viewing angles of 0$^\circ$ and 90$^\circ$ are displayed for both atmosphere 1 and 2. The efficiencies shown here includes X-ray production from both charge exchange and direct excitation collisions.}
+    \caption{The X-ray efficiency ([cm$^2$sec]$^{-1}$[keV/u]$^{-1}$) of outgoing photons as a function of initial ion energy including opacity effects from a single incident ion/cm$^2$/s with an isotropic downward distribution of pitch angles. The viewing angles of 0$^\circ$ and 90$^\circ$ are displayed for both atmosphere 1 and 2. The efficiencies shown here include X-ray production from both charge exchange and direct excitation collisions.}
     \label{tab:XrayEff}
 \end{table}
 
@@ -530,7 +528,7 @@ Given the approximations noted above to infer the electron state populations fro
     \label{fig:SulXrayEff}
 \end{figure}
 
-The most efficient X-ray emission for O$^{6+}$ is with an incident ion energy of $\sim$600 keV/u for both atmosphere, $\sim$1 MeV/u for O$^{7+}$, $\sim$500 keV/u S$^{8+}$, and $\sim$600 keV/u for S$^{9+}$.
+The most efficient X-ray emission for O$^{6+}$ is with an incident ion energy of $\sim$600 keV/u for both atmospheres, $\sim$1 MeV/u for O$^{7+}$, $\sim$500 keV/u S$^{8+}$, and $\sim$600 keV/u for S$^{9+}$.
 The well-mixed atmosphere has minimal effects on emission from low energy ion precipitation because the ions are not precipitating deeply enough for the large column density to have much of an impact on the X-rays.
 As one would expect, the viewing angle of 90$^{\circ}$ greatly reduces emission for high energy ion precipitation when comparing with X-rays that propagate directly up and out of the atmosphere at 0$^{\circ}$.
 This is even more true for X-ray production from sulfur which is the overall most efficient X-ray producer (i.e., S$^{8+}$ at 500 keV/u) with a viewing angle of 0$^{\circ}$, but the efficiency is reduced by nearly 60$\%$ (for atmosphere 1) when the viewing angle changes to 90$^{\circ}$, whereas O$^{6+}$ is only reduced by about 23$\%$ (for atmosphere 1) making it the most efficient emitter at 90$^{\circ}$.
@@ -563,17 +561,17 @@ Now, if the area of the measurement is known, or deduced by geometry, multiplyin
 \subsection{X-ray Spectra}
 \label{sec:XraySpec}
 
-Distributing the X-ray intensity into individual lines, discussed earlier, we can provide X-ray spectra.
+Distributing the X-ray intensity into individual lines, as given by the approximate treatment of the synthetic spectra as described in Section \ref{sec:SynthXraySpec}, we can provide X-ray spectra.
 Figure \ref{fig:XraySpec} shows the total X-ray emission for a single oxygen plus a single sulfur ion (sulfur to oxygen ratio of 1:1), both with incident energies of 500 keV/u.
 The emission lines have been distributed with a normalized Gaussian and $\sigma$=20 eV, simulating instrument response functions (discussed in Section \ref{sec:SynthXraySpec}).
 The emission is plotted by charge state to show where in the spectrum each emission line contributes the most, i.e. sulfur dominates at photon energies between 150-500 eV, while oxygen is prominent between 500-900 eV.
 This particular spectrum (Fig. \ref{fig:XraySpec}) accounts for no opacity effects and we have included emission from both charge exchange and direct excitation collisions.
-The emission from S$^{14+}$ has two peaks at $\sim$430 eV and $\sim$2450 eV, but the latter is multiple orders of magnitude below the rest off the emission and would too faint to see in Figure \ref{fig:XraySpec}.
+The emission from S$^{14+}$ has two peaks at $\sim$430 eV and $\sim$2450 eV, but the latter is multiple orders of magnitude below the rest of the emission and would therefore be much fainter than the dominant lines in Figure \ref{fig:XraySpec}.
 
 \begin{figure}
     \centering
     \includegraphics[width=\textwidth]{Figures/O+S_CX+DE_500keVNoOpacSpec.eps}
-    \caption{Synthetic X-ray spectra showing the contribution from each charge state. This spectra includes emission from both charge exchange and direct excitation collisions considering no opacity effects from an incident ion beam of 500 keV/u with an input is 1 ion/cm$^2$/s for both species. Not shown is the emission from S$^{14+}$ which peaks at $\sim$2450 eV with an intensity several orders of magnitude lower than the more prominent emission lines.}
+    \caption{Approximated synthetic X-ray spectra showing the contribution from each charge state. This spectrum includes emission from both charge exchange and direct excitation collisions considering no opacity effects from an incident ion beam of 500 keV/u with an input is 1 ion/cm$^2$/s for both species. Not shown is the emission from S$^{14+}$ which peaks at $\sim$2450 eV with an intensity several orders of magnitude lower than the more prominent emission lines.}
     \label{fig:XraySpec}
 \end{figure}
 
@@ -585,13 +583,12 @@ The relative absorption is useful when comparing emissions from the northern and
 It is also important to note how little X-ray absorption occurs at this energy of 500 keV/u, even for atmosphere 2.
 A 500 keV/u oxygen ion (total energy of 8 MeV) is nearing the upper energy limit of the JEDI instrument of 10 MeV \citep{mauk2017ssr} and a 500 keV/u sulfur ion (16 MeV) is above that limit.
 This suggests that precipitation of ions with energies within the JEDI limits will have X-ray emission that will escape without undergoing large opacity effects, and should be detectable, even if a very well-mixed atmosphere is present.
-Due to the new SIM cross-sections no longer allowing the ions to precipitate deep into the atmosphere, these results are much different than those presented by \citet{ozak2010}, which show a reduction in sulfur emission by nearly two orders of magnitude when considering a 90$^{\circ}$ viewing angle.
-\citet{ozak2010} also considered quenching effects for the O$^{6+}$, n=2 forbidden transition but we will not discuss this.
+Due to the new SIM cross-sections precluding the X-ray producing ions to precipitate deep into the atmosphere, these results are much different than those presented by \citet{ozak2010}, which show a reduction in sulfur emission by nearly two orders of magnitude when considering a 90$^{\circ}$ viewing angle.
 
 \begin{figure}
     \centering
     \includegraphics[width=\textwidth]{Figures/OpacityATM1ATM2.eps}
-    \caption{Synthetic X-ray spectra with opacity effects at three viewing angles through an atmosphere with a deep, originally considered homopause (atmosphere 1) and an atmosphere that is well-mixed through the top of the atmosphere (atmosphere 2), what we consider an upper-limit to opacity effects. Initial ion energies are 500 keV/u for both oxygen and sulfur precipitation and the input is 1 ion/cm$^2$/s for both species. Photon energies below about 400 eV are shown to be much more affected by the opacity than higher photon energies.}
+    \caption{Approximated synthetic X-ray spectra with opacity effects at three viewing angles through an atmosphere with a deep, originally considered homopause (atmosphere 1) and an atmosphere that is well-mixed through the top of the atmosphere (atmosphere 2), what we consider an upper-limit to opacity effects. Initial ion energies are 500 keV/u for both oxygen and sulfur precipitation and the input is 1 ion/cm$^2$/s for both species. Photon energies below about 400 eV are shown to be much more affected by the opacity than higher photon energies.}
     \label{fig:XraySpecOpac}
 \end{figure}
 
@@ -602,7 +599,7 @@ Finally, we input the JEDI flux measurements, displayed in Figure \ref{fig:JEDIF
 In the results presented using JEDI measurements we only consider atmosphere 1, the original atmosphere in Figure \ref{fig:atm} with a well defined homopause.
 Displayed in Figure \ref{fig:JEDIIonProd} are the ion production rates from X-ray producing charge exchange collisions (TI, SC, SC+SS) combined with the production rates from X-ray producing direct excitation collisions (SI+SPEX, DI+SPEX, and TEX+SPEX) associated with the PJ 7 ion flux measurements.
 This demonstrates that the ions seen during this pass are of sufficient energy to reach X-ray producing charge states.
-It is also evident that the ions do not precipitate deeply enough to go much below the homopause, indicating that absorption will have minimal effects.
+It is also evident that X-ray emitting ions do not precipitate deeply enough to go much below the homopause, indicating that absorption will have minimal effects.
 
 \begin{figure}
     \centering
@@ -625,16 +622,16 @@ This particular spectrum considers opacity effects with a photon exit angle of 8
 
 The XMM-Newton Observatory observed Jupiter continuously from 19:29 on July 10th to 09:38 on July 12th, 2017.
 Part of this observation was simultaneous with the Juno JEDI ion measurements presented in Section \ref{sec:JEDIMeasurements} and Figure \ref{fig:JEDIFlux}.
-Unfortunately, since Jupiter’s aurorae rotate with the planet, the Northern X-ray aurora was not in view from Earth precisely when Juno conducted \textit{in situ} particle measurements in the X-ray auroral region, but was observable two hours prior to this and one hour after (see supporting information for comparisons of Juno flight with auroral viewing).
+Unfortunately, since Jupiter's aurorae rotate with the planet, the Northern X-ray aurora was not in view from Earth precisely when Juno conducted \textit{in situ} particle measurements in the X-ray auroral region, but was observable two hours prior to this and one hour after (see supporting information for comparisons of Juno flight with auroral viewing).
 Here, we compare the simulated Northern auroral X-ray spectrum from the Juno JEDI \textit{in situ} measurements with contemporaneous observed X-ray auroral spectrum.
 
-We extracted and calibrated the observed X-ray spectrum from Jupiter’s Northern aurora during the two intervals (19:29-21:30 on July 10th and 01:00-06:00 on July 11th (UT)) that bracketed the Juno JEDI ion measurements (Sec. \ref{sec:JEDIMeasurements}; Fig. \ref{fig:JEDIFlux} $\&$ Fig. \ref{fig:JEDISpec}).
+We extracted and calibrated the observed X-ray spectrum from Jupiter's Northern aurora during the two intervals (19:29-21:30 on July 10th and 01:00-06:00 on July 11th (UT)) that bracketed the Juno JEDI ion measurements (Sec. \ref{sec:JEDIMeasurements}; Fig. \ref{fig:JEDIFlux} $\&$ Fig. \ref{fig:JEDISpec}).
 We found that the X-ray aurora in this interval was relatively dim ($\sim$50$\%$ of the power output observed in the subsequent two auroral observations on the July 11 and July 12 – supporting information).
 
 We took the simulated X-ray photon fluxes emitted from the \textit{in situ} ion flux measurements at a 60 degree viewing angle, to represent the latitudinal location of the observed Northern X-ray emissions (e.g. see \citet{gladstone2002,dunn2017}).
 We multiplied these photon fluxes per cm$^2$ by the area of a typical dim X-ray auroral region (e.g. time-binned X-ray projections in \citet{dunn2016}) to attain a total flux of photons from the aurora.
 We then scaled these auroral photon fluxes by 2$\pi$r$^2$ to account for their dispersion between Jupiter and XMM-Newton.
-Having calculated fluxes arriving at XMM, we applied XMM-Newton’s time-dependent instrument responses on July 10th (XMM-Newton calibration, response matrices, and ancillary response files) to the simulated photon fluxes.
+Having calculated fluxes arriving at XMM, we applied XMM-Newton's time-dependent instrument responses on July 10th (XMM-Newton calibration, response matrices, and ancillary response files) to the simulated photon fluxes.
 This provided a simulated X-ray spectrum for what would be detected by XMM-Newton on July 10-11th, 2017.
 Finally, we compared the simulated and observed spectra by calculating the reduced Chi-Squared between the two.
 
@@ -642,7 +639,7 @@ Finally, we compared the simulated and observed spectra by calculating the reduc
     \centering
     % \includegraphics[width=\textwidth]{Figures/XraySpectrum.png}
     \includegraphics[width=\textwidth]{Figures/XMMNewtonComparison.eps}
-    \caption{An XMM-Newton EPIC-pn observation of Jupiter’s Northern X-ray Auroral spectrum from 19:29-21:30 on July 10th, 2017 (blue crosses) binned to ensure at least 5 counts per energy channel. Overlaid on the observational data is the simulated photon fluxes from Figure \ref{fig:XraySpectrumXMM} convolved with the XMM-Newton EPIC-pn instrument response to produce a simulated X-ray spectrum (black solid line) and a second, sulfur boost of 100x, X-ray spectrum (black dash-dotted line). This assumes an X-ray auroral region of 5 x 7.5 degrees System III latitude-longitude.}
+    \caption{An XMM-Newton EPIC-pn observation of Jupiter's Northern X-ray Auroral spectrum from 19:29-21:30 on July 10th, 2017 (blue crosses) binned to ensure at least 5 counts per energy channel. Overlaid on the observational data is the simulated photon fluxes from Figure \ref{fig:JEDISpec} convolved with the XMM-Newton EPIC-pn instrument response to produce a simulated X-ray spectrum (black solid line, S:O ratio of 0.8) and a second, sulfur boost of 100x, X-ray spectrum (black dash-dotted line). This assumes an X-ray auroral region of 5$^{\circ}$ x 7.5$^{\circ}$ System III latitude-longitude.}
     \label{fig:XraySpectrumXMM}
 \end{figure}
 
@@ -650,11 +647,11 @@ Figure \ref{fig:XraySpectrumXMM} shows the comparison between the simulated spec
 The results were similar for both intervals (see supporting information).
 The simulated oxygen emission between 0.5-0.9 keV is an excellent fit to the observed spectrum for both intervals producing a reduced $\chi^2$ of 1.3-1.5 (Table \ref{tab:XMMComparison}).
 However, below 0.5 keV the simulated sulfur photon fluxes do not well reproduce the observed emission, which leads to a reduced $\chi^2$ of 4-5 for the overall spectrum from both intervals (Table \ref{tab:XMMComparison}).
-Consequently, we investigate a "boosted" sulfur model (black dash-dotted line in Fig. \ref{fig:XraySpectrumXMM}) to determine how much sulfur emission is necessary to reproduce the observed spectrum.
-A sulfur boost of 100x is needed to fit the emission measured by XMM-Newton; this is concerning because of the luminosity associated with this large of a boost ($\sim$ 7 GW).
+Consequently, we investigate a ``boosted'' sulfur model (black dash-dotted line in Fig. \ref{fig:XraySpectrumXMM}) to determine how much sulfur emission is necessary to reproduce the observed spectrum.
+A sulfur boost of 100x is needed to fit the emission measured by XMM-Newton; this is concerning due to the luminosity associated with this large of a boost ($\sim$7 GW).
 This lower energy spectrum could also be fit well with a bremsstrahlung continuum, but this does not resolve the high luminosity issue.
 Alternatively, this discrepancy may be a result of the poor effective area for the XMM-Newton EPIC-pn instrument below 0.3 keV.
-Ultimately, more input data (JEDI measurements) and XMM-Newton observation comparisons are required for greater statistical significance.
+Ultimately, more input data (JEDI measurements) and XMM-Newton observation comparisons are required for greater statistical significance; because, as Figure \ref{fig:JEDIFlux} indicates, the high energy tail of the sulfur spectrum falls off more rapidly than that of oxygen, which is likely not always the case.
 
 \begin{table}
     \centering
@@ -676,23 +673,25 @@ Ultimately, more input data (JEDI measurements) and XMM-Newton observation compa
 \end{table}
 
 The spectral morphology in this range appears line-like, but could also be fitted well by a large flux of photons from a low energy bremsstrahlung continuum (see supporting information for details).
-The discrepancy between 0.2-0.5 also appears between Figures \ref{fig:XraySpecOpac} and \ref{fig:JEDISpec}. Figure \ref{fig:JEDIFlux} shows that there was a very low S:O ratio of 0.3 during this interval.
-\citet{radioti2005,radioti2006} showed that the S:O ratio in the magnetosphere varies from 0.3-1.2, so this low ratio may simply have been an abnormally low interval of sulfur precipitation.
-Figures \ref{fig:XraySpec} and \ref{fig:XraySpecOpac} support that this may have been an intermittent relatively low ratio, showing that an S:O ratio of 1:1 ratio produces a spectrum that morphologically is much closer to the observed X-ray spectrum.
+The discrepancy between 0.2-0.5 also appears between Figures \ref{fig:XraySpecOpac} and \ref{fig:JEDISpec}.
+Figure \ref{fig:JEDIFlux} shows that there was an S:O ratio of 0.8 during this interval.
+\citet{radioti2005,radioti2006} showed that the S:O ratio in the magnetosphere varies from 0.3-1.2, so this ratio appears to be a typical measurement.
+However, figures \ref{fig:XraySpec} and \ref{fig:XraySpecOpac} suggest that this may have been an intermittent relatively low ratio, showing that an S:O ratio of 1:1 ratio produces a spectrum that morphologically is much closer to the observed X-ray spectrum.
+Thus, a secondary process (aside from sulfur precipitation) should likely be considered to contribute to that part of the spectrum.
 The X-ray aurora is also known to be highly time variable on scales of 10s of minutes to hours (e.g. \citet{dunn2017}) so it may be that the conditions changed between the perijove pass through the X-ray auroral zone and the auroral emissions that were observed.
 
-To account for the low predicted sulfur emission, we considered a bremsstrahlung component to either replicate a forest of sulfur lines between 0.2-0.5 keV or to reproduce a high energy bremsstrahlung component (above 0.9 keV), which is sometimes present in the X-ray aurora from energetic electrons (e.g. \citet{branduardi2004,branduardi2008}).
-Including these bremsstrahlung components was found to improve the fits (Table \ref{tab:XMMComparison}).
+To account for the low predicted sulfur emission, we consider a bremsstrahlung component to either replicate a forest of sulfur lines between 0.2-0.5 keV or to reproduce a high energy bremsstrahlung component (above 0.9 keV), which is sometimes present in the X-ray aurora from energetic electrons (e.g. \citet{branduardi2004,branduardi2008}).
+Including these bremsstrahlung components was found to improve the fits (Table \ref{tab:XMMComparison}); however, no physical explanation (i.e. electron flux measurements) for the electron bremsstrahlung is provided here.
 Figures for these fits can be found in the supporting information alongside comparisons of the Juno flight path with the X-ray auroral emission region and X-ray lightcurves from this interval.
 
 In summary, our models produce excellent predictions for the observed X-ray emission from oxygen precipitation into the atmosphere, if the X-ray auroral zone covers a region of between 5$^{\circ}$ to 10$^{\circ}$ by 5$^{\circ}$ to 10$^{\circ}$ in System III latitude-longitude.
 There are still open questions about whether the sulfur emission is under-estimated because of time-varying changes in the ion precipitation or because of some, as yet unidentified, differences between the treatment of oxygen and sulfur behaviour.
-To identify this will require additional XMM-Newton observations conjugate with Juno measurements at perijove.
+To identify this will require additional XMM-Newton observations coincident with Juno measurements at perijove.
 These observations are planned for September 2019.
 
 \subsection{X-ray Luminosity}
 
-Can heavy ion precipitation produce \textit{enough} X-ray emission to explain the total observational soft X-ray luminosity of 1-2 GW (\citep{elsner2005,gladstone2002}?
+Can heavy ion precipitation produce \textit{enough} X-ray emission to explain the total observational soft X-ray luminosity of 1-2 GW \citep{elsner2005,gladstone2002}
 A quick estimate confirms that the new model can produce such luminosity.
 The X-ray emission our model produces when the JEDI ion flux measurement shown in Figure \ref{fig:JEDIFlux} are input is $\sim$4x10$^6$ photons/cm$^2$/s.
 This is the sum of all oxygen and sulfur X-ray emission from both charge exchange and direct excitation with an exit angle of 80$^{\circ}$ from the original atmosphere.
@@ -708,23 +707,23 @@ Of course, the area of emission needs to be greatly constrained, but this shows 
 
 Spectral lines from precipitating ions have been known to dominate Jupiter's X-ray aurora since the launch of XMM-Newton and Chandra in 1999 \citep{branduardi2004,elsner2005}.
 New \textit{in situ} measurements by Juno have detected the ion precipitation that leads to these X-ray emissions.
-However, previous modeling required much higher energy ions \citep{cravens1995,ozak2010,ozak2013,houston2018}, which were difficult to explain with given knowledge of Jupiter's magnetosphere.
+Previous modeling required much higher energy ions \citep{cravens1995,ozak2010,ozak2013,houston2018}, which were difficult to explain with given knowledge of Jupiter's magnetosphere.
 This forced us to rethink the processes producing X-ray emission from ion precipitation.
 \citet{schultz2019} determined not every process was being accounted for in the original precipitation modeling, but simultaneous processes (both target and ion) needed to be considered.
-This lead to a completely new series of processes and cross-sections that we have now utilized for the updated heavy ion precipitation model described here.
-The required initial ion energy to produce X-rays has been reduced dramatically, and is now well within the heavy ion energy range being measured by the Juno spacecraft.
+This led to a completely new series of processes and cross-sections that we have now utilized for the updated heavy ion precipitation model described here.
+The initial ion energy necessary to produce X-rays has been reduced dramatically, and is now well within the heavy ion energy range being measured by the Juno spacecraft.
 
 To summarize the findings of our model:
 \begin{enumerate}
     \item New data, accounting for SIM processes has shifted the charge state distribution of both oxygen and sulfur to lower energies than before.
     The repercussions being it now requires less energy to strip ions to X-ray producing charge states, resulting in precipitation that does not penetrate as deeply into the atmosphere.
+    \item Direct excitation is now considered as a new X-ray production mechanism, which adds to the total flux and to the spectrum.
     \item Because the ions are not precipitating as deep into the atmosphere as previous models suggested, there is less absorption of photon emission when opacity effects are considered.
     \item If an atmosphere of fully mixed constituents is used, the X-ray efficiency is reduced; but, emission from ions at the energies measured by JEDI is only reduced by about 15-20$\%$ compared to the original atmosphere.
-    \item We have more confidence in the oxygen results than sulfur at the time of this writing.
-    The sulfur precipitation model is still in the beginning phases of the strict and rigorous testing that we apply to all of our models, so expect results to change slightly as we continue to improve the simulation.
+    \item While the oxygen collisional data have been carefully checked and published, the analogous data for sulfur utilized here in a preliminary form is now in final preparation and checking for publication.
     \item X-ray spectra separated into line emission using Gaussian distributions are producible and can be used in coordination with JEDI ion flux measurements and earth-orbit-based X-ray observations.
     When comparing the two, opacity effects need to be considered based on the geometry of the earth and Jupiter at the time.
-    \item Synthetic X-ray spectra comparisons with XMM-Newton observations have good agreement with oxygen emission; however, lower energy photoemission needs to be explored further to isolate the discrepancy.
+    \item Approximated synthetic X-ray spectra comparisons with XMM-Newton observations have good agreement with oxygen emission; however, lower energy photoemission needs to be explored further to isolate the discrepancy at lower energies, in the sulfur part of the spectrum.
     This could be by having an increased sulfur flux or by including emission from electron bremsstrahlung.
     \item JEDI flux measurements input into the model generate enough X-rays to account for the total X-ray power that has been observed in the past.
 \end{enumerate}
@@ -773,6 +772,6 @@ Enter acknowledgments, including your data availability statement, here.
 \appendix
 \include{Appendices/AppOxy}
 \include{Appendices/AppSul}
-\include{Appendices/AppDataUsage.tex}
+\include{Appendices/AppDataUsage}
 
 \end{document}
